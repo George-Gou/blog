@@ -1,2 +1,2 @@
-# blog.goujianing.com
-Personal website 
+# Blog.goujianing.com
+Personal Blog website 
