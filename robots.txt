@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: https://george-gou.github.io/blog/sitemap.xml
