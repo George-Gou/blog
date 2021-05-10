@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>[English] Creating a New Theme - Even - A super concise theme for Hugo</title>
+  <title>[English] Creating a New Theme - Jianing Gou&#39;Blog</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -17,7 +17,7 @@
 
 
 <meta name="author" content="Michael Henderson" /><meta name="description" content="Introduction This tutorial will show you how to create a simple theme in Hugo. I assume that you are familiar with HTML, the bash command line, and that you are comfortable using Markdown to format content. I&amp;rsquo;ll explain how Hugo uses templates and how you can organize your templates to create a theme. I won&amp;rsquo;t cover using CSS to style your theme.
-We&amp;rsquo;ll start with creating a new site with a very basic template." /><meta name="keywords" content="Hugo, theme, even" />
+We&amp;rsquo;ll start with creating a new site with a very basic template." /><meta name="keywords" content="Gou, Jia, Ning" />
 
 
 
@@ -27,16 +27,16 @@ We&amp;rsquo;ll start with creating a new site with a very basic template." /><m
 <meta name="generator" content="Hugo 0.79.1 with theme even" />
 
 
-<link rel="canonical" href="http://localhost:1313/post/english-preview/" />
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/manifest.json">
-<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="canonical" href="https://george-gou.github.io/blog/post/english-preview/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/blog/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/blog/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/blog/favicon-16x16.png">
+<link rel="manifest" href="/blog/manifest.json">
+<link rel="mask-icon" href="/blog/safari-pinned-tab.svg" color="#5bbad5">
 
 
 
-<link href="/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link href="/blog/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -44,7 +44,7 @@ We&amp;rsquo;ll start with creating a new site with a very basic template." /><m
 <meta property="og:description" content="Introduction This tutorial will show you how to create a simple theme in Hugo. I assume that you are familiar with HTML, the bash command line, and that you are comfortable using Markdown to format content. I&rsquo;ll explain how Hugo uses templates and how you can organize your templates to create a theme. I won&rsquo;t cover using CSS to style your theme.
 We&rsquo;ll start with creating a new site with a very basic template." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://localhost:1313/post/english-preview/" />
+<meta property="og:url" content="https://george-gou.github.io/blog/post/english-preview/" />
 <meta property="article:published_time" content="2017-08-31T15:43:48+08:00" />
 <meta property="article:modified_time" content="2017-08-31T15:43:48+08:00" />
 <meta itemprop="name" content="[English] Creating a New Theme">
@@ -75,7 +75,7 @@ We&rsquo;ll start with creating a new site with a very basic template."/>
 <body>
   <div id="mobile-navbar" class="mobile-navbar">
   <div class="mobile-header-logo">
-    <a href="/" class="logo">Even</a>
+    <a href="/blog/" class="logo">Jianing Gou</a>
   </div>
   <div class="mobile-navbar-icon">
     <span></span>
@@ -85,16 +85,18 @@ We&rsquo;ll start with creating a new site with a very basic template."/>
 </div>
 <nav id="mobile-menu" class="mobile-menu slideout-menu">
   <ul class="mobile-menu-list">
-    <a href="/">
+    <a href="/blog/">
         <li class="mobile-menu-item">Home</li>
-      </a><a href="/post/">
+      </a><a href="/blog/post/">
         <li class="mobile-menu-item">Archives</li>
-      </a><a href="/tags/">
+      </a><a href="/blog/tags/">
         <li class="mobile-menu-item">Tags</li>
-      </a><a href="/categories/">
+      </a><a href="/blog/categories/">
         <li class="mobile-menu-item">Categories</li>
-      </a><a href="/about/">
+      </a><a href="/blog/about/">
         <li class="mobile-menu-item">About</li>
+      </a><a href="/blog/denote/">
+        <li class="mobile-menu-item">Denote</li>
       </a>
   </ul>
 
@@ -106,7 +108,7 @@ We&rsquo;ll start with creating a new site with a very basic template."/>
   <div class="container" id="mobile-panel">
     <header id="header" class="header">
         <div class="logo-wrapper">
-  <a href="/" class="logo">Even</a>
+  <a href="/blog/" class="logo">Jianing Gou</a>
 </div>
 
 
@@ -116,15 +118,17 @@ We&rsquo;ll start with creating a new site with a very basic template."/>
 <nav class="site-navbar">
   <ul id="menu" class="menu">
     <li class="menu-item">
-        <a class="menu-item-link" href="/">Home</a>
+        <a class="menu-item-link" href="/blog/">Home</a>
       </li><li class="menu-item">
-        <a class="menu-item-link" href="/post/">Archives</a>
+        <a class="menu-item-link" href="/blog/post/">Archives</a>
       </li><li class="menu-item">
-        <a class="menu-item-link" href="/tags/">Tags</a>
+        <a class="menu-item-link" href="/blog/tags/">Tags</a>
       </li><li class="menu-item">
-        <a class="menu-item-link" href="/categories/">Categories</a>
+        <a class="menu-item-link" href="/blog/categories/">Categories</a>
       </li><li class="menu-item">
-        <a class="menu-item-link" href="/about/">About</a>
+        <a class="menu-item-link" href="/blog/about/">About</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/blog/denote/">Denote</a>
       </li>
   </ul>
 </nav>
@@ -142,7 +146,7 @@ We&rsquo;ll start with creating a new site with a very basic template."/>
       <div class="post-meta">
         <span class="post-time"> 2017-08-31 </span>
         <div class="post-category">
-            <a href="/categories/english/"> English </a>
+            <a href="/blog/categories/english/"> English </a>
             </div>
         
       </div>
@@ -1937,19 +1941,33 @@ $ vi themes/zafta/layouts/_default/single.html
     <span class="item-content"><a href="https://github.com/gohugoio/hugoBasicExample" rel="noopener" target="_blank">See origin</a></span>
   </p>
 </div>
-<footer class="post-footer">
+<div class="post-reward">
+  <input type="checkbox" name="reward" id="reward" hidden />
+  <label class="reward-button" for="reward">Reward</label>
+  <div class="qr-code">
+    
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="https://gitee.com/georgegou/mark-down_picture/raw/picture/2021/alipay-qr-code.PNG">
+        <span>wechat</span>
+      </label>
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="https://gitee.com/georgegou/mark-down_picture/raw/picture/2021/alipay-qr-code.PNG">
+        <span>alipay</span>
+      </label>
+  </div>
+</div><footer class="post-footer">
       <div class="post-tags">
-          <a href="/tags/preview/">preview</a>
-          <a href="/tags/english/">English</a>
-          <a href="/tags/tag-2/">tag-2</a>
+          <a href="/blog/tags/preview/">preview</a>
+          <a href="/blog/tags/english/">English</a>
+          <a href="/blog/tags/tag-2/">tag-2</a>
           </div>
       <nav class="post-nav">
-        <a class="prev" href="/post/hidden-post/">
+        <a class="prev" href="/blog/post/hidden-post/">
             <i class="iconfont icon-left"></i>
             <span class="prev-text nav-default">This is a hidden post.</span>
             <span class="prev-text nav-mobile">Prev</span>
           </a>
-        <a class="next" href="/post/japanese-preview/">
+        <a class="next" href="/blog/post/japanese-preview/">
             <span class="next-text nav-default">[日本語] 敬語体系</span>
             <span class="next-text nav-mobile">Next</span>
             <i class="iconfont icon-right"></i>
@@ -1969,22 +1987,11 @@ $ vi themes/zafta/layouts/_default/single.html
 
     <footer id="footer" class="footer">
       <div class="social-links">
-      <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
-      <a href="http://localhost:1313" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
-      <a href="http://localhost:1313" class="iconfont icon-twitter" title="twitter"></a>
-      <a href="http://localhost:1313" class="iconfont icon-facebook" title="facebook"></a>
-      <a href="http://localhost:1313" class="iconfont icon-linkedin" title="linkedin"></a>
-      <a href="http://localhost:1313" class="iconfont icon-google" title="google"></a>
-      <a href="http://localhost:1313" class="iconfont icon-github" title="github"></a>
-      <a href="http://localhost:1313" class="iconfont icon-weibo" title="weibo"></a>
-      <a href="http://localhost:1313" class="iconfont icon-zhihu" title="zhihu"></a>
-      <a href="http://localhost:1313" class="iconfont icon-douban" title="douban"></a>
-      <a href="http://localhost:1313" class="iconfont icon-pocket" title="pocket"></a>
-      <a href="http://localhost:1313" class="iconfont icon-tumblr" title="tumblr"></a>
-      <a href="http://localhost:1313" class="iconfont icon-instagram" title="instagram"></a>
-      <a href="http://localhost:1313" class="iconfont icon-gitlab" title="gitlab"></a>
-      <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
-  <a href="http://localhost:1313/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+      <a href="goujianing19@mails.ucas.ac.cn" class="iconfont icon-email" title="email"></a>
+      <a href="https://stackoverflow.com/users/15882334/george-gou?tab=profile" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="https://github.com/George-Gou" class="iconfont icon-github" title="github"></a>
+      <a href="https://space.bilibili.com/320619371" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="https://george-gou.github.io/blog/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
 </div>
 
 <div class="copyright">
@@ -2001,8 +2008,8 @@ $ vi themes/zafta/layouts/_default/single.html
 
   <span class="copyright-year">
     &copy; 
-    2017 - 
-    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>olOwOlo</span>
+    2019 - 
+    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>George Gou</span>
   </span>
 </div>
 
@@ -2019,7 +2026,7 @@ $ vi themes/zafta/layouts/_default/single.html
 
 
 
-<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+<script type="text/javascript" src="/blog/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
 
 
 
