@@ -183,8 +183,8 @@ copyright = ""            # default: author.name ↓        # 默认为下面配
 
   [params.reward]                                         # 文章打赏
     enable = true
-    wechat = "https://gitee.com/georgegou/mark-down_picture/blob/picture/2021/wechat-qr-code.PNG"           # 微信二维码
-    alipay = "https://gitee.com/georgegou/mark-down_picture/blob/picture/2021/alipay-qr-code.PNG"           # 支付宝二维码
+    wechat = "/static/wechat-qr-code.PNG"           # 微信二维码
+    alipay = "/static/alipay-qr-code.PNG"           # 支付宝二维码
 
   [params.social]                                         # 社交链接
     a-email = "goujianing19@mails.ucas.ac.cn"
