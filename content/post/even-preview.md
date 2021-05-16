@@ -390,7 +390,7 @@ Dictionary
 :   item 1
 
     item 2
-
+    
     item 3
 
 ## Blocks
@@ -433,7 +433,7 @@ function doIt() {
 }
 ```
 
-```javascript
+​```javascript
 // Fenced **with** highlighting
 function doIt() {
     for (var i = 1; i <= slen ; i^^) {
@@ -454,7 +454,7 @@ function doIt() {
 }
 ```
 
-```javascript
+​```javascript
 // Fenced **with** highlighting
 function doIt() {
     for (var i = 1; i <= slen ; i^^) {
@@ -535,7 +535,7 @@ elipsis...
 ## Neseted Fences
 
 ````
-    ```
+```
     This will still be parsed
     as a normal indented code block.
     ```
@@ -567,7 +567,7 @@ as a fenced code block.
         > ```
 ````
 
-    ```
+```
     This will still be parsed
     as a normal indented code block.
     ```
@@ -710,11 +710,7 @@ $$ E(\mathbf{v}, \mathbf{h}) = -\sum_{i,j}w_{ij}v_i h_j - \sum_i b_i v_i - \sum_
 
 ## 网易云音乐
 
-```
-{{%/* music "28196554" */%}}
-```
 
-{{% music "28196554" %}}
 
 ## YouTube
 
