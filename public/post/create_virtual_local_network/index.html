@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>如何通过zerotier建立虚拟局域网 - Jianing Gou&#39;Blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Gravpher" /><meta name="description" content="摘要 本文主要讲述如何使用zerotier构建虚拟局域网，实现内网服务器的远程登录 前言 如果您像我一样有多台计算机设备，台式机、笔记本、服务器、" /><meta name="keywords" content="zerotier" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.87.0 with theme even" />
+
+
+<link rel="canonical" href="https://george-gou.github.io/blog/post/create_virtual_local_network/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/blog/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/blog/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/blog/favicon-16x16.png">
+<link rel="manifest" href="/blog/manifest.json">
+<link rel="mask-icon" href="/blog/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/blog/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="如何通过zerotier建立虚拟局域网" />
+<meta property="og:description" content="摘要 本文主要讲述如何使用zerotier构建虚拟局域网，实现内网服务器的远程登录 前言 如果您像我一样有多台计算机设备，台式机、笔记本、服务器、" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://george-gou.github.io/blog/post/create_virtual_local_network/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-08-31T14:47:45+08:00" />
+<meta property="article:modified_time" content="2021-10-27T14:47:45+08:00" />
+
+<meta itemprop="name" content="如何通过zerotier建立虚拟局域网">
+<meta itemprop="description" content="摘要 本文主要讲述如何使用zerotier构建虚拟局域网，实现内网服务器的远程登录 前言 如果您像我一样有多台计算机设备，台式机、笔记本、服务器、"><meta itemprop="datePublished" content="2021-08-31T14:47:45+08:00" />
+<meta itemprop="dateModified" content="2021-10-27T14:47:45+08:00" />
+<meta itemprop="wordCount" content="1680">
+<meta itemprop="keywords" content="环境配置," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="如何通过zerotier建立虚拟局域网"/>
+<meta name="twitter:description" content="摘要 本文主要讲述如何使用zerotier构建虚拟局域网，实现内网服务器的远程登录 前言 如果您像我一样有多台计算机设备，台式机、笔记本、服务器、"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/blog/" class="logo">Jianing Gou</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/blog/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/blog/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/blog/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/blog/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/blog/about/">
+        <li class="mobile-menu-item">About</li>
+      </a><a href="/blog/denote/">
+        <li class="mobile-menu-item">Denote</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/blog/" class="logo">Jianing Gou</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/blog/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/blog/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/blog/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/blog/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/blog/about/">About</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/blog/denote/">Denote</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">如何通过zerotier建立虚拟局域网</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2021-08-31 </span>
+        
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#摘要">摘要</a></li>
+        <li><a href="#前言">前言</a></li>
+        <li><a href="#解决方案">解决方案</a>
+          <ul>
+            <li><a href="#vpn虚拟专用网络">VPN虚拟专用网络</a></li>
+            <li><a href="#内网穿透">内网穿透</a></li>
+            <li><a href="#zerotier搭建虚拟局域网">zerotier搭建虚拟局域网</a></li>
+            <li><a href="#zerotier教程">zerotier教程</a></li>
+          </ul>
+        </li>
+        <li><a href="#结语">结语</a></li>
+        <li><a href="#2021-10-27更新">2021-10-27更新：</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h2 id="摘要">摘要</h2>
+<p>本文主要讲述如何使用zerotier构建虚拟局域网，实现内网服务器的远程登录</p>
+<h2 id="前言">前言</h2>
+<p>如果您像我一样有多台计算机设备，台式机、笔记本、服务器、平板电脑等，他们也许处在不同的地方，如果遇到出差场景，需要访问实验室或者家里的电脑访问数据，总是显得有点棘手。我们知道，当所有设备处于同一局域网时，当开通设备的远程连接功能，通过某种协议可以实现远程登录进行相关操作。但是如果出差，设备没有在同一局域网该怎么办呢？本文就来解决这个痛点。</p>
+<h2 id="解决方案">解决方案</h2>
+<p>解决方案有许多，针对不同的条件选择不同的方法。一般实验室的电脑分配的局域网IP，如192.168.0.0 到192.168.255.255。没有公网IP的话，就没有办法穿透内网，访问内网服务器上的资源，这时候可以选择实现内网穿透的互联网服务，如本文使用的<a href="https://www.zerotier.com/">zerotail</a>等服务，互联网有许多这种服务的提供商，可以根据自己情况选择，但是大多数需要购买相关服务，才能够保证使用体验。</p>
+<h3 id="vpn虚拟专用网络">VPN虚拟专用网络</h3>
+<p>可以通过内网路由器设置端口映射对外开放端口来实现对局域网服务器的访问，这是最简单也最安全的方式。通过路由器配置虚拟服务器就可以实现，相信可以参考这个<a href="https://blog.csdn.net/u011854789/article/details/53510272">博客</a>。配置完VPN服务器，就可以通过账号远程连接到内网，再进行相关操作。</p>
+<h3 id="内网穿透">内网穿透</h3>
+<p>内网穿透的核心是需要借助一台具有公网IP的服务器进行桥接，这样两者就可以通过这台服务器转发流量进而实现通信。不少应用都可以实现内网穿透功能，即外网IP直接访问到内网的服务器，前提是都需要安装客户端，且流量带宽有限制，免费使用用户体验极差。</p>
+<h3 id="zerotier搭建虚拟局域网">zerotier搭建虚拟局域网</h3>
+<p>什么是虚拟局域网？</p>
+<blockquote>
+<p>VLAN（Virtual Local Area Network）的中文名为&quot;虚拟局域网&quot;。
+虚拟局域网（VLAN）是一组逻辑上的设备和用户，这些设备和用户并不受物理位置的限制，可以根据功能、部门及应用等因素将它们组织起来，相互之间的通信就好像它们在<a href="https://link.zhihu.com/?target=https%3A//baike.baidu.com/item/%E5%90%8C%E4%B8%80%E4%B8%AA%E7%BD%91%E6%AE%B5/10612240">同一个网段</a>中一样，由此得名虚拟局域网。VLAN是一种比较新的技术，工作在<a href="https://link.zhihu.com/?target=https%3A//baike.baidu.com/item/OSI%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B">OSI参考模型</a>的第2层和第3层，一个VLAN就是一个<a href="https://link.zhihu.com/?target=https%3A//baike.baidu.com/item/%E5%B9%BF%E6%92%AD%E5%9F%9F/5293530">广播域</a>，VLAN之间的通信是通过第3层的<a href="https://link.zhihu.com/?target=https%3A//baike.baidu.com/item/%E8%B7%AF%E7%94%B1%E5%99%A8/108294">路由器</a>来完成的。与传统的<a href="https://link.zhihu.com/?target=https%3A//baike.baidu.com/item/%E5%B1%80%E5%9F%9F%E7%BD%91%E6%8A%80%E6%9C%AF/2597024">局域网技术</a>相比较，VLAN技术更加灵活，它具有以下优点： 网络设备的移动、添加和修改的管理开销减少；可以控制<a href="https://link.zhihu.com/?target=https%3A//baike.baidu.com/item/%E5%B9%BF%E6%92%AD/656406">广播</a>活动；可提高<a href="https://link.zhihu.com/?target=https%3A//baike.baidu.com/item/%E7%BD%91%E7%BB%9C/143243">网络</a>的安全性。
+在计算机网络中，一个二层网络可以被划分为多个不同的广播域，一个广播域对应了一个特定的用户组，默认情况下这些不同的广播域是相互隔离的。不同的广播域之间想要通信，需要通过一个或多个路由器。这样的一个广播域就称为VLAN。</p>
+</blockquote>
+<p>zerotier是虚拟局域网的一种解决方案，其具有配置简单、速度快、跨平台等特性，能够实现任意物理位置的设备通过下载其提供的客户端，加入同一网络就可以实现虚拟局域网的构建。</p>
+<h3 id="zerotier教程">zerotier教程</h3>
+<p>1、首先在<a href="https://www.zerotier.com/">官网</a>注册一个账号：</p>
+<p>2、随后新建一个网络（Create a Network）,目前免费的账户可以同时在线50个设备，对于一般人也足够用了。</p>
+<p>3、各个设备下载对应平台的<a href="https://www.zerotier.com/download/">客户端</a>，操作非常简单，安装后，直接选择加入网络，加入到刚刚生成的网络ID中（一串字符），然后在网络ID管理页面中配置参数，这可以根据需要自行配置（注意网络安全问题），私有网络需要对加入的设备进行验证，才能够分配指定IP地址。</p>
+<h2 id="结语">结语</h2>
+<p>通过构建虚拟局域网，可以轻松访问服务器，建议重要数据和代码的服务器不要采用此种连接方式，可能存在网络安全问题，大家根据情况自行选择。经过测试，上文连接方式可靠，且可以跑满带宽，速度可观。</p>
+<h2 id="2021-10-27更新">2021-10-27更新：</h2>
+<p>升级或者重装 zerotier 出现错误：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">zerotier-one: fatal error: cannot <span class="nb">bind</span> to <span class="nb">local</span> control interface port
+</code></pre></td></tr></table>
+</div>
+</div><p>查看端口占用情况：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"># sudo lsof -i:9993
+COMMAND     PID         USER   FD   TYPE DEVICE SIZE/OFF NODE NAME
+zerotier- 29046 zerotier-one    6u  IPv4 131195      0t0  TCP localhost:9993 (LISTEN)
+zerotier- 29046 zerotier-one    7u  IPv6 131196      0t0  TCP ip6-localhost:9993 (LISTEN)
+zerotier- 29046 zerotier-one    9u  IPv4 131204      0t0  UDP george:9993 
+zerotier- 29046 zerotier-one   10u  IPv4 131205      0t0  TCP george:9993 (LISTEN)
+zerotier- 29046 zerotier-one   11u  IPv4 131206      0t0  UDP george:9993 
+zerotier- 29046 zerotier-one   12u  IPv4 131207      0t0  TCP george:9993 (LISTEN)
+zerotier- 29046 zerotier-one   13u  IPv4 131208      0t0  UDP george:9993 
+zerotier- 29046 zerotier-one   14u  IPv4 131209      0t0  TCP george:9993 (LISTEN)
+</code></pre></td></tr></table>
+</div>
+</div><p>发现端口已经被zerotier占用，这个时候直接杀掉该进程</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">sudo kill 29046
+#PID号
+</code></pre></td></tr></table>
+</div>
+</div><p>之后重启即可。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">systemctl stop zerotier-one           //关闭zerotier
+systemctl status zerotier-one         //显示是否已启动
+systemctl restart zerotier-one        //重新启动
+</code></pre></td></tr></table>
+</div>
+</div>
+    </div>
+
+    
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/blog/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/">环境配置</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/blog/post/how_to_remote_access_jupyter_notebook/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">如何远程访问服务器端Jupyter Notebook</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/blog/post/overleaf-server-config/">
+            <span class="next-text nav-default">如何使用Docker在本地搭建Overleaf服务器</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="goujianing19@mails.ucas.ac.cn" class="iconfont icon-email" title="email"></a>
+      <a href="https://stackoverflow.com/users/15882334/george-gou?tab=profile" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="https://github.com/George-Gou" class="iconfont icon-github" title="github"></a>
+      <a href="https://space.bilibili.com/320619371" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="https://george-gou.github.io/blog/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2019 - 
+    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>George Gou</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/blog/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

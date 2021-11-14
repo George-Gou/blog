@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>环境配置 on Jianing Gou&#39;Blog</title>
+    <link>https://george-gou.github.io/blog/categories/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</link>
+    <description>Recent content in 环境配置 on Jianing Gou&#39;Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 09 Sep 2021 23:00:27 +0800</lastBuildDate><atom:link href="https://george-gou.github.io/blog/categories/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>如何远程访问服务器端Jupyter Notebook</title>
+      <link>https://george-gou.github.io/blog/post/how_to_remote_access_jupyter_notebook/</link>
+      <pubDate>Thu, 09 Sep 2021 23:00:27 +0800</pubDate>
+      
+      <guid>https://george-gou.github.io/blog/post/how_to_remote_access_jupyter_notebook/</guid>
+      <description>本文主要介绍如何在服务器端布置Jupyter Notebook环境，以及配置远程访问服务。 介绍 Jupyter 是一个基于Web的开源交互计算软件，支持多种语</description>
+    </item>
+    
+  </channel>
+</rss>

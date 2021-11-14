@@ -6,112 +6,40 @@
     <description>Recent content in Tags on Jianing Gou&#39;Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 10 Jul 2018 00:00:00 +0800</lastBuildDate><atom:link href="https://george-gou.github.io/blog/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 03 Nov 2021 16:48:18 +0800</lastBuildDate><atom:link href="https://george-gou.github.io/blog/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>preview</title>
-      <link>https://george-gou.github.io/blog/tags/preview/</link>
-      <pubDate>Tue, 10 Jul 2018 00:00:00 +0800</pubDate>
+      <title>docker</title>
+      <link>https://george-gou.github.io/blog/tags/docker/</link>
+      <pubDate>Wed, 03 Nov 2021 16:48:18 +0800</pubDate>
       
-      <guid>https://george-gou.github.io/blog/tags/preview/</guid>
+      <guid>https://george-gou.github.io/blog/tags/docker/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>tag-3</title>
-      <link>https://george-gou.github.io/blog/tags/tag-3/</link>
-      <pubDate>Tue, 10 Jul 2018 00:00:00 +0800</pubDate>
+      <title>环境配置</title>
+      <link>https://george-gou.github.io/blog/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>Tue, 31 Aug 2021 14:47:45 +0800</pubDate>
       
-      <guid>https://george-gou.github.io/blog/tags/tag-3/</guid>
+      <guid>https://george-gou.github.io/blog/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Theme preview</title>
-      <link>https://george-gou.github.io/blog/tags/theme-preview/</link>
-      <pubDate>Tue, 10 Jul 2018 00:00:00 +0800</pubDate>
+      <title>overleaf</title>
+      <link>https://george-gou.github.io/blog/tags/overleaf/</link>
+      <pubDate>Sun, 22 Aug 2021 15:29:46 +0800</pubDate>
       
-      <guid>https://george-gou.github.io/blog/tags/theme-preview/</guid>
+      <guid>https://george-gou.github.io/blog/tags/overleaf/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>English</title>
-      <link>https://george-gou.github.io/blog/tags/english/</link>
-      <pubDate>Thu, 31 Aug 2017 15:43:48 +0800</pubDate>
+      <title>PicGo</title>
+      <link>https://george-gou.github.io/blog/tags/picgo/</link>
+      <pubDate>Sat, 21 Aug 2021 18:14:41 +0800</pubDate>
       
-      <guid>https://george-gou.github.io/blog/tags/english/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>tag-2</title>
-      <link>https://george-gou.github.io/blog/tags/tag-2/</link>
-      <pubDate>Thu, 31 Aug 2017 15:43:48 +0800</pubDate>
-      
-      <guid>https://george-gou.github.io/blog/tags/tag-2/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>tag-4</title>
-      <link>https://george-gou.github.io/blog/tags/tag-4/</link>
-      <pubDate>Wed, 30 Aug 2017 01:53:34 +0800</pubDate>
-      
-      <guid>https://george-gou.github.io/blog/tags/tag-4/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>日本語</title>
-      <link>https://george-gou.github.io/blog/tags/%E6%97%A5%E6%9C%AC%E8%AA%9E/</link>
-      <pubDate>Wed, 30 Aug 2017 01:53:34 +0800</pubDate>
-      
-      <guid>https://george-gou.github.io/blog/tags/%E6%97%A5%E6%9C%AC%E8%AA%9E/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>tag-1</title>
-      <link>https://george-gou.github.io/blog/tags/tag-1/</link>
-      <pubDate>Wed, 30 Aug 2017 01:37:56 +0800</pubDate>
-      
-      <guid>https://george-gou.github.io/blog/tags/tag-1/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>中文</title>
-      <link>https://george-gou.github.io/blog/tags/%E4%B8%AD%E6%96%87/</link>
-      <pubDate>Wed, 30 Aug 2017 01:37:56 +0800</pubDate>
-      
-      <guid>https://george-gou.github.io/blog/tags/%E4%B8%AD%E6%96%87/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>shortcodes</title>
-      <link>https://george-gou.github.io/blog/tags/shortcodes/</link>
-      <pubDate>Tue, 30 Aug 2016 16:01:23 +0800</pubDate>
-      
-      <guid>https://george-gou.github.io/blog/tags/shortcodes/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Syntax Highlighting</title>
-      <link>https://george-gou.github.io/blog/tags/syntax-highlighting/</link>
-      <pubDate>Tue, 30 Aug 2011 16:01:23 +0800</pubDate>
-      
-      <guid>https://george-gou.github.io/blog/tags/syntax-highlighting/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>tag-5</title>
-      <link>https://george-gou.github.io/blog/tags/tag-5/</link>
-      <pubDate>Tue, 30 Aug 2011 16:01:23 +0800</pubDate>
-      
-      <guid>https://george-gou.github.io/blog/tags/tag-5/</guid>
+      <guid>https://george-gou.github.io/blog/tags/picgo/</guid>
       <description></description>
     </item>
     

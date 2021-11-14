@@ -2,13 +2,13 @@
 title: "Theme preview"
 date: 2018-07-10T00:00:00+08:00
 lastmod: 2018-07-10T00:00:00+08:00
-draft: false
+draft: true
 tags: ["preview", "Theme preview", "tag-3"]
 categories: ["Theme preview", "category-2", "category-3"]
 
 weight: 10
 contentCopyright: MIT
-mathjax: true
+mathjax: false
 autoCollapseToc: true
 
 ---
@@ -454,7 +454,7 @@ function doIt() {
 }
 ```
 
-​```javascript
+```javascript
 // Fenced **with** highlighting
 function doIt() {
     for (var i = 1; i <= slen ; i^^) {
@@ -538,7 +538,7 @@ elipsis...
 ```
     This will still be parsed
     as a normal indented code block.
-    ```
+```
 
 ```
 This will still be parsed
@@ -570,7 +570,7 @@ as a fenced code block.
 ```
     This will still be parsed
     as a normal indented code block.
-    ```
+```
 
 ```
 This will still be parsed
