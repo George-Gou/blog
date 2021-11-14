@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>如何使用PicGo进行Markdown图片的在线上传 - Jianing Gou&#39;Blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="George Gou" /><meta name="description" content="摘要 由于Markdown格式文本中附带的图片是利用相对路径引用的，需要将md文件与存放img的文件夹放在一起才能够显示，如果将其放在公网访问" /><meta name="keywords" content="Gou, Jia, Ning" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.87.0 with theme even" />
+
+
+<link rel="canonical" href="https://george-gou.github.io/blog/post/typora-and-picgo-upload-pic/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/blog/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/blog/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/blog/favicon-16x16.png">
+<link rel="manifest" href="/blog/manifest.json">
+<link rel="mask-icon" href="/blog/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/blog/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="如何使用PicGo进行Markdown图片的在线上传" />
+<meta property="og:description" content="摘要 由于Markdown格式文本中附带的图片是利用相对路径引用的，需要将md文件与存放img的文件夹放在一起才能够显示，如果将其放在公网访问" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://george-gou.github.io/blog/post/typora-and-picgo-upload-pic/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-08-21T18:14:41+08:00" />
+<meta property="article:modified_time" content="2021-08-21T18:14:41+08:00" />
+
+<meta itemprop="name" content="如何使用PicGo进行Markdown图片的在线上传">
+<meta itemprop="description" content="摘要 由于Markdown格式文本中附带的图片是利用相对路径引用的，需要将md文件与存放img的文件夹放在一起才能够显示，如果将其放在公网访问"><meta itemprop="datePublished" content="2021-08-21T18:14:41+08:00" />
+<meta itemprop="dateModified" content="2021-08-21T18:14:41+08:00" />
+<meta itemprop="wordCount" content="1448">
+<meta itemprop="keywords" content="PicGo," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="如何使用PicGo进行Markdown图片的在线上传"/>
+<meta name="twitter:description" content="摘要 由于Markdown格式文本中附带的图片是利用相对路径引用的，需要将md文件与存放img的文件夹放在一起才能够显示，如果将其放在公网访问"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/blog/" class="logo">Jianing Gou</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/blog/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/blog/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/blog/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/blog/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/blog/about/">
+        <li class="mobile-menu-item">About</li>
+      </a><a href="/blog/denote/">
+        <li class="mobile-menu-item">Denote</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/blog/" class="logo">Jianing Gou</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/blog/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/blog/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/blog/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/blog/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/blog/about/">About</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/blog/denote/">Denote</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">如何使用PicGo进行Markdown图片的在线上传</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2021-08-21 </span>
+        <div class="post-category">
+            <a href="/blog/categories/computer-config/"> computer-config </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#摘要">摘要</a></li>
+        <li><a href="#简介">简介</a></li>
+        <li><a href="#环境">环境</a></li>
+        <li><a href="#步骤">步骤</a>
+          <ul>
+            <li><a href="#安装picgo">安装PicGo</a></li>
+            <li><a href="#配置typora">配置Typora</a></li>
+          </ul>
+        </li>
+        <li><a href="#结语">结语</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h2 id="摘要">摘要</h2>
+<p>由于Markdown格式文本中附带的图片是利用相对路径引用的，需要将md文件与存放img的文件夹放在一起才能够显示，如果将其放在公网访问，很有可能找不到图片路径而显示不全。现在Markdown编辑器Typora搭配PicGo程序就能够实现图片的在线上传。本文主要介绍如何使用PicGo工具实现Markdown格式的图片在线上传到图床中。</p>
+<h2 id="简介">简介</h2>
+<p><a href="https://www.markdownguide.org/">Markdown</a>是一种轻量级标记语言，而网页前端所用的<a href="https://www.runoob.com/html/html-tutorial.html">html</a>则是一种超文本标记语言，其是创建网页的标准标记语言。两者有一定关系，Markdown可以快速转化为html代码，许多工具都支持Markdown格式编写网页，直接部署到网页中，如著名的<a href="https://academic-demo.netlify.app/">Hugo academic</a>，许多学者基于此创建了自己的学术主页。也就是说，不需要懂任何前端知识，就能实现网站内容的创作与运维。</p>
+<p><a href="https://www.typora.io/">Typora</a>是一款简单优雅且强大的Markdown文本编辑器，能将代码与预览一体化，通过极简的编辑模式，快速实现文档的编写与排版。熟悉了快捷键及相关代码后，可以实现手不离键盘快速产出文档内容。</p>
+<p><a href="https://molunerfinn.com/PicGo/">PicGo</a>由北邮研究生<a href="https://molunerfinn.com/">molunerfinn</a>基于前端框架electron-vue开发，是一款免费开源的图床工具，能够快速长传图片并获取图片的URL，配合Typora使用有非常友好的体验。</p>
+<h2 id="环境">环境</h2>
+<p>系统：Ubuntu Ubuntu 20.04.2 LTS</p>
+<p>软件：Typora(Markdown文本编辑器)、PicGo(图片上传工具)、Node.js v14.17.5(javaScrpit运行环境)</p>
+<h2 id="步骤">步骤</h2>
+<p>首先要保证上述环境已经配置好，以下是在linux环境中配置的，Windows还要更加方便一点。</p>
+<h3 id="安装picgo">安装PicGo</h3>
+<p>在PicGo的github仓库里面下载最新的release<a href="https://github.com/Molunerfinn/PicGo/releases">Molunerfinn/PicGo/releases</a>，目前最新的版本为<a href="https://github.com/Molunerfinn/PicGo/releases/tag/v2.3.0-beta.8">2.3.0-beta.8</a>，下载Linux系统版本的软件<a href="https://github.com/Molunerfinn/PicGo/releases/download/v2.3.0-beta.8/PicGo-2.3.0-beta.8.AppImage">PicGo-2.3.0-beta.8.AppImage</a>。由于不是从linux系统官方软件仓库里面下载的程序，现在还不能执行，则需更改程序的权限。运行以下命令：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"> $ chmod +x PicGo-2.3.0-beta.8.AppImage
+</code></pre></td></tr></table>
+</div>
+</div><hr>
+<p>运行后，再运行命令<code>ls -l</code>，可以发现文件的权限</p>
+<blockquote>
+<p>-rw-rw-r&ndash; 1 george george 68012921 Aug 21 16:08 PicGo-2.3.0-beta.8.AppImage    (更改权限前)</p>
+<p>-rwxrwxr-x 1 george george  68012921 Aug 21 16:08  PicGo-2.3.0-beta.8.AppImage</p>
+</blockquote>
+<center>
+    <img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+    src="https://gitee.com/georgegou/gravitychina/raw/picture/linux%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90%E8%A7%A3%E9%87%8A.jpeg">
+    <br>
+    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    display: inline-block;
+    color: #999;
+    padding: 2px;">linux文件权限解释</div>
+</center>
+<p>rw分别代表读写，x代表执行程序，我们通过命令增加了程序的执行条件，随后运行程序<code>./PicGo-2.3.0-beta.8.AppImage </code></p>
+<p>右键点击图像，打开详细窗口，如下所示</p>
+<center>
+    <img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+    src="https://gitee.com/georgegou/gravitychina/raw/picture/202108221543777.png">
+    <br>
+    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    display: inline-block;
+    color: #999;
+    padding: 2px;">PicGo程序主页</div>
+</center>
+<p>点击<code>插件设置</code>，搜索<code>gitee</code>，安装<code>gitee-uploader</code>插件，目前为1.1.2版本，注意安装前请安装<code>node.js</code>。随后点击<code>图床设置</code>，点击<code>gitee</code>设置，主要配置的参数如下</p>
+<blockquote>
+<p>repo[username/reponame] example: george/picturebed</p>
+<p>branch[master/or anyelse]</p>
+<p>token[a line of code]: 非常重要，登录<a href="https://gitee.com/">gitee官网</a>，注册账号，点击头像，然后点击<code>setting</code>，在<code>security settings</code>里面，有一个<code>Personal access tokens</code>，点击新建一个Token，勾选<code>Projects</code>，然后<code>Commit</code>即可</p>
+</blockquote>
+<h3 id="配置typora">配置Typora</h3>
+<p>PicGo配置完成后，在Typora软件内依次点击 <code>File</code>-<code>Preference</code> -<code>images</code>，在<code>image upload setting</code>中点击上传服务器为<code>PicGo(app)</code>配置程序环境变量即可。注意在英文界面不显示<code>PicGo(app)</code>，切换到中文界面即可。您也可以选择配置<code>PicGo-core</code>,按照<code>App</code>的方式修改配置文件即可。</p>
+<center> <img src="https://gitee.com/georgegou/gravitychina/raw/picture/202108221601331.png" width="100%" height="10%" /> 上传成功 </center>
+<h2 id="结语">结语</h2>
+<p>Markdown和html无缝衔接，我们仅仅通过Markdown书写文本，即可非常方便地准换为html，发布到自己的网站或者博客上去。</p>
+
+    </div>
+
+    
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/blog/tags/picgo/">PicGo</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/blog/post/overleaf-server-config/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">如何使用Docker在本地搭建Overleaf服务器</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="goujianing19@mails.ucas.ac.cn" class="iconfont icon-email" title="email"></a>
+      <a href="https://stackoverflow.com/users/15882334/george-gou?tab=profile" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="https://github.com/George-Gou" class="iconfont icon-github" title="github"></a>
+      <a href="https://space.bilibili.com/320619371" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="https://george-gou.github.io/blog/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2019 - 
+    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>George Gou</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/blog/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

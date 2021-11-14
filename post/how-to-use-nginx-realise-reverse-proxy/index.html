@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>如何利用Nginx实现反向代理 - Jianing Gou&#39;Blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Gravpher" /><meta name="description" content="本文主要介绍如何使用 nginx实现服务器端反向代理。 介绍 Nginx 是一个高性能的 HTTP 和反向代理 web 服务器，同时也提供了IMAP/POP3/SMTP服务。" /><meta name="keywords" content="nginx" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.87.0 with theme even" />
+
+
+<link rel="canonical" href="https://george-gou.github.io/blog/post/how-to-use-nginx-realise-reverse-proxy/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/blog/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/blog/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/blog/favicon-16x16.png">
+<link rel="manifest" href="/blog/manifest.json">
+<link rel="mask-icon" href="/blog/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/blog/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="如何利用Nginx实现反向代理" />
+<meta property="og:description" content="本文主要介绍如何使用 nginx实现服务器端反向代理。 介绍 Nginx 是一个高性能的 HTTP 和反向代理 web 服务器，同时也提供了IMAP/POP3/SMTP服务。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://george-gou.github.io/blog/post/how-to-use-nginx-realise-reverse-proxy/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-09-11T11:14:05+08:00" />
+<meta property="article:modified_time" content="2021-09-11T11:14:05+08:00" />
+
+<meta itemprop="name" content="如何利用Nginx实现反向代理">
+<meta itemprop="description" content="本文主要介绍如何使用 nginx实现服务器端反向代理。 介绍 Nginx 是一个高性能的 HTTP 和反向代理 web 服务器，同时也提供了IMAP/POP3/SMTP服务。"><meta itemprop="datePublished" content="2021-09-11T11:14:05+08:00" />
+<meta itemprop="dateModified" content="2021-09-11T11:14:05+08:00" />
+<meta itemprop="wordCount" content="1848">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="如何利用Nginx实现反向代理"/>
+<meta name="twitter:description" content="本文主要介绍如何使用 nginx实现服务器端反向代理。 介绍 Nginx 是一个高性能的 HTTP 和反向代理 web 服务器，同时也提供了IMAP/POP3/SMTP服务。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/blog/" class="logo">Jianing Gou</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/blog/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/blog/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/blog/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/blog/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/blog/about/">
+        <li class="mobile-menu-item">About</li>
+      </a><a href="/blog/denote/">
+        <li class="mobile-menu-item">Denote</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/blog/" class="logo">Jianing Gou</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/blog/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/blog/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/blog/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/blog/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/blog/about/">About</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/blog/denote/">Denote</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">如何利用Nginx实现反向代理</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2021-09-11 </span>
+        
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#介绍">介绍</a>
+          <ul>
+            <li><a href="#正向代理">正向代理</a></li>
+          </ul>
+        </li>
+        <li><a href="#安装-nginx">安装 Nginx</a></li>
+        <li><a href="#初识-nginx">初识 Nginx</a></li>
+        <li><a href="#实例测试">实例测试</a>
+          <ul>
+            <li><a href="#配置-nginx-反向代理">配置 Nginx 反向代理</a></li>
+            <li><a href="#测试反向代理">测试反向代理</a></li>
+          </ul>
+        </li>
+        <li><a href="#结论">结论</a></li>
+        <li><a href="#参考文献">参考文献</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>本文主要介绍如何使用 <code>nginx</code>实现服务器端反向代理。</p>
+<h2 id="介绍">介绍</h2>
+<p>Nginx 是一个高性能的 HTTP 和反向代理 web 服务器，同时也提供了IMAP/POP3/SMTP服务。最早是由俄罗斯人 <a href="https://www.nginx.com/people/igor-sysoev/">Igor Sysoev</a> 用 C 语言设计并开发的，并于 2004 年开放源代码，目前其在旧金山创办了 <a href="https://www.nginx.com/">Nginx 公司</a>，主要维护该项目。Nginx 已经为超过 400 万个网站提供服务</p>
+<p>，其主要功能为1、反向代理；2、<a href="http://nginx.org/en/docs/http/load_balancing.html">负载均衡</a>；3、<a href="https://nginx.org/en/docs/http/configuring_https_servers.html">HTTP 服务器</a>（静动分析）</p>
+<hr>
+<p>要了解反向代理，首先要知道什么是代理(Proxy)。代理就是位于服务器与客户端的中间件，优化客户端与服务器之间的通信。所谓架构，其核心就是在服务端与客户端加几层中间件，实现复杂的应用场景，如高并发等。</p>
+<p><img src="https://gitee.com/georgegou/gravitychina/raw/picture/202109111645129.webp" alt="image.png"></p>
+<h3 id="正向代理">正向代理</h3>
+<p>如图所示，正向代理是服务于客户端的，客户端向代理发送一个请求并指定目标(原始服务器)，然后代理向原始服务器转交请求并将获得的内容返回给客户端。</p>
+<p><strong>正向代理</strong>可以使客户端访问它本身无法访问的服务器资源，比如 <code>Google</code>、<code>Youtubu</code>等服务，中国大陆的 ip 封禁了对外网的访问，通过 VPN 服务使客户端的 ip 地址位于国外，就可以实现科学上网。也就是说正向代理对我们是透明的，对服务端是非透明的，即服务端并不知道自己收到的是来自代理的访问还是来自真实客户端的访问。</p>
+<p><strong>反向代理</strong>服务于服务器端，其是以代理服务器的方式接受 Internet 上的连接请求，再转发给内部服务器，并将服务器的结果返回给客户端。我们可以设置一些规则来过滤掉危险的客户端请求，还可以将访问需求大的内容存在反向代理服务器端，这样就实现了负载均衡。这种方式也隐藏了真实服务器的地址，提升了服务器的安全性。</p>
+<h2 id="安装-nginx">安装 Nginx</h2>
+<p>本文以 CentOS 系统为例，我是在 Docker 安装的 CentOS 镜像，故先输入命令进入到 CentOS 系统：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">$ docker run -itd --name mycentos centos 
+$ docker <span class="nb">exec</span> -it mycentos /bin/bash
+</code></pre></td></tr></table>
+</div>
+</div><p>运行命令</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">$ yum install nginx -y
+</code></pre></td></tr></table>
+</div>
+</div><p>安装 nginx</p>
+<h2 id="初识-nginx">初识 Nginx</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># 开机配置</span>
+systemctl <span class="nb">enable</span> nginx <span class="c1"># 开机自动启动</span>
+systemctl disable nginx <span class="c1"># 关闭开机自动启动</span>
+
+<span class="c1"># 启动Nginx</span>
+systemctl start nginx <span class="c1"># 启动Nginx成功后，可以直接访问主机IP，此时会展示Nginx默认页面</span>
+
+<span class="c1"># 停止Nginx</span>
+systemctl stop nginx
+
+<span class="c1"># 重启Nginx</span>
+systemctl restart nginx
+
+<span class="c1"># 重新加载Nginx</span>
+systemctl reload nginx
+
+<span class="c1"># 查看 Nginx 运行状态</span>
+systemctl status nginx
+
+<span class="c1"># 查看Nginx进程</span>
+ps -ef <span class="p">|</span> grep nginx
+
+<span class="c1"># 杀死Nginx进程</span>
+<span class="nb">kill</span> -9 pid <span class="c1"># 根据上面查看到的Nginx进程号，杀死Nginx进程，-9 表示强制结束进程</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><img src="https://gitee.com/georgegou/gravitychina/raw/picture/202109111737435.png" alt="image-20210911173656583"></p>
+<p>上述命令查看 <code>nginx</code>的运行状态，可以看到是 <code>active</code>，通过 <code>hostname:8080</code>可以访问到默认页面。</p>
+<p><img src="https://gitee.com/georgegou/gravitychina/raw/picture/202109111741050.png" alt="image-20210911174140718"></p>
+<h2 id="实例测试">实例测试</h2>
+<p><img src="https://gitee.com/georgegou/gravitychina/raw/picture/202109111827132.png" alt="How to Use Nginx as a Reverse Proxy on Ubuntu 20.04 LTS"></p>
+<p>上图所示的应用场景即是本次反向代理的主要应用之一。首先先要允许 80  端口能被外部访问到。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">$ sudo ufw allow <span class="m">80</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>随后新建一个测试环境，这里用的Conda：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">$ conda create -n new_test <span class="nv">python</span> <span class="o">=</span> XXXX
+$ conda activate new_test
+$ conda install httpie
+</code></pre></td></tr></table>
+</div>
+</div><p>HTTPie 是一个 HTTP 的命令行客户端，目标是让 CLI 和 web 服务之间的交互尽可能的人性化，本文通过 HTTPie 实现一个简单的 Web应用。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">$ mkdir appA
+$ <span class="nb">cd</span> appA
+$ cat <span class="s">&lt;&lt;EOF &gt;index.html
+</span><span class="s">this is app A !
+</span><span class="s">EOF</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>对于Python3 来说：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">python3 -m http.server 3000 &amp;
+  Serving HTTP on 0.0.0.0 port 3000 (http://0.0.0.0:3000/) ...
+</code></pre></td></tr></table>
+</div>
+</div><p>测试appA</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">http http://localhost:3000
+127.0.0.1 - - <span class="o">[</span>24/May/2020 13:30:59<span class="o">]</span> <span class="s2">&#34;GET / HTTP/1.1&#34;</span> <span class="m">200</span> -
+HTTP/1.0 <span class="m">200</span> OK
+Content-Length: <span class="m">16</span>
+Content-type: text/html
+Date: Sun, <span class="m">24</span> May <span class="m">2020</span> 13:30:59 GMT
+Last-Modified: Sun, <span class="m">24</span> May <span class="m">2020</span> 13:28:42 GMT
+Server: SimpleHTTP/0.6 Python/2.7.18rc1
+
+this is app A !
+</code></pre></td></tr></table>
+</div>
+</div><p>创建appB</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">$ mkdir appB
+$ <span class="nb">cd</span> appB
+$ cat <span class="s">&lt;&lt;EOF &gt;index.html
+</span><span class="s">this is app B !
+</span><span class="s">EOF</span>
+python3 -m http.server <span class="m">4000</span> <span class="p">&amp;</span>
+Serving HTTP on 0.0.0.0 port <span class="m">4000</span> <span class="o">(</span>http://0.0.0.0:4000/<span class="o">)</span> ...
+</code></pre></td></tr></table>
+</div>
+</div><p>测试appB</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">http http://localhost:4000
+127.0.0.1 - - <span class="o">[</span>12/Sep/2021 00:01:32<span class="o">]</span> <span class="s2">&#34;GET / HTTP/1.1&#34;</span> <span class="m">200</span> -
+HTTP/1.0 <span class="m">200</span> OK
+Content-Length: <span class="m">15</span>
+Content-type: text/html
+Date: Sat, <span class="m">11</span> Sep <span class="m">2021</span> 16:01:32 GMT
+Last-Modified: Sat, <span class="m">11</span> Sep <span class="m">2021</span> 15:59:39 GMT
+Server: SimpleHTTP/0.6 Python/3.9.6
+
+this is app B!
+</code></pre></td></tr></table>
+</div>
+</div><p>修改<code>/etc/hosts</code>文件，将地址指向本机 ip 地址</p>
+<h3 id="配置-nginx-反向代理">配置 Nginx 反向代理</h3>
+<p>目前已经做好了准备工作，现在开始配置 Nginx 服务器。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">$ sudo su  <span class="c1"># 切换到超级用户</span>
+$ rm /etc/nginx/sites-enabled/default  <span class="c1">#删除默认配置</span>
+$ touch /etc/nginx/sites-available/reverse-proxy <span class="c1">#创建反向代理</span>
+$ ln -s /etc/nginx/sites-available/reverse-proxy /etc/nginx/sites enabled/reverse-proxy <span class="c1"># 创建软链接，任意修改一处会同步变化</span>
+$ vim /etc/nginx/sites-available/reverse-proxy <span class="c1">#复制以下内容到配置文件</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">upstream appA {
+        server 127.0.0.1:3000;
+}
+
+upstream appB {
+        server 127.0.0.1:4000;
+}
+
+
+server {
+  listen 80;
+  server_name appa.domain.com;
+  
+  location / {
+        proxy_pass http://appA;
+    }
+}
+
+server {
+  listen 80;
+  server_name appb.domain.com;
+
+  location / {
+        proxy_pass http://appB;
+    }
+}
+</code></pre></td></tr></table>
+</div>
+</div><p>上述操作中，我们在上游定义了两个应用程序，一个转到3000端口，一个转到4000端口。利用 server 指令和 server_name 选项来确定子域名与上游映射关系</p>
+<h3 id="测试反向代理">测试反向代理</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">$ sudo nginx -t
+nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+nginx: configuration file /etc/nginx/nginx.conf <span class="nb">test</span> is successful
+$ sudo systemctl reload nginx
+$ sudo systemctl status nginx
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="测试结果">测试结果：</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">$ http -v http://appa.domain.com
+GET / HTTP/1.1
+Accept: */*
+Accept-Encoding: gzip, deflate, br
+Connection: keep-alive
+Host: appa.domain.com
+User-Agent: HTTPie/2.1.0
+
+
+
+127.0.0.1 - - <span class="o">[</span>12/Sep/2021 00:44:34<span class="o">]</span> <span class="s2">&#34;GET / HTTP/1.0&#34;</span> <span class="m">200</span> -
+HTTP/1.1 <span class="m">200</span> OK
+Connection: keep-alive
+Content-Length: <span class="m">15</span>
+Content-Type: text/html
+Date: Sat, <span class="m">11</span> Sep <span class="m">2021</span> 16:44:34 GMT
+Last-Modified: Sat, <span class="m">11</span> Sep <span class="m">2021</span> 10:38:27 GMT
+Server: nginx/1.18.0 <span class="o">(</span>Ubuntu<span class="o">)</span>
+
+this is app A!
+
+<span class="o">(</span>makedoc<span class="o">)</span> 
+
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">▶ http -v http://appb.domain.com
+GET / HTTP/1.1
+Accept: */*
+Accept-Encoding: gzip, deflate, br
+Connection: keep-alive
+Host: appb.domain.com
+User-Agent: HTTPie/2.1.0
+
+
+
+127.0.0.1 - - <span class="o">[</span>12/Sep/2021 00:45:38<span class="o">]</span> <span class="s2">&#34;GET / HTTP/1.0&#34;</span> <span class="m">200</span> -
+HTTP/1.1 <span class="m">200</span> OK
+Connection: keep-alive
+Content-Length: <span class="m">15</span>
+Content-Type: text/html
+Date: Sat, <span class="m">11</span> Sep <span class="m">2021</span> 16:45:38 GMT
+Last-Modified: Sat, <span class="m">11</span> Sep <span class="m">2021</span> 15:59:39 GMT
+Server: nginx/1.18.0 <span class="o">(</span>Ubuntu<span class="o">)</span>
+
+this is app B!
+
+
+</code></pre></td></tr></table>
+</div>
+</div><p>可以发现，通过指定域名能够访问到特定的应用容器。</p>
+<h2 id="结论">结论</h2>
+<p>利用出色的开源工具 Nginx 可以轻松完成反向代理。</p>
+<h2 id="参考文献">参考文献</h2>
+<p><a href="https://blog.csdn.net/b9x__/article/details/80400697">https://blog.csdn.net/b9x__/article/details/80400697</a></p>
+<p><a href="https://juejin.cn/post/6942607113118023710">https://juejin.cn/post/6942607113118023710</a></p>
+<p><a href="https://bitlaunch.io/blog/how-to-use-nginx-as-a-reverse-proxy-on-ubuntu-20-04/">https://bitlaunch.io/blog/how-to-use-nginx-as-a-reverse-proxy-on-ubuntu-20-04/</a></p>
+
+    </div>
+
+    
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        <a class="prev" href="/blog/post/port_delivery/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">通过路由器端口转发方式实现内网访问</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/blog/post/running-service-in-ubuntu-server/">
+            <span class="next-text nav-default">在服务器后台运行Jupyter Notebook服务</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="goujianing19@mails.ucas.ac.cn" class="iconfont icon-email" title="email"></a>
+      <a href="https://stackoverflow.com/users/15882334/george-gou?tab=profile" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="https://github.com/George-Gou" class="iconfont icon-github" title="github"></a>
+      <a href="https://space.bilibili.com/320619371" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="https://george-gou.github.io/blog/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2019 - 
+    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>George Gou</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/blog/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

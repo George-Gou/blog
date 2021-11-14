@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Docker网络探秘 - Jianing Gou&#39;Blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Gravpher" /><meta name="description" content="Docker网络 Docker 是一个及其轻量化的应用容器，能够轻松将开发环境与应用打包至镜像进行发布，能达到“Develop Once，Run Anywhe" /><meta name="keywords" content="Gou, Jia, Ning" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.87.0 with theme even" />
+
+
+<link rel="canonical" href="https://george-gou.github.io/blog/post/docker_net/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/blog/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/blog/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/blog/favicon-16x16.png">
+<link rel="manifest" href="/blog/manifest.json">
+<link rel="mask-icon" href="/blog/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/blog/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Docker网络探秘" />
+<meta property="og:description" content="Docker网络 Docker 是一个及其轻量化的应用容器，能够轻松将开发环境与应用打包至镜像进行发布，能达到“Develop Once，Run Anywhe" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://george-gou.github.io/blog/post/docker_net/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-11-03T16:48:18+08:00" />
+<meta property="article:modified_time" content="2021-11-03T16:48:18+08:00" />
+
+<meta itemprop="name" content="Docker网络探秘">
+<meta itemprop="description" content="Docker网络 Docker 是一个及其轻量化的应用容器，能够轻松将开发环境与应用打包至镜像进行发布，能达到“Develop Once，Run Anywhe"><meta itemprop="datePublished" content="2021-11-03T16:48:18+08:00" />
+<meta itemprop="dateModified" content="2021-11-03T16:48:18+08:00" />
+<meta itemprop="wordCount" content="640">
+<meta itemprop="keywords" content="docker," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Docker网络探秘"/>
+<meta name="twitter:description" content="Docker网络 Docker 是一个及其轻量化的应用容器，能够轻松将开发环境与应用打包至镜像进行发布，能达到“Develop Once，Run Anywhe"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/blog/" class="logo">Jianing Gou</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/blog/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/blog/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/blog/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/blog/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/blog/about/">
+        <li class="mobile-menu-item">About</li>
+      </a><a href="/blog/denote/">
+        <li class="mobile-menu-item">Denote</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/blog/" class="logo">Jianing Gou</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/blog/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/blog/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/blog/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/blog/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/blog/about/">About</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/blog/denote/">Denote</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Docker网络探秘</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2021-11-03 </span>
+        
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#docker网络">Docker网络</a>
+          <ul>
+            <li><a href="#docker0">Docker0</a></li>
+            <li><a href="#如何使用docker部署-redis-集群">如何使用Docker部署 redis 集群</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h2 id="docker网络">Docker网络</h2>
+<p>Docker 是一个及其轻量化的应用容器，能够轻松将开发环境与应用打包至镜像进行发布，能达到“Develop Once，Run Anywhere”的效果。Docker 容器跟宿主机、不同容器之间究竟是如何通信的呢？这是Docker的核心内容。</p>
+<h3 id="docker0">Docker0</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="o">(</span>base<span class="o">)</span> george@george ~/test$ ifconfig  
+docker0: <span class="nv">flags</span><span class="o">=</span>4163&lt;UP,BROADCAST,RUNNING,MULTICAST&gt;  mtu <span class="m">1500</span>
+        inet 172.17.0.1  netmask 255.255.0.0  broadcast 172.17.255.255
+        inet6 fe80::42:9eff:fe6d:8c1c  prefixlen <span class="m">64</span>  scopeid 0x20&lt;link&gt;
+        ether 02:42:9e:6d:8c:1c  txqueuelen <span class="m">0</span>  <span class="o">(</span>Ethernet<span class="o">)</span>
+        RX packets <span class="m">134541</span>  bytes <span class="m">14183525</span> <span class="o">(</span>14.1 MB<span class="o">)</span>
+        RX errors <span class="m">0</span>  dropped <span class="m">0</span>  overruns <span class="m">0</span>  frame <span class="m">0</span>
+        TX packets <span class="m">501775</span>  bytes <span class="m">629260746</span> <span class="o">(</span>629.2 MB<span class="o">)</span>
+        TX errors <span class="m">0</span>  dropped <span class="m">0</span> overruns <span class="m">0</span>  carrier <span class="m">0</span>  collisions <span class="m">0</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>开启了Docker之后，发现网卡中多了一个 Docker0 ，这可以充当一个路由器的功能，使得所有容器通过网络桥接的方式相互通信。如我们启动其他容器后：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">docker1：tomcat01 172.17.0.2
+docker2：tomcat02 172.17.0.3
+</code></pre></td></tr></table>
+</div>
+</div><p><img src="https://gitee.com/georgegou/gravitychina/raw/picture/docker%E7%BD%91%E7%BB%9C" alt="img"></p>
+<p>如果容器采用 host 模式，这种情况下容器与宿主机共享网络，其余情况通过 veth-pair 进行桥接，进而实现容器间的通信。</p>
+<h3 id="如何使用docker部署-redis-集群">如何使用Docker部署 redis 集群</h3>
+<p>在如今的大数据与机器学习时代，几乎所有的服务都跑在集群上的。相比单机服务器来说，集群能够发挥负载均衡、高可用等特性。下面将演示如何在 docker 容器中部署 6 个redis 集群。</p>
+<p>1、创建子网</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">$ docker network create redis --subnet 172.38.0.0/16
+通过构建子网，使得redis集群处于同一子网
+</code></pre></td></tr></table>
+</div>
+</div><p>2、创建redis集群的配置文件</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="k">for</span> port in <span class="k">$(</span>seq <span class="m">1</span> 6<span class="k">)</span><span class="p">;</span> <span class="se">\
+</span><span class="se"></span><span class="k">do</span> <span class="se">\
+</span><span class="se"></span>mkdir -p /mydata/redis/node-<span class="si">${</span><span class="nv">port</span><span class="si">}</span>/conf
+cat <span class="s">&lt;&lt; EOF &gt;/mydata/redis/node-${port}/conf/redis.conf
+</span><span class="s">port 6379
+</span><span class="s">bind 0.0.0.0
+</span><span class="s">cluster-enabled yes
+</span><span class="s">cluster-config-file nodes.conf
+</span><span class="s">cluster-node-timeout 5000
+</span><span class="s">cluster-announce-ip 172.38.0.1${port}
+</span><span class="s">cluster-announce-port 6379
+</span><span class="s">cluster-announce-bus-port 16379
+</span><span class="s">sppendonly yes
+</span><span class="s">EOF</span>       
+<span class="k">done</span> 
+</code></pre></td></tr></table>
+</div>
+</div><p>3、依次启动6个redis集群</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">$ docker run -p 6371:6379 -p 16371:16379 --name redis-1 <span class="se">\
+</span><span class="se"></span>-v /mydata/redis/node-1/data:/data <span class="se">\
+</span><span class="se"></span>-v /redis_cluster/mydata/redis/node-1/conf/redis.conf:/etc/redis/redis.conf <span class="se">\
+</span><span class="se"></span>-d --net redis --ip 172.38.0.11 redis:5.0.9-alpine3.11 redis-server /etc/redis/redis.conf
+依次替换 端口号 redis集群名称 ip地址，启动集群
+</code></pre></td></tr></table>
+</div>
+</div><p>4、进入集群</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">$ docker <span class="nb">exec</span> -it redis-1 /bin/bash
+/data <span class="c1"># redis-cli --cluster create 172.38.0.11:6379 172.38.0.12:6379 172.38.0.13:6379 172.38.0.14:6379 172.38.0.15:6379 172.38.0.16:6379 --cluster-replicas 1</span>
+
+</code></pre></td></tr></table>
+</div>
+</div>
+    </div>
+
+    
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/blog/tags/docker/">docker</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/blog/post/deeplearning_env/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">CentOS 7搭建深度学习环境</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/blog/post/port_delivery/">
+            <span class="next-text nav-default">通过路由器端口转发方式实现内网访问</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="goujianing19@mails.ucas.ac.cn" class="iconfont icon-email" title="email"></a>
+      <a href="https://stackoverflow.com/users/15882334/george-gou?tab=profile" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="https://github.com/George-Gou" class="iconfont icon-github" title="github"></a>
+      <a href="https://space.bilibili.com/320619371" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="https://george-gou.github.io/blog/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2019 - 
+    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>George Gou</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/blog/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

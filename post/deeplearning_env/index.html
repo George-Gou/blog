@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>CentOS 7搭建深度学习环境 - Jianing Gou&#39;Blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Gravpher" /><meta name="description" content="本文介绍如何使用CentOS 7搭建深度学习环境" /><meta name="keywords" content="Gou, Jia, Ning" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.87.0 with theme even" />
+
+
+<link rel="canonical" href="https://george-gou.github.io/blog/post/deeplearning_env/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/blog/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/blog/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/blog/favicon-16x16.png">
+<link rel="manifest" href="/blog/manifest.json">
+<link rel="mask-icon" href="/blog/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/blog/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="CentOS 7搭建深度学习环境" />
+<meta property="og:description" content="本文介绍如何使用CentOS 7搭建深度学习环境" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://george-gou.github.io/blog/post/deeplearning_env/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-11-04T15:37:06+08:00" />
+<meta property="article:modified_time" content="2021-11-04T15:37:06+08:00" />
+
+<meta itemprop="name" content="CentOS 7搭建深度学习环境">
+<meta itemprop="description" content="本文介绍如何使用CentOS 7搭建深度学习环境"><meta itemprop="datePublished" content="2021-11-04T15:37:06+08:00" />
+<meta itemprop="dateModified" content="2021-11-04T15:37:06+08:00" />
+<meta itemprop="wordCount" content="1708">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="CentOS 7搭建深度学习环境"/>
+<meta name="twitter:description" content="本文介绍如何使用CentOS 7搭建深度学习环境"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/blog/" class="logo">Jianing Gou</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/blog/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/blog/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/blog/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/blog/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/blog/about/">
+        <li class="mobile-menu-item">About</li>
+      </a><a href="/blog/denote/">
+        <li class="mobile-menu-item">Denote</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/blog/" class="logo">Jianing Gou</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/blog/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/blog/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/blog/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/blog/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/blog/about/">About</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/blog/denote/">Denote</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">CentOS 7搭建深度学习环境</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2021-11-04 </span>
+        
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#写在前面">写在前面</a></li>
+        <li><a href="#1系统安装">1、系统安装</a></li>
+        <li><a href="#2安装-nvida-组件">2、安装 NVIDA 组件</a></li>
+        <li><a href="#安装cuda">安装CUDA</a></li>
+        <li><a href="#安装cudnn">安装CuDNN</a></li>
+        <li><a href="#安装显卡驱动">安装显卡驱动</a></li>
+        <li><a href="#安装-tensorflow">安装 TensorFlow</a>
+          <ul>
+            <li><a href="#端口管理">端口管理</a></li>
+          </ul>
+        </li>
+        <li><a href="#配置-jupyterhub-服务">配置 Jupyterhub 服务</a>
+          <ul>
+            <li><a href="#在-kubernetes-上部署-jupyterhub-服务">在 Kubernetes 上部署 jupyterhub 服务</a></li>
+          </ul>
+        </li>
+        <li><a href="#参考资料">参考资料</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h2 id="写在前面">写在前面</h2>
+<p>最近要做深度学习方面的应用，考虑到云平台服务虽然方便，但是价格太贵，最便宜的亚马逊（AWS）对于学生党来说也比较贵，这里就用实验室的机器搭建深度学习集群。</p>
+<h2 id="1系统安装">1、系统安装</h2>
+<p>这里我选择的是 CentOS 7版本，这也是许多企业的服务器部署环境，因为其稳定。如果选择 Ubuntu 等发行版可能用了一段时间就会出各种问题，如重启进不了系统，或者崩溃等问题。这里我推荐使用 Linux Server 最小的安装版本，不需要使用到桌面环境。</p>
+<ul>
+<li>从<a href="https://mirrors.tuna.tsinghua.edu.cn/centos/7.9.2009/isos/x86_64/">清华源</a>或者官网【bing CentOS】下载 CentOS 镜像</li>
+<li>使用 <a href="https://cn.ultraiso.net/xiazai.html">UltraISO</a> 制作 Linux 启动盘（推荐 8G 以上的 U 盘）</li>
+<li>开启进入自己机器的 BIOS， 设置 U 盘启动</li>
+<li>进入安装画面</li>
+</ul>
+<p><img src="https://gitee.com/georgegou/gravitychina/raw/picture/202111041557515.png" alt="img"></p>
+<ul>
+<li>点击 Install CentOS 7 ，回车。这里可能会出现问题，比如弹出异常，进入 dracut # 命令，这是因为安装程序找不到系统卷导致的，这里需要设置</li>
+<li>按住 <code>Tab</code>键，弹出配置信息，按 <code>E</code>键进入编辑，将 <code>vmlinuz initrd=initrd.img inst.stage2=hd:LABEL=CentOS\x207\x20x86_64 rd.live.check quiet</code>后半部分修改为 <code>LABEL=CENTOS</code>即可，当然你也可以 <code>cd</code> 到 <code>dev</code> 目录下查找 U 盘所在盘符，将其修改为 <code>hd:/dev/sda4</code> 也可以，这里看具体的盘符。</li>
+</ul>
+<h2 id="2安装-nvida-组件">2、安装 NVIDA 组件</h2>
+<p>GPU 相比 CPU 有更高算力，是机器学习应用的基础设施。CPU的指令我们都非常熟悉，我们可以轻松的开发 CPU 程序，如今 GPU 横空出世，CUDA 是一种由NVIDIA推出的通用<a href="https://baike.baidu.com/item/%E5%B9%B6%E8%A1%8C%E8%AE%A1%E7%AE%97/113443">并行计算</a>架构，我们可以利用其提供的接口开发并行程序。</p>
+<h2 id="安装cuda">安装CUDA</h2>
+<p><a href="https://developer.nvidia.com/cuda-10.0-download-archive">https://developer.nvidia.com/cuda-10.0-download-archive</a></p>
+<ul>
+<li>CUDA的版本适配非常重要。目前TensorFlow2.0在CUDA上最稳妥的选择是10.0，如果选择10.1以上，有机率不识别GPU</li>
+</ul>
+<p><img src="https://gitee.com/georgegou/gravitychina/raw/picture/202111041746094.png" alt="image-20211104174613755"></p>
+<p>按照官网给的安装命令安装</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">Installation Instructions:
+<span class="sb">`</span>sudo rpm -i cuda-repo-rhel7-10-0-local-10.0.130-410.48-1.0-1.x86_64.rpm<span class="sb">`</span>
+<span class="sb">`</span>sudo yum clean all<span class="sb">`</span>
+<span class="sb">`</span>sudo yum install cuda<span class="sb">`</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="安装cudnn">安装CuDNN</h2>
+<p>CuDNN是 CUDA 和 DNN 的结合，利用 CUDA 搭配深度学习任务的框架</p>
+<p>下载 CuDNN 需要加入开发这社区，推荐采用微信注册，在<a href="https://developer.nvidia.com/rdp/form/cudnn-download-survey">CuDNN</a>仓库里面下载 Runtime 版本</p>
+<p><img src="https://gitee.com/georgegou/gravitychina/raw/picture/202111041752116.png" alt="image-20211104175233436"></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">$ sudo rpm -ivh libcudnn7-7.6.3.30-1.cuda10.0.x86_64.rpm   <span class="c1">#必须先安装 Runtime 环境，才能继续安装开发者版本</span>
+$ sudo rpm -ivh libcudnn7-devel-7.6.3.30-1.cuda10.0.x86_64.rpm 
+
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="安装显卡驱动">安装显卡驱动</h2>
+<p>一般来说，安装最新的驱动是最佳选择。</p>
+<ul>
+<li>去官网下载响应显卡的版本</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">$ lspci <span class="p">|</span> grep -i nvidia <span class="c1"># 查看显卡版本信息</span>
+<span class="c1">#如果显示找不到指令，安装响应软件包即可</span>
+$ yum -y install pciutils
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>禁用自带的 nouveau 驱动程序，防止冲突</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="c1">#查看内核版本与源码版本是否一致</span>
+<span class="o">[</span>root@localhost include<span class="o">]</span><span class="c1"># ls /boot | grep vmlinu</span>
+vmlinuz-0-rescue-3a38ede036ec417cad8ea0d147ea0c46
+vmlinuz-3.10.0-1160.45.1.el7.x86_64
+vmlinuz-3.10.0-1160.el7.x86_64
+<span class="o">[</span>root@localhost include<span class="o">]</span><span class="c1"># rpm -aq |grep kernel-devel</span>
+kernel-devel-3.10.0-1160.el7.x86_64
+kernel-devel-3.10.0-1160.45.1.el7.x86_64
+<span class="c1">#屏蔽 nouveau</span>
+<span class="o">[</span>root@localhost include<span class="o">]</span><span class="c1"># vim /lib/modprobe.d/dist-blacklist.conf</span>
+<span class="c1">#blacklist nvidiafb 将该项注释掉</span>
+<span class="o">[</span>root@localhost include<span class="o">]</span><span class="c1"># echo -e &#34;blacklist nouveau\noptions nouveau modeset=0&#34; &gt; /usr/lib/modprobe.d/dist-blacklist.conf</span>
+<span class="c1">#重建  initramfs image</span>
+<span class="o">[</span>root@localhost include<span class="o">]</span><span class="c1"># mv /boot/initramfs-$(uname -r).img /boot/initramfs-$(uname -r).img.bak</span>
+<span class="o">[</span>root@localhost include<span class="o">]</span><span class="c1"># dracut /boot/initramfs-$(uname -r).img $(uname -r)</span>
+<span class="c1">#修改运行级别为文本模式</span>
+<span class="o">[</span>root@localhost include<span class="o">]</span><span class="c1"># systemctl set-default multi-user.target</span>
+<span class="c1">#重启</span>
+<span class="o">[</span>root@localhost include<span class="o">]</span><span class="c1"># reboot</span>
+<span class="c1">#查看nouveau是否被禁用</span>
+<span class="o">[</span>root@localhost include<span class="o">]</span><span class="c1"># lsmod | grep nouveau </span>
+<span class="c1">#没有返回内容，说明已经被禁用</span>
+<span class="o">[</span>root@localhost include<span class="o">]</span><span class="c1"># chmod 777 NVIDIA-Linux-x86_64-470.82.00.run </span>
+<span class="c1">#将文件权限设置为可执行</span>
+<span class="o">[</span>root@localhost include<span class="o">]</span><span class="c1"># ./NVIDIA-Linux-x86_64-470.82.00.run </span>
+<span class="o">[</span>root@localhost deeplearning<span class="o">]</span><span class="c1"># nvidia-smi # 有返回内容则安装完毕</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><img src="https://gitee.com/georgegou/gravitychina/raw/picture/202111041945245.png" alt="image-20211104194538022"></p>
+<p><img src="https://gitee.com/georgegou/gravitychina/raw/picture/202111041947802.png" alt="image-20211104194658765"></p>
+<h2 id="安装-tensorflow">安装 TensorFlow</h2>
+<p>先安装 Anaconda，conda是 python 较为流行的包管理工具，可以建立多个虚拟环境，为各个开发项目提供隔离环境。</p>
+<ul>
+<li>从官网下载 <a href="https://www.anaconda.com/products/individual">Anaconda</a> 最新版本</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="o">[</span>root@localhost deeplearning<span class="o">]</span><span class="c1"># wget https://repo.anaconda.com/archive/Anaconda3-2021.05-Linux-x86_64.sh</span>
+<span class="o">[</span>root@localhost deeplearning<span class="o">]</span><span class="c1"># bash Anaconda3-2021.05-Linux-x86_64.sh</span>
+<span class="c1">#可以自定义安装目录，并添加环境变量</span>
+<span class="o">[</span>root@localhost deeplearning<span class="o">]</span><span class="c1"># echo -e &#34;PATH=$PATH:/home/george/deeplearning/anaconda3/bin\nexport PATH&#34; &gt; ~/.bashrc</span>
+<span class="o">[</span>root@localhost deeplearning<span class="o">]</span><span class="c1"># source ~/.bashrc</span>
+<span class="c1"># 创建 tensorflow 虚拟环境</span>
+<span class="o">[</span>root@localhost deeplearning<span class="o">]</span><span class="c1"># conda create --name tf</span>
+<span class="o">[</span>root@localhost deeplearning<span class="o">]</span><span class="c1"># conda activate tf</span>
+<span class="o">[</span>root@localhost deeplearning<span class="o">]</span><span class="c1"># conda install tensorflow-gpu==2.0.0</span>
+<span class="c1">#该命令会自动安装TensorFlow所有的依赖环境</span>
+<span class="o">[</span>root@localhost deeplearning<span class="o">]</span><span class="c1"># conda install jupyter notebook</span>
+<span class="c1">#配置 jupyter notebook，方便远程使用网页应用编写代码和文档</span>
+<span class="o">[</span>root@localhost deeplearning<span class="o">]</span><span class="c1"># jupyter notebook --generate-config</span>
+<span class="c1">#生成jupyter配置文件</span>
+<span class="o">[</span>root@localhost deeplearning<span class="o">]</span><span class="c1"># python</span>
+<span class="c1">#进入python交互程序</span>
+&gt;&gt;&gt; from notebook.auth import passwd
+&gt;&gt;&gt; passwd<span class="o">()</span>
+Enter password: 
+Verify password: 
+<span class="c1">#这里会生成一段秘钥</span>
+<span class="o">(</span>base<span class="o">)</span> <span class="o">[</span>george@localhost .jupyter<span class="o">]</span>$ vi /home/george/.jupyterjupyter_notebook_config.py
+<span class="c1"># 修改几个配置参数</span>
+c.NotebookApp.ip <span class="o">=</span> <span class="s1">&#39;*&#39;</span>
+c.NotebookApp.password <span class="o">=</span> <span class="s1">&#39;password your created just now&#39;</span>
+c.NotebookApp.open_browser <span class="o">=</span> <span class="s1">&#39;False&#39;</span> <span class="c1">#默认不在本地打开窗口，因为这是服务端</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="端口管理">端口管理</h3>
+<p>使用 iptables 工具可以方便地进行端口管理</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># 关闭防火墙</span>
+systemctl stop firewalld.service
+systemctl disable firewalld.service
+systemctl mask firewalld.service
+<span class="c1"># 安装 iptables</span>
+sudo yum install iptables-services -y
+<span class="c1"># 启动 iptables</span>
+systemctl <span class="nb">enable</span> iptables
+systemctl start iptables
+<span class="c1">#查看其状态</span>
+systemctl statusiptables
+</code></pre></td></tr></table>
+</div>
+</div><p><img src="https://gitee.com/georgegou/gravitychina/raw/picture/202111042108696.png" alt="image-20211104210853275"></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="c1">#编辑防火墙软件</span>
+sudo vim /etc/sysconfig/iptables
+<span class="c1">#添加开放端口供服务访问</span>
+-A INPUT -m state --state NEW -m tcp -p tcp --dport <span class="m">8888</span> -j ACCEPT
+<span class="c1">#重启以生效</span>
+systemctl restart iptables.service
+<span class="c1"># 设置防火墙开启自启</span>
+systemctl <span class="nb">enable</span> iptables.service
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="配置-jupyterhub-服务">配置 Jupyterhub 服务</h2>
+<p>由于 jupyter notebook 只能单用户登录使用，不符合实际要求，这里我们配置 jupyterhub 服务。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">$ conda install JupyterHub  <span class="c1">#conda 环境下安装jupyterhub</span>
+$ jupyterhub --generate-config   <span class="c1">#生成配置文件                               Writing default config to: jupyterhub_config.py</span>
+c.JupyterHub.hub_ip <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+c.JupyterHub.hub_connect_ip <span class="o">=</span> <span class="s1">&#39;0.0.0.0&#39;</span>
+c.JupyterHub.bind_url <span class="o">=</span> <span class="s1">&#39;http://0.0.0.0:8888&#39;</span>
+c.JupyterHub.admin_users <span class="o">=</span> set<span class="o">(</span><span class="s1">&#39;george&#39;</span><span class="o">)</span>
+c.JupyterHub.ip <span class="o">=</span> <span class="s1">&#39;192.168.1.14&#39;</span>
+c.JupyterHub.hub_port <span class="o">=</span> <span class="m">8081</span>
+<span class="c1"># 启动服务</span>
+<span class="c1">#$ jupyterhub </span>
+</code></pre></td></tr></table>
+</div>
+</div><p><img src="https://gitee.com/georgegou/gravitychina/raw/picture/202111140004651.png" alt="image-20211114000436416"></p>
+<h3 id="在-kubernetes-上部署-jupyterhub-服务">在 Kubernetes 上部署 jupyterhub 服务</h3>
+<p><a href="https://kubernetes.io/">Kubernetes</a> 简称 k8s，是一个开源的云服务后台管理工具，把服务直接打包成容器运行在服务器上，可以将环境与宿主机隔离，不影响宿主机开发环境。</p>
+<p><img src="https://gitee.com/georgegou/gravitychina/raw/picture/202111051515336.svg" alt="Deployment evolution"></p>
+<p>具体可以参考：https://z2jh.jupyter.org/en/latest/</p>
+<h2 id="参考资料">参考资料</h2>
+
+    </div>
+
+    
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        <a class="prev" href="/blog/post/batch-to-shell/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Windows bat 脚本移植到 linux bash </span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/blog/post/docker_net/">
+            <span class="next-text nav-default">Docker网络探秘</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="goujianing19@mails.ucas.ac.cn" class="iconfont icon-email" title="email"></a>
+      <a href="https://stackoverflow.com/users/15882334/george-gou?tab=profile" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="https://github.com/George-Gou" class="iconfont icon-github" title="github"></a>
+      <a href="https://space.bilibili.com/320619371" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="https://george-gou.github.io/blog/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2019 - 
+    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>George Gou</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/blog/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>
