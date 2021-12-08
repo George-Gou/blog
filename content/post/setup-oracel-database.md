@@ -1,9 +1,9 @@
 ---
 
-title: "Setup Oracel Database"
+title: "Cetos7 下安装oracle数据库"
 date: 2021-11-18T17:28:12+08:00
 lastmod: 2021-11-18T17:28:12+08:00
-draft: true
+draft: false
 keywords: [oracel]
 description: ""
 tags: []
@@ -13,7 +13,7 @@ author: "Gravpher"
 # You can also close(false) or open(true) something for this content.
 # P.S. comment can only be closed
 comment: false
-toc: false
+toc: true
 autoCollapseToc: false
 postMetaInFooter: false
 hiddenFromHomePage: false
@@ -428,5 +428,5 @@ success
 
 ## 参考文献
 
-[1]: cnblogs.com/wanderwei/p/11458979.html
+[1] cnblogs.com/wanderwei/p/11458979.html
 

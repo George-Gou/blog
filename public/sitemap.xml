@@ -9,15 +9,22 @@
   </url>
   
   <url>
+    <loc>https://george-gou.github.io/blog/post/setup-oracel-database/</loc>
+    <lastmod>2021-11-18T17:28:12+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://george-gou.github.io/blog/</loc>
-    <lastmod>2021-11-13T20:37:13+08:00</lastmod>
+    <lastmod>2021-11-18T17:28:12+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://george-gou.github.io/blog/post/</loc>
-    <lastmod>2021-11-13T20:37:13+08:00</lastmod>
+    <lastmod>2021-11-18T17:28:12+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>

@@ -6,7 +6,16 @@
     <description>Recent content in Posts on Jianing Gou&#39;Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 13 Nov 2021 20:37:13 +0800</lastBuildDate><atom:link href="https://george-gou.github.io/blog/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 18 Nov 2021 17:28:12 +0800</lastBuildDate><atom:link href="https://george-gou.github.io/blog/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Cetos7 下安装oracle数据库</title>
+      <link>https://george-gou.github.io/blog/post/setup-oracel-database/</link>
+      <pubDate>Thu, 18 Nov 2021 17:28:12 +0800</pubDate>
+      
+      <guid>https://george-gou.github.io/blog/post/setup-oracel-database/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Windows bat 脚本移植到 linux bash </title>
       <link>https://george-gou.github.io/blog/post/batch-to-shell/</link>
