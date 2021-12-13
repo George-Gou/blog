@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>如何部署code-server到服务器 - Jianing Gou&#39;Blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="George Gou" /><meta name="description" content="" /><meta name="keywords" content="Gou, Jia, Ning" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.87.0 with theme even" />
+
+
+<link rel="canonical" href="https://george-gou.github.io/blog/post/how-to-setup-code-server/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/blog/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/blog/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/blog/favicon-16x16.png">
+<link rel="manifest" href="/blog/manifest.json">
+<link rel="mask-icon" href="/blog/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/blog/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="如何部署code-server到服务器" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://george-gou.github.io/blog/post/how-to-setup-code-server/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-12-08T20:19:01+08:00" />
+<meta property="article:modified_time" content="2021-12-08T20:19:01+08:00" />
+
+<meta itemprop="name" content="如何部署code-server到服务器">
+<meta itemprop="description" content=""><meta itemprop="datePublished" content="2021-12-08T20:19:01+08:00" />
+<meta itemprop="dateModified" content="2021-12-08T20:19:01+08:00" />
+<meta itemprop="wordCount" content="390">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="如何部署code-server到服务器"/>
+<meta name="twitter:description" content=""/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/blog/" class="logo">Jianing Gou</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/blog/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/blog/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/blog/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/blog/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/blog/about/">
+        <li class="mobile-menu-item">About</li>
+      </a><a href="/blog/denote/">
+        <li class="mobile-menu-item">Denote</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/blog/" class="logo">Jianing Gou</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/blog/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/blog/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/blog/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/blog/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/blog/about/">About</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/blog/denote/">Denote</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">如何部署code-server到服务器</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2021-12-08 </span>
+        
+        
+      </div>
+    </header>
+
+    
+    <div class="post-content">
+      <h2 id="摘要">摘要</h2>
+<p>本文介绍如何在 CentOS7 服务器上部署 code-server 在线 vscode 编辑服务器。</p>
+<h2 id="环境准备">环境准备</h2>
+<p>1、CentOS 7
+2、在 <a href="https://coder.com/docs/code-server/latest">官网</a> 下载最新版本的 code-server</p>
+<h2 id="具体步骤">具体步骤</h2>
+<p>手动安装：</p>
+<p>1、<code>$ git clone https://github.com/cdr/code-server.git </code></p>
+<p>2、<code>$ tar -xvf code-server-3.12.0-linux-amd64.tar.gz </code></p>
+<p>3、<code>$ cd code-server-3.12.0-linux-amd64/bin </code></p>
+<p>4、<code>(base) bin % ./code-server --port 10000 --host 0.0.0.0 --auth password</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="o">[</span>2021-12-08T14:54:40.830Z<span class="o">]</span> info  Wrote default config file to ~/.config/code-server/config.yaml
+<span class="o">[</span>2021-12-08T14:54:41.276Z<span class="o">]</span> info  code-server 3.12.0 4cd55f94c0a72f05c18cea070e10b969996614d2
+<span class="o">[</span>2021-12-08T14:54:41.278Z<span class="o">]</span> info  Using user-data-dir ~/.local/share/code-server
+<span class="o">[</span>2021-12-08T14:54:41.291Z<span class="o">]</span> info  Using config file ~/.config/code-server/config.yaml
+<span class="o">[</span>2021-12-08T14:54:41.291Z<span class="o">]</span> info  HTTP server listening on http://0.0.0.0:10000
+<span class="o">[</span>2021-12-08T14:54:41.291Z<span class="o">]</span> info    - Authentication is enabled
+<span class="o">[</span>2021-12-08T14:54:41.291Z<span class="o">]</span> info      - Using password from ~/.config/code-server/config.yaml
+<span class="o">[</span>2021-12-08T14:54:41.291Z<span class="o">]</span> info    - Not serving HTTPS <span class="sb">```</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>注意：你的CPU类型要与下载的版本一致，否则会出现应用程序不能运行的情况</strong></p>
+<p>当然你可以选择官方提供的脚本自动安装<a href="https://coder.com/docs/code-server/latest/install#installsh">传送门</a></p>
+<h2 id="后台运行-code-server">后台运行 code-server</h2>
+<p>一般来说，关闭了命令窗口，该会话就会中断，这样会造成我们的服务不稳定。可以利用 screen 程序来完成后台运行，它是一个多重视窗管理程序，意味着用户可以共享某个会话，只要Screen本身没有终止，在其内部运行的会话都可以恢复。
+<code>$ Screen -S code-server</code>
+<code>$./code-server </code></p>
+<p><strong>注意</strong>:
+<code>$ sudo vi /etc/sysconfig/iptables</code>
+<img src="https://gitee.com/georgegou/gravitychina/raw/picture/202112090032023.png"/></p>
+<p>-A INPUT -j REJECT &ndash;reject-with icmp-host-prohibited</p>
+<p>-A FORWARD -j REJECT &ndash;reject-with icmp-host-prohibited</p>
+<p>这两句一定要放在最后才能让端口生效。
+<img src="https://gitee.com/georgegou/gravitychina/raw/picture/202112091558315.png" alt="修改后">
+这样才会使开放的端口生效。</p>
+<p><strong>以下是服务开启成功的窗口</strong>
+<img src="https://gitee.com/georgegou/gravitychina/raw/picture/202112091308587.png"/></p>
+    </div>
+
+    
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        <a class="prev" href="/blog/post/fiman_learning_method/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">费曼学习法-学习笔记</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/blog/post/setup-oracel-database/">
+            <span class="next-text nav-default">Cetos7 下安装oracle数据库</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="goujianing19@mails.ucas.ac.cn" class="iconfont icon-email" title="email"></a>
+      <a href="https://stackoverflow.com/users/15882334/george-gou?tab=profile" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="https://github.com/George-Gou" class="iconfont icon-github" title="github"></a>
+      <a href="https://space.bilibili.com/320619371" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="https://george-gou.github.io/blog/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2019 - 
+    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>George Gou</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/blog/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

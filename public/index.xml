@@ -6,7 +6,7 @@
     <description>Recent content on Jianing Gou&#39;Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 18 Nov 2021 17:28:12 +0800</lastBuildDate><atom:link href="https://george-gou.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 13 Dec 2021 14:08:01 +0800</lastBuildDate><atom:link href="https://george-gou.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>About</title>
       <link>https://george-gou.github.io/blog/about/</link>
@@ -14,6 +14,24 @@
       
       <guid>https://george-gou.github.io/blog/about/</guid>
       <description>| cat ~/.aboutme Gravpher目前是中科院精测院大地测量专业博士候选人，目前主要从事机器学习与现代数字信号处理方法在大地测量和地球物理数据处理中的应</description>
+    </item>
+    
+    <item>
+      <title>费曼学习法-学习笔记</title>
+      <link>https://george-gou.github.io/blog/post/fiman_learning_method/</link>
+      <pubDate>Mon, 13 Dec 2021 14:08:01 +0800</pubDate>
+      
+      <guid>https://george-gou.github.io/blog/post/fiman_learning_method/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>如何部署code-server到服务器</title>
+      <link>https://george-gou.github.io/blog/post/how-to-setup-code-server/</link>
+      <pubDate>Wed, 08 Dec 2021 20:19:01 +0800</pubDate>
+      
+      <guid>https://george-gou.github.io/blog/post/how-to-setup-code-server/</guid>
+      <description></description>
     </item>
     
     <item>

@@ -2,7 +2,7 @@
 title: "如何部署code-server到服务器"
 date: 2021-12-08T20:19:01+08:00
 lastmod: 2021-12-08T20:19:01+08:00
-draft: true
+draft: false
 keywords: []
 description: ""
 tags: []
@@ -12,13 +12,13 @@ author: ""
 # You can also close(false) or open(true) something for this content.
 # P.S. comment can only be closed
 comment: false
-toc: false
+toc: true
 autoCollapseToc: false
 postMetaInFooter: false
 hiddenFromHomePage: false
 # You can also define another contentCopyright. e.g. contentCopyright: "This is another copyright."
 contentCopyright: false
-reward: false
+reward: true
 mathjax: false
 mathjaxEnableSingleDollar: false
 mathjaxEnableAutoNumber: false
@@ -50,10 +50,16 @@ sequenceDiagrams:
 
 ## 具体步骤
 手动安装：
+
 1、```$ git clone https://github.com/cdr/code-server.git ```
+
 2、```$ tar -xvf code-server-3.12.0-linux-amd64.tar.gz ```
+
 3、```$ cd code-server-3.12.0-linux-amd64/bin ```
-4、```(base) bin % ./code-server --port 10000 --host 0.0.0.0 --auth password 
+
+4、```(base) bin % ./code-server --port 10000 --host 0.0.0.0 --auth password```
+
+```shell
 [2021-12-08T14:54:40.830Z] info  Wrote default config file to ~/.config/code-server/config.yaml
 [2021-12-08T14:54:41.276Z] info  code-server 3.12.0 4cd55f94c0a72f05c18cea070e10b969996614d2
 [2021-12-08T14:54:41.278Z] info  Using user-data-dir ~/.local/share/code-server
@@ -62,6 +68,8 @@ sequenceDiagrams:
 [2021-12-08T14:54:41.291Z] info    - Authentication is enabled
 [2021-12-08T14:54:41.291Z] info      - Using password from ~/.config/code-server/config.yaml
 [2021-12-08T14:54:41.291Z] info    - Not serving HTTPS ```
+```
+
 
 **注意：你的CPU类型要与下载的版本一致，否则会出现应用程序不能运行的情况**
 
@@ -76,7 +84,9 @@ sequenceDiagrams:
 <img src="https://gitee.com/georgegou/gravitychina/raw/picture/202112090032023.png"/>
 
 -A INPUT -j REJECT --reject-with icmp-host-prohibited
+
 -A FORWARD -j REJECT --reject-with icmp-host-prohibited
+
 这两句一定要放在最后才能让端口生效。
 ![修改后](https://gitee.com/georgegou/gravitychina/raw/picture/202112091558315.png)
 这样才会使开放的端口生效。
