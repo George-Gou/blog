@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Groops docker 镜像制作 - Jianing Gou&#39;Blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Gravpher" /><meta name="description" content="摘要 本文主要介绍如何在 Ubuntu 系统下编译重力场恢复与GNSS数据处理软件 Groops，为了大家使用简单，我制作了 docker 镜像，方便大家直接在镜像里运行 Groops" /><meta name="keywords" content="Gou, Jia, Ning" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.87.0 with theme even" />
+
+
+<link rel="canonical" href="https://george-gou.github.io/blog/post/docker_groops/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/blog/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/blog/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/blog/favicon-16x16.png">
+<link rel="manifest" href="/blog/manifest.json">
+<link rel="mask-icon" href="/blog/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/blog/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Groops docker 镜像制作" />
+<meta property="og:description" content="摘要 本文主要介绍如何在 Ubuntu 系统下编译重力场恢复与GNSS数据处理软件 Groops，为了大家使用简单，我制作了 docker 镜像，方便大家直接在镜像里运行 Groops" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://george-gou.github.io/blog/post/docker_groops/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-12-24T10:47:44+08:00" />
+<meta property="article:modified_time" content="2021-12-24T10:47:44+08:00" />
+
+<meta itemprop="name" content="Groops docker 镜像制作">
+<meta itemprop="description" content="摘要 本文主要介绍如何在 Ubuntu 系统下编译重力场恢复与GNSS数据处理软件 Groops，为了大家使用简单，我制作了 docker 镜像，方便大家直接在镜像里运行 Groops"><meta itemprop="datePublished" content="2021-12-24T10:47:44+08:00" />
+<meta itemprop="dateModified" content="2021-12-24T10:47:44+08:00" />
+<meta itemprop="wordCount" content="992">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Groops docker 镜像制作"/>
+<meta name="twitter:description" content="摘要 本文主要介绍如何在 Ubuntu 系统下编译重力场恢复与GNSS数据处理软件 Groops，为了大家使用简单，我制作了 docker 镜像，方便大家直接在镜像里运行 Groops"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/blog/" class="logo">Jianing Gou</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/blog/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/blog/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/blog/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/blog/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/blog/about/">
+        <li class="mobile-menu-item">About</li>
+      </a><a href="/blog/denote/">
+        <li class="mobile-menu-item">Denote</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/blog/" class="logo">Jianing Gou</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/blog/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/blog/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/blog/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/blog/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/blog/about/">About</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/blog/denote/">Denote</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Groops docker 镜像制作</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2021-12-24 </span>
+        
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#摘要">摘要</a></li>
+        <li><a href="#groops-软件简介">Groops 软件简介</a></li>
+        <li><a href="#groops-源码编译">Groops 源码编译</a></li>
+        <li><a href="#docker-容器构建">Docker 容器构建</a>
+          <ul>
+            <li><a href="#在docker中运行-groops">在docker中运行 groops</a></li>
+            <li><a href="#构建-groops-镜像">构建 groops 镜像</a></li>
+          </ul>
+        </li>
+        <li><a href="#参考文献">参考文献</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h2 id="摘要">摘要</h2>
+<p>本文主要介绍如何在 Ubuntu 系统下编译<em>重力场恢复与GNSS数据处理软件</em> <strong>Groops</strong>，为了大家使用简单，我制作了 docker 镜像，方便大家直接在镜像里运行 Groops 程序，不需要在本地计算机再次编译。软件文档请参考作者文档<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>。</p>
+<h2 id="groops-软件简介">Groops 软件简介</h2>
+<p>Groops 是用 C++ 编写 (加上经典的Fortran代码) 的大地测量数据处理软件，主要功能包括利用卫星和地面重力数据恢复地球重力场、GNSS 卫星精密定轨、GNSS 数据处理等。大多数算法都经过 MPI 并行设计，加快了计算速度。</p>
+<h2 id="groops-源码编译">Groops 源码编译</h2>
+<p>Groops 从源码编译成可执行文件还是比较繁琐的，具体可参考作者给出的<a href="https://github.com/groops-devs/groops/blob/main/INSTALL.md">安装文档</a>，不知是何原因，笔者在 win 环境下编译没有成功，在 Ubuntu linux下成功编译成了可执行文件，作者还建议安装 gmt 绘图软件，以及配置一些环境变量。</p>
+<h2 id="docker-容器构建">Docker 容器构建</h2>
+<p>鉴于自己编译和配置的复杂性，会给读者带来不少麻烦，这里我在 docker 中构建了可以运行 groops 的容器，大家只需要pull 我的容器地址就可以轻松在本地使用 docker 程序。</p>
+<h3 id="在docker中运行-groops">在docker中运行 groops</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">$ <span class="o">(</span>base<span class="o">)</span> <span class="o">[</span>george@-c ~<span class="o">]</span>$ docker pull georgegou/groops_ubuntu
+<span class="o">(</span>base<span class="o">)</span> <span class="o">[</span>george@-c groops<span class="o">]</span>$ docker images
+REPOSITORY                TAG       IMAGE ID       CREATED          SIZE
+georgegou/groops_ubuntu   latest    d60f0033e85b   <span class="m">46</span> minutes ago   1.53GB
+<span class="c1"># 运行docker镜像</span>
+<span class="o">(</span>base<span class="o">)</span> <span class="o">[</span>george@-c groops<span class="o">]</span>$ docker run -it -d --name groops -v /home/george/groops:/root georgegou/groops_ubuntu  /bin/bash
+<span class="c1"># -v 的含义为挂载本地磁盘到镜像磁盘，镜像中的修改会同步到本地</span>
+
+<span class="c1"># 将编译的程序添加到环境变量</span>
+root@978c4b5de2e6:/# <span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:/home/george/groops/bin
+root@978c4b5de2e6:/# <span class="nv">groops</span>
+<span class="o">===</span> Starting <span class="nv">GROOPS</span> <span class="o">===</span>
+Gravity Recovery Object Oriented Programming System <span class="o">(</span>GROOPS<span class="o">)</span>
+Usage: groops <span class="o">[</span>--log &lt;logfile.txt&gt;<span class="o">]</span> <span class="o">[</span>--settings &lt;groopsDefaults.xml&gt;<span class="o">]</span> <span class="o">[</span>--silent<span class="o">]</span> <span class="o">[</span>--global <span class="nv">name</span><span class="o">=</span>value<span class="o">]</span> &lt;configfile.xml&gt;
+       groops --write-settings &lt;groopsDefaults.xml&gt;
+       groops --xsd &lt;schemafile.xsd&gt;
+       groops --doc &lt;documentation/&gt;
+
+ -h, --help           this text
+ -l, --log            append messages to logfile. If a directory is given, one time-stamped logfile will be created inside <span class="k">for</span> each groops script.
+ -g, --global         pass a global variable to config files as <span class="nv">name</span><span class="o">=</span>value pair
+ -c, --settings       <span class="nb">read</span> constants from file <span class="o">(</span>default search: groopsDefaults.xml<span class="o">)</span>
+ -s, --silent         runs silently
+ -d, --doc            generate documentation files <span class="o">(</span>latex/html/...<span class="o">)</span>
+ -x, --xsd            write xsd-schema of xml-configfile options
+ -C, --write-settings write the users current settings to file
+
+GitHub repository: https://github.com/groops-devs/groops
+<span class="o">(</span>Compiled: Nov <span class="m">4</span> <span class="m">2021</span> 00:51:04<span class="o">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="构建-groops-镜像">构建 groops 镜像</h3>
+<p>下面我将展示如何构建运行 groops 的docker镜像。
+1、构建镜像第一步是写 Dockerfile<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">FROM ubuntu:20.04
+RUN <span class="nv">buildDeps</span><span class="o">=</span><span class="s1">&#39;g++ gfortran cmake libexpat1-dev libopenblas-dev libnetcdf-dev liberfa-dev mpi-default-dev gmt gmt-gshhg&#39;</span> <span class="se">\
+</span><span class="se"></span>    <span class="o">&amp;&amp;</span> <span class="nb">export</span> <span class="nv">DEBIAN_FRONTEND</span><span class="o">=</span>noninteractive <span class="se">\
+</span><span class="se"></span>    <span class="o">&amp;&amp;</span> apt-get update <span class="se">\
+</span><span class="se"></span>    <span class="o">&amp;&amp;</span> apt-get install -y <span class="nv">$buildDeps</span> <span class="se">\
+</span><span class="se"></span>    <span class="o">&amp;&amp;</span> ln -fs /usr/share/zoneinfo/Asia/Shanghai /etc/localtime <span class="se">\
+</span></code></pre></td></tr></table>
+</div>
+</div><p>2、使用docker构建镜像</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">$ docker build -t ubuntu:20.04-dev .
+bash-5.0$ docker images                     
+REPOSITORY         TAG          IMAGE ID       CREATED        SIZE
+ubuntu         20.04-dev      52464fc32c86   <span class="m">1</span> day ago        885MB
+</code></pre></td></tr></table>
+</div>
+</div><p>3、运行镜像，自己编译源程序</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">$ docker run -it -d --name groops-dev -h groops-srv -v /Users/george/Desktop/groops/groops:/root ubuntu:20.04-dev /bin/bash 
+</code></pre></td></tr></table>
+</div>
+</div><p>/Users/george/Desktop/groops/groops:为软件所在目录，将其挂载的镜像中，修改任意一处文件都会发生改变。</p>
+<p>编译的具体步骤参照 <a href="https://github.com/groops-devs/groops/blob/main/INSTALL.md">https://github.com/groops-devs/groops/blob/main/INSTALL.md</a></p>
+<p>大概一个多小时的编译之后，会在<code>bin</code>目录下生成两个可执行文件</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">root@28ae6145f5bb:~/bin# ls
+groops  groopsMPI
+</code></pre></td></tr></table>
+</div>
+</div><p>4、提交镜像到自己的 dockerhub</p>
+<p>将能跑起来的容器发布到自己的 dockerhub，方便别人拉取后就能运行程序。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">$ docker login
+$ docker tag d60f0033e85b groops_ubuntu <span class="c1">#镜像ID，编写个名字</span>
+$ docker commit -m<span class="o">=</span><span class="s2">&#34;groops_ubuntu&#34;</span> -a<span class="o">=</span><span class="s2">&#34;georgegou&#34;</span> d60f0033e85b groops_ubuntu
+$ docker push groops_ubuntu
+</code></pre></td></tr></table>
+</div>
+</div><center>
+    <img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+    src="https://gitee.com/georgegou/gravitychina/raw/picture/202112242310951.png">
+    <br>
+    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    display: inline-block;
+    color: #999;
+    padding: 2px;">docker 镜像</div>
+</center>
+<h2 id="参考文献">参考文献</h2>
+<section class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1" role="doc-endnote">
+<p><a href="https://groops-devs.github.io/groops/">https://groops-devs.github.io/groops/</a>&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2" role="doc-endnote">
+<p><a href="https://github.com/groops-devs/groops/issues/21">https://github.com/groops-devs/groops/issues/21</a>&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
+
+    </div>
+
+    
+<div class="post-reward">
+  <input type="checkbox" name="reward" id="reward" hidden />
+  <label class="reward-button" for="reward">Reward</label>
+  <div class="qr-code">
+    
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/blog/alipay-qr-code.PNG">
+        <span>wechat</span>
+      </label>
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/blog/wechat-qr-code.PNG">
+        <span>alipay</span>
+      </label>
+  </div>
+</div><footer class="post-footer">
+      
+      <nav class="post-nav">
+        
+        <a class="next" href="/blog/post/fiman_learning_method/">
+            <span class="next-text nav-default">费曼学习法-学习笔记</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="goujianing19@mails.ucas.ac.cn" class="iconfont icon-email" title="email"></a>
+      <a href="https://stackoverflow.com/users/15882334/george-gou?tab=profile" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="https://github.com/George-Gou" class="iconfont icon-github" title="github"></a>
+      <a href="https://space.bilibili.com/320619371" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="https://george-gou.github.io/blog/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2019 - 
+    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>George Gou</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/blog/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        tags: 'ams',
+        }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js" integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>
