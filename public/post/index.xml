@@ -6,7 +6,16 @@
     <description>Recent content in Posts on Jianing Gou&#39;Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 13 Dec 2021 14:08:01 +0800</lastBuildDate><atom:link href="https://george-gou.github.io/blog/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 24 Dec 2021 10:47:44 +0800</lastBuildDate><atom:link href="https://george-gou.github.io/blog/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Groops docker 镜像制作</title>
+      <link>https://george-gou.github.io/blog/post/docker_groops/</link>
+      <pubDate>Fri, 24 Dec 2021 10:47:44 +0800</pubDate>
+      
+      <guid>https://george-gou.github.io/blog/post/docker_groops/</guid>
+      <description>摘要 本文主要介绍如何在 Ubuntu 系统下编译重力场恢复与GNSS数据处理软件 Groops，为了大家使用简单，我制作了 docker 镜像，方便大家直接在镜像里运行 Groops</description>
+    </item>
+    
     <item>
       <title>费曼学习法-学习笔记</title>
       <link>https://george-gou.github.io/blog/post/fiman_learning_method/</link>
