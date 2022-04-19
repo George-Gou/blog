@@ -177,7 +177,7 @@
 <p>，其主要功能为1、反向代理；2、<a href="http://nginx.org/en/docs/http/load_balancing.html">负载均衡</a>；3、<a href="https://nginx.org/en/docs/http/configuring_https_servers.html">HTTP 服务器</a>（静动分析）</p>
 <hr>
 <p>要了解反向代理，首先要知道什么是代理(Proxy)。代理就是位于服务器与客户端的中间件，优化客户端与服务器之间的通信。所谓架构，其核心就是在服务端与客户端加几层中间件，实现复杂的应用场景，如高并发等。</p>
-<p><img src="https://gitee.com/georgegou/gravitychina/raw/picture/202109111645129.webp" alt="image.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/George-Gou/PictureBed@master/2022/202109111645129.webp" alt="image.png"></p>
 <h3 id="正向代理">正向代理</h3>
 <p>如图所示，正向代理是服务于客户端的，客户端向代理发送一个请求并指定目标(原始服务器)，然后代理向原始服务器转交请求并将获得的内容返回给客户端。</p>
 <p><strong>正向代理</strong>可以使客户端访问它本身无法访问的服务器资源，比如 <code>Google</code>、<code>Youtubu</code>等服务，中国大陆的 ip 封禁了对外网的访问，通过 VPN 服务使客户端的 ip 地址位于国外，就可以实现科学上网。也就是说正向代理对我们是透明的，对服务端是非透明的，即服务端并不知道自己收到的是来自代理的访问还是来自真实客户端的访问。</p>
@@ -259,11 +259,11 @@ ps -ef <span class="p">|</span> grep nginx
 <span class="nb">kill</span> -9 pid <span class="c1"># 根据上面查看到的Nginx进程号，杀死Nginx进程，-9 表示强制结束进程</span>
 </code></pre></td></tr></table>
 </div>
-</div><p><img src="https://gitee.com/georgegou/gravitychina/raw/picture/202109111737435.png" alt="image-20210911173656583"></p>
+</div><p><img src="https://cdn.jsdelivr.net/gh/George-Gou/PictureBed@master/2022/202109111737435.png" alt="image-20210911173656583"></p>
 <p>上述命令查看 <code>nginx</code>的运行状态，可以看到是 <code>active</code>，通过 <code>hostname:8080</code>可以访问到默认页面。</p>
-<p><img src="https://gitee.com/georgegou/gravitychina/raw/picture/202109111741050.png" alt="image-20210911174140718"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/George-Gou/PictureBed@master/2022/202109111741050.png" alt="image-20210911174140718"></p>
 <h2 id="实例测试">实例测试</h2>
-<p><img src="https://gitee.com/georgegou/gravitychina/raw/picture/202109111827132.png" alt="How to Use Nginx as a Reverse Proxy on Ubuntu 20.04 LTS"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/George-Gou/PictureBed@master/2022/202109111827132.png" alt="How to Use Nginx as a Reverse Proxy on Ubuntu 20.04 LTS"></p>
 <p>上图所示的应用场景即是本次反向代理的主要应用之一。首先先要允许 80  端口能被外部访问到。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
