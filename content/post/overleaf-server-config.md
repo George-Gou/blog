@@ -268,7 +268,7 @@ $ sudo docker-compose up
 
 注册一个admin账号，可以开始愉快的写作了，done！
 
-<img src="https://gitee.com/georgegou/gravitychina/raw/picture/202108211802088.png" alt="Screenshot from 2021-08-14 23-10-21" style="zoom: 25%;" />
+<img src="https://cdn.jsdelivr.net/gh/George-Gou/PictureBed@master/2022/202108211802088.png" alt="Screenshot from 2021-08-14 23-10-21" style="zoom: 25%;" />
 
 ## 结语
 

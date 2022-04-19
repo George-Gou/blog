@@ -39,12 +39,17 @@ sequenceDiagrams:
   options: ""
 
 ---
+本文系统地介绍 Windows bat 和 Linux bash 脚本的区别以及常用的脚本命令。
 
-###### 测试平台: Win10、Cetnos 7 
 
-bat测试脚本：
+**注意：本文的测试平台分别为： Win10、Cetnos 7**
+
+
+
+
 
 ```bat
+rem bat测试脚本：
 set eqfile=eq.dat
 set topodata="earth_relief_06m.grd"
 set SIZE=w15c/0.25c

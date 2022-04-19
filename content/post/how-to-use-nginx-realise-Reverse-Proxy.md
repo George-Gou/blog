@@ -42,7 +42,7 @@ sequenceDiagrams:
 
 本文主要介绍如何使用 `nginx`实现服务器端反向代理。
 
-## 介绍
+
 
 Nginx 是一个高性能的 HTTP 和反向代理 web 服务器，同时也提供了IMAP/POP3/SMTP服务。最早是由俄罗斯人 [Igor Sysoev](https://www.nginx.com/people/igor-sysoev/) 用 C 语言设计并开发的，并于 2004 年开放源代码，目前其在旧金山创办了 [Nginx 公司](https://www.nginx.com/)，主要维护该项目。Nginx 已经为超过 400 万个网站提供服务
 
@@ -54,7 +54,7 @@ Nginx 是一个高性能的 HTTP 和反向代理 web 服务器，同时也提供
 
 要了解反向代理，首先要知道什么是代理(Proxy)。代理就是位于服务器与客户端的中间件，优化客户端与服务器之间的通信。所谓架构，其核心就是在服务端与客户端加几层中间件，实现复杂的应用场景，如高并发等。
 
-![image.png](https://gitee.com/georgegou/gravitychina/raw/picture/202109111645129.webp)
+![image.png](https://cdn.jsdelivr.net/gh/George-Gou/PictureBed@master/2022/202109111645129.webp)
 
 ### 正向代理
 
@@ -110,15 +110,15 @@ ps -ef | grep nginx
 kill -9 pid # 根据上面查看到的Nginx进程号，杀死Nginx进程，-9 表示强制结束进程
 ```
 
-![image-20210911173656583](https://gitee.com/georgegou/gravitychina/raw/picture/202109111737435.png)
+![image-20210911173656583](https://cdn.jsdelivr.net/gh/George-Gou/PictureBed@master/2022/202109111737435.png)
 
 上述命令查看 `nginx`的运行状态，可以看到是 `active`，通过 `hostname:8080`可以访问到默认页面。
 
-![image-20210911174140718](https://gitee.com/georgegou/gravitychina/raw/picture/202109111741050.png)
+![image-20210911174140718](https://cdn.jsdelivr.net/gh/George-Gou/PictureBed@master/2022/202109111741050.png)
 
 ## 实例测试
 
-![How to Use Nginx as a Reverse Proxy on Ubuntu 20.04 LTS](https://gitee.com/georgegou/gravitychina/raw/picture/202109111827132.png)
+![How to Use Nginx as a Reverse Proxy on Ubuntu 20.04 LTS](https://cdn.jsdelivr.net/gh/George-Gou/PictureBed@master/2022/202109111827132.png)
 
 上图所示的应用场景即是本次反向代理的主要应用之一。首先先要允许 80  端口能被外部访问到。
 

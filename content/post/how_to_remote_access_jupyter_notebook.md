@@ -69,7 +69,7 @@ pip install jupyterlab/jupyter notebook
 <center>
     <img style="border-radius: 0.3125em;
     box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
-    src="https://gitee.com/georgegou/gravitychina/raw/picture/202109100015122.png">
+    src="https://cdn.jsdelivr.net/gh/George-Gou/PictureBed@master/2022/202109100015122.png">
     <br>
     <div style="color:orange; border-bottom: 1px solid #d9d9d9;
     display: inline-block;
@@ -83,7 +83,7 @@ pip install jupyterlab/jupyter notebook
 
 如何创建`Hello World`项目呢？依次点击`New`，`python3`，编辑下列代码，即可实现代码、文档的混排，使得代码清晰客观。具体使用可以参考[官方文档](https://jupyter.org/documentation)
 
-<img src="https://gitee.com/georgegou/gravitychina/raw/picture/202109100040037.png" alt="tempsnip" style="zoom:75%;" />
+<img src="https://cdn.jsdelivr.net/gh/George-Gou/PictureBed@master/2022/202109100040037.png" alt="tempsnip" style="zoom:75%;" />
 
 ## 配置 Jupyter 远程访问
 

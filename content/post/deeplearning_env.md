@@ -40,8 +40,6 @@ sequenceDiagrams:
 
 ---
 
-## 写在前面
-
 最近要做深度学习方面的应用，考虑到云平台服务虽然方便，但是价格太贵，最便宜的亚马逊（AWS）对于学生党来说也比较贵，这里就用实验室的机器搭建深度学习集群。
 
 ## 1、系统安装
@@ -53,7 +51,7 @@ sequenceDiagrams:
 - 开启进入自己机器的 BIOS， 设置 U 盘启动
 - 进入安装画面
 
-![img](https://gitee.com/georgegou/gravitychina/raw/picture/202111041557515.png)
+![img](https://cdn.jsdelivr.net/gh/George-Gou/PictureBed@master/2022/202111041557515.png)
 
 - 点击 Install CentOS 7 ，回车。这里可能会出现问题，比如弹出异常，进入 dracut # 命令，这是因为安装程序找不到系统卷导致的，这里需要设置
 - 按住 `Tab`键，弹出配置信息，按 `E`键进入编辑，将 `vmlinuz initrd=initrd.img inst.stage2=hd:LABEL=CentOS\x207\x20x86_64 rd.live.check quiet`后半部分修改为 `LABEL=CENTOS`即可，当然你也可以 `cd` 到 `dev` 目录下查找 U 盘所在盘符，将其修改为 `hd:/dev/sda4` 也可以，这里看具体的盘符。
@@ -68,7 +66,7 @@ https://developer.nvidia.com/cuda-10.0-download-archive
 
 - CUDA的版本适配非常重要。目前TensorFlow2.0在CUDA上最稳妥的选择是10.0，如果选择10.1以上，有机率不识别GPU
 
-![image-20211104174613755](https://gitee.com/georgegou/gravitychina/raw/picture/202111041746094.png)
+![image-20211104174613755](https://cdn.jsdelivr.net/gh/George-Gou/PictureBed@master/2022/202111041746094.png)
 
 按照官网给的安装命令安装
 
@@ -85,7 +83,7 @@ CuDNN是 CUDA 和 DNN 的结合，利用 CUDA 搭配深度学习任务的框架
 
 下载 CuDNN 需要加入开发这社区，推荐采用微信注册，在[CuDNN](https://developer.nvidia.com/rdp/form/cudnn-download-survey)仓库里面下载 Runtime 版本
 
-![image-20211104175233436](https://gitee.com/georgegou/gravitychina/raw/picture/202111041752116.png)
+![image-20211104175233436](https://cdn.jsdelivr.net/gh/George-Gou/PictureBed@master/2022/202111041752116.png)
 
 ```shell
 $ sudo rpm -ivh libcudnn7-7.6.3.30-1.cuda10.0.x86_64.rpm   #必须先安装 Runtime 环境，才能继续安装开发者版本
@@ -136,9 +134,9 @@ kernel-devel-3.10.0-1160.45.1.el7.x86_64
 [root@localhost deeplearning]# nvidia-smi # 有返回内容则安装完毕
 ```
 
-![image-20211104194538022](https://gitee.com/georgegou/gravitychina/raw/picture/202111041945245.png)
+![image-20211104194538022](https://cdn.jsdelivr.net/gh/George-Gou/PictureBed@master/2022/202111041945245.png)
 
-![image-20211104194658765](https://gitee.com/georgegou/gravitychina/raw/picture/202111041947802.png)
+![image-20211104194658765](https://cdn.jsdelivr.net/gh/George-Gou/PictureBed@master/2022/202111041947802.png)
 
 ## 安装 TensorFlow
 
@@ -193,7 +191,7 @@ systemctl start iptables
 systemctl statusiptables
 ```
 
-![image-20211104210853275](https://gitee.com/georgegou/gravitychina/raw/picture/202111042108696.png)
+![image-20211104210853275](https://cdn.jsdelivr.net/gh/George-Gou/PictureBed@master/2022/202111042108696.png)
 
 ```shell
 #编辑防火墙软件
@@ -223,13 +221,13 @@ c.JupyterHub.hub_port = 8081
 #$ jupyterhub 
 ```
 
-![image-20211114000436416](https://gitee.com/georgegou/gravitychina/raw/picture/202111140004651.png)
+![image-20211114000436416](https://cdn.jsdelivr.net/gh/George-Gou/PictureBed@master/2022/202111140004651.png)
 
 ### 在 Kubernetes 上部署 jupyterhub 服务
 
 [Kubernetes](https://kubernetes.io/) 简称 k8s，是一个开源的云服务后台管理工具，把服务直接打包成容器运行在服务器上，可以将环境与宿主机隔离，不影响宿主机开发环境。
 
-![Deployment evolution](https://gitee.com/georgegou/gravitychina/raw/picture/202111051515336.svg)
+![Deployment evolution](https://cdn.jsdelivr.net/gh/George-Gou/PictureBed@master/2022/202111051515336.svg)
 
 具体可以参考：https://z2jh.jupyter.org/en/latest/
 

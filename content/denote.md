@@ -17,6 +17,6 @@ view: 2
 
 ## 捐赠途径
 
-![image-20210426123002427](https://gitee.com/georgegou/mark-down_picture/raw/picture/2021/image-20210426123002427.png)
+![image-20210426123002427](https://cdn.jsdelivr.net/gh/George-Gou/PictureBed@master/2022/image-20210426123002427.png)
 
 希望大家多提宝贵意见，对您的捐赠我身怀感恩，您的支持是我做下去的最大动力。

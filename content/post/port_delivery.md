@@ -80,11 +80,11 @@ curl cip.cc
 
 ### 1、进行路由器设置端口映射
 
-![image-20210928165448105](https://gitee.com/georgegou/gravitychina/raw/picture/202109281701832.png)
+![image-20210928165448105](https://cdn.jsdelivr.net/gh/George-Gou/PictureBed@master/2022/202109281701832.png)
 
 ### 2、按照提示配置参数
 
-![image-20210928165552450](https://gitee.com/georgegou/gravitychina/raw/picture/202109281701538.png)
+![image-20210928165552450](https://cdn.jsdelivr.net/gh/George-Gou/PictureBed@master/2022/202109281701538.png)
 
 ### 3、连接内部服务器
 

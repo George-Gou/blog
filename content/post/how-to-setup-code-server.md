@@ -46,6 +46,7 @@ sequenceDiagrams:
 
 ## 环境准备
 1、CentOS 7
+
 2、在 [官网](https://coder.com/docs/code-server/latest) 下载最新版本的 code-server
 
 ## 具体步骤
@@ -81,15 +82,15 @@ sequenceDiagrams:
 
 **注意**:
 ```$ sudo vi /etc/sysconfig/iptables```
-<img src="https://gitee.com/georgegou/gravitychina/raw/picture/202112090032023.png"/>
+<img src="https://cdn.jsdelivr.net/gh/George-Gou/PictureBed@master/2022/202112090032023.png"/>
 
 -A INPUT -j REJECT --reject-with icmp-host-prohibited
 
 -A FORWARD -j REJECT --reject-with icmp-host-prohibited
 
 这两句一定要放在最后才能让端口生效。
-![修改后](https://gitee.com/georgegou/gravitychina/raw/picture/202112091558315.png)
+![修改后](https://cdn.jsdelivr.net/gh/George-Gou/PictureBed@master/2022/202112091558315.png)
 这样才会使开放的端口生效。
 
 **以下是服务开启成功的窗口**
-<img src="https://gitee.com/georgegou/gravitychina/raw/picture/202112091308587.png"/>
+<img src="https://cdn.jsdelivr.net/gh/George-Gou/PictureBed@master/2022/202112091308587.png"/>

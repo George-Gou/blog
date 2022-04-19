@@ -9,7 +9,6 @@ description: ""
 tags: []
 categories: []
 author: "Gravpher"
-
 # You can also close(false) or open(true) something for this content.
 # P.S. comment can only be closed
 comment: false
@@ -185,7 +184,7 @@ $ sh /home/oracle/db/app/oracle/product/11.2.0/root.sh
 Check /home/oracle/db/app/oracle/product/11.2.0/install/root_-c_2021-11-19_01-44-04.log for the output of root script
 ```
 
-![image-20211119151840998](https://gitee.com/georgegou/gravitychina/raw/picture/202111191518402.png)
+![image-20211119151840998](https://cdn.jsdelivr.net/gh/George-Gou/PictureBed@master/2022/202111191518402.png)
 
 ## 4、配置静默监听
 
@@ -406,26 +405,23 @@ MDDATA
 ```
 
 ## 7、远程访问Oracle数据库
-
 ```shell
 #开放访问端口
 [root@-c]~# firewall-cmd --zone=public --add-port=1521/tcp --permanent
 success
 [root@-c]~# firewall-cmd --reload
 success
-
 ```
 
-#### 安装 Navicat 数据可可视化工具：
+**安装 Navicat 数据可视化工具：**
 
-![image-20211119234218799](https://gitee.com/georgegou/gravitychina/raw/picture/202111192346963.png)
+![image-20211119234218799](https://cdn.jsdelivr.net/gh/George-Gou/PictureBed@master/2022/202111192346963.png)
 
-![image-20211119234500605](https://gitee.com/georgegou/gravitychina/raw/picture/202111192346769.png)
+![image-20211119234500605](https://cdn.jsdelivr.net/gh/George-Gou/PictureBed@master/2022/202111192346769.png)
 
-![image-20211119234601864](https://gitee.com/georgegou/gravitychina/raw/picture/202111192346505.png)
+![image-20211119234601864](https://cdn.jsdelivr.net/gh/George-Gou/PictureBed@master/2022/202111192346505.png)
 
 配置 ip 地址、端口号、用户名、密码即可连接。
-
 ## 参考文献
 
 [1] cnblogs.com/wanderwei/p/11458979.html

@@ -39,8 +39,6 @@ sequenceDiagrams:
   options: ""
 
 ---
-## 摘要
-
 本文主要介绍如何在 Ubuntu 系统下编译*重力场恢复与GNSS数据处理软件* **Groops**，为了大家使用简单，我制作了 docker 镜像，方便大家直接在镜像里运行 Groops 程序，不需要在本地计算机再次编译。软件文档请参考作者文档[^1]。
 
 ## Groops 软件简介
@@ -130,16 +128,6 @@ $ docker tag d60f0033e85b groops_ubuntu #镜像ID，编写个名字
 $ docker commit -m="groops_ubuntu" -a="georgegou" d60f0033e85b groops_ubuntu
 $ docker push groops_ubuntu
 ```
-<center>
-    <img style="border-radius: 0.3125em;
-    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
-    src="https://gitee.com/georgegou/gravitychina/raw/picture/202112242310951.png">
-    <br>
-    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
-    display: inline-block;
-    color: #999;
-    padding: 2px;">docker 镜像</div>
-</center>
 
 ## 参考文献
 

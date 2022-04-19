@@ -81,7 +81,7 @@ sequenceDiagrams:
 <center>
     <img style="border-radius: 0.3125em;
     box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
-    src="https://gitee.com/georgegou/gravitychina/raw/picture/linux%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90%E8%A7%A3%E9%87%8A.jpeg">
+    src="https://cdn.jsdelivr.net/gh/George-Gou/PictureBed@master/2022/linux%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90%E8%A7%A3%E9%87%8A.jpeg">
     <br>
     <div style="color:orange; border-bottom: 1px solid #d9d9d9;
     display: inline-block;
@@ -96,7 +96,7 @@ rw分别代表读写，x代表执行程序，我们通过命令增加了程序�
 <center>
     <img style="border-radius: 0.3125em;
     box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
-    src="https://gitee.com/georgegou/gravitychina/raw/picture/202108221543777.png">
+    src="https://cdn.jsdelivr.net/gh/George-Gou/PictureBed@master/2022/202108221543777.png">
     <br>
     <div style="color:orange; border-bottom: 1px solid #d9d9d9;
     display: inline-block;
@@ -116,7 +116,7 @@ rw分别代表读写，x代表执行程序，我们通过命令增加了程序�
 
 PicGo配置完成后，在Typora软件内依次点击 `File`-`Preference` -`images`，在`image upload setting`中点击上传服务器为`PicGo(app)`配置程序环境变量即可。注意在英文界面不显示`PicGo(app)`，切换到中文界面即可。您也可以选择配置`PicGo-core`,按照`App`的方式修改配置文件即可。
 
-<center> <img src="https://gitee.com/georgegou/gravitychina/raw/picture/202108221601331.png" width="100%" height="10%" /> 上传成功 </center>
+<center> <img src="https://cdn.jsdelivr.net/gh/George-Gou/PictureBed@master/2022/202108221601331.png" width="100%" height="10%" /> 上传成功 </center>
 
 ## 结语
 
