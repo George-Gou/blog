@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Groops docker 镜像制作 - Jianing Gou&#39;Blog</title>
+  <title>Groops docker 镜像制作 - Gravpher&#39;s Blog</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="Gravpher" /><meta name="description" content="摘要 本文主要介绍如何在 Ubuntu 系统下编译重力场恢复与GNSS数据处理软件 Groops，为了大家使用简单，我制作了 docker 镜像，方便大家直接在镜像里运行 Groops" /><meta name="keywords" content="Gou, Jia, Ning" />
+<meta name="author" content="Gravpher" /><meta name="description" content="本文主要介绍如何在 Ubuntu 系统下编译重力场恢复与GNSS数据处理软件 Groops，为了大家使用简单，我制作了 docker 镜像，方便大家直接在镜像里运行 Groops 程序" />
 
 
 
@@ -40,19 +40,19 @@
 
 
 <meta property="og:title" content="Groops docker 镜像制作" />
-<meta property="og:description" content="摘要 本文主要介绍如何在 Ubuntu 系统下编译重力场恢复与GNSS数据处理软件 Groops，为了大家使用简单，我制作了 docker 镜像，方便大家直接在镜像里运行 Groops" />
+<meta property="og:description" content="本文主要介绍如何在 Ubuntu 系统下编译重力场恢复与GNSS数据处理软件 Groops，为了大家使用简单，我制作了 docker 镜像，方便大家直接在镜像里运行 Groops 程序" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://george-gou.github.io/blog/post/docker_groops/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2021-12-24T10:47:44+08:00" />
-<meta property="article:modified_time" content="2021-12-24T10:47:44+08:00" />
+<meta property="article:modified_time" content="2022-04-19T22:32:37+08:00" />
 
 <meta itemprop="name" content="Groops docker 镜像制作">
-<meta itemprop="description" content="摘要 本文主要介绍如何在 Ubuntu 系统下编译重力场恢复与GNSS数据处理软件 Groops，为了大家使用简单，我制作了 docker 镜像，方便大家直接在镜像里运行 Groops"><meta itemprop="datePublished" content="2021-12-24T10:47:44+08:00" />
-<meta itemprop="dateModified" content="2021-12-24T10:47:44+08:00" />
-<meta itemprop="wordCount" content="992">
+<meta itemprop="description" content="本文主要介绍如何在 Ubuntu 系统下编译重力场恢复与GNSS数据处理软件 Groops，为了大家使用简单，我制作了 docker 镜像，方便大家直接在镜像里运行 Groops 程序"><meta itemprop="datePublished" content="2021-12-24T10:47:44+08:00" />
+<meta itemprop="dateModified" content="2022-04-19T22:32:37+08:00" />
+<meta itemprop="wordCount" content="987">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Groops docker 镜像制作"/>
-<meta name="twitter:description" content="摘要 本文主要介绍如何在 Ubuntu 系统下编译重力场恢复与GNSS数据处理软件 Groops，为了大家使用简单，我制作了 docker 镜像，方便大家直接在镜像里运行 Groops"/>
+<meta name="twitter:description" content="本文主要介绍如何在 Ubuntu 系统下编译重力场恢复与GNSS数据处理软件 Groops，为了大家使用简单，我制作了 docker 镜像，方便大家直接在镜像里运行 Groops 程序"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -67,7 +67,7 @@
 <body>
   <div id="mobile-navbar" class="mobile-navbar">
   <div class="mobile-header-logo">
-    <a href="/blog/" class="logo">Jianing Gou</a>
+    <a href="/blog/" class="logo">Gravpher</a>
   </div>
   <div class="mobile-navbar-icon">
     <span></span>
@@ -100,7 +100,7 @@
   <div class="container" id="mobile-panel">
     <header id="header" class="header">
         <div class="logo-wrapper">
-  <a href="/blog/" class="logo">Jianing Gou</a>
+  <a href="/blog/" class="logo">Gravpher</a>
 </div>
 
 
@@ -138,6 +138,8 @@
       <div class="post-meta">
         <span class="post-time"> 2021-12-24 </span>
         
+          <span class="more-meta"> 987 words </span>
+          <span class="more-meta"> 2 mins read </span>
         
       </div>
     </header>
@@ -149,7 +151,6 @@
   <ul>
     <li>
       <ul>
-        <li><a href="#摘要">摘要</a></li>
         <li><a href="#groops-软件简介">Groops 软件简介</a></li>
         <li><a href="#groops-源码编译">Groops 源码编译</a></li>
         <li><a href="#docker-容器构建">Docker 容器构建</a>
@@ -166,8 +167,7 @@
   </div>
 </div>
     <div class="post-content">
-      <h2 id="摘要">摘要</h2>
-<p>本文主要介绍如何在 Ubuntu 系统下编译<em>重力场恢复与GNSS数据处理软件</em> <strong>Groops</strong>，为了大家使用简单，我制作了 docker 镜像，方便大家直接在镜像里运行 Groops 程序，不需要在本地计算机再次编译。软件文档请参考作者文档<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>。</p>
+      <p>本文主要介绍如何在 Ubuntu 系统下编译<em>重力场恢复与GNSS数据处理软件</em> <strong>Groops</strong>，为了大家使用简单，我制作了 docker 镜像，方便大家直接在镜像里运行 Groops 程序，不需要在本地计算机再次编译。软件文档请参考作者文档<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>。</p>
 <h2 id="groops-软件简介">Groops 软件简介</h2>
 <p>Groops 是用 C++ 编写 (加上经典的Fortran代码) 的大地测量数据处理软件，主要功能包括利用卫星和地面重力数据恢复地球重力场、GNSS 卫星精密定轨、GNSS 数据处理等。大多数算法都经过 MPI 并行设计，加快了计算速度。</p>
 <h2 id="groops-源码编译">Groops 源码编译</h2>
@@ -313,17 +313,7 @@ $ docker commit -m<span class="o">=</span><span class="s2">&#34;groops_ubuntu&#3
 $ docker push groops_ubuntu
 </code></pre></td></tr></table>
 </div>
-</div><center>
-    <img style="border-radius: 0.3125em;
-    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
-    src="https://cdn.jsdelivr.net/gh/George-Gou/PictureBed@master/2022/202112242310951.png">
-    <br>
-    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
-    display: inline-block;
-    color: #999;
-    padding: 2px;">docker 镜像</div>
-</center>
-<h2 id="参考文献">参考文献</h2>
+</div><h2 id="参考文献">参考文献</h2>
 <section class="footnotes" role="doc-endnotes">
 <hr>
 <ol>
@@ -356,7 +346,11 @@ $ docker push groops_ubuntu
 </div><footer class="post-footer">
       
       <nav class="post-nav">
-        
+        <a class="prev" href="/blog/post/ruoyi_framwork/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">若依框架简易指南</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
         <a class="next" href="/blog/post/fiman_learning_method/">
             <span class="next-text nav-default">费曼学习法-学习笔记</span>
             <span class="next-text nav-mobile">Next</span>
@@ -399,7 +393,7 @@ $ docker push groops_ubuntu
   <span class="copyright-year">
     &copy; 
     2019 - 
-    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>George Gou</span>
+    2022<span class="heart"><i class="iconfont icon-heart"></i></span><span>Gravpher</span>
   </span>
 </div>
 
