@@ -65,7 +65,7 @@ docker1：tomcat01 172.17.0.2
 docker2：tomcat02 172.17.0.3
 ```
 
-![img](https://cdn.jsdelivr.net/gh/George-Gou/PictureBed@master/2022/docker%E7%BD%91%E7%BB%9C)
+![img](https://cdn.jsdelivr.net/gh/George-Gou/PictureBed@master/2022/docker_net.png)
 
 如果容器采用 host 模式，这种情况下容器与宿主机共享网络，其余情况通过 veth-pair 进行桥接，进而实现容器间的通信。
 
