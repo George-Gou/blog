@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>在服务器后台运行Jupyter Notebook服务 - Gravpher&#39;s Blog</title>
+  <title>若依框架简易指南 - Gravpher&#39;s Blog</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="Gravpher" /><meta name="description" content="本文介绍如何在 Linux 服务器后台运行 Web 服务，以及 nohup命令的使用。 背景 每次使用Jupyter Notebook都需要在终端上键入 jupyter noteboo" /><meta name="keywords" content="Jupyter Notebook" />
+<meta name="author" content="Gravpher" /><meta name="description" content="若依框架简易指南" />
 
 
 
@@ -26,7 +26,7 @@
 <meta name="generator" content="Hugo 0.87.0 with theme even" />
 
 
-<link rel="canonical" href="https://george-gou.github.io/blog/post/running-service-in-ubuntu-server/" />
+<link rel="canonical" href="https://george-gou.github.io/blog/post/ruoyi_framwork/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/blog/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/blog/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/blog/favicon-16x16.png">
@@ -39,20 +39,20 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="在服务器后台运行Jupyter Notebook服务" />
-<meta property="og:description" content="本文介绍如何在 Linux 服务器后台运行 Web 服务，以及 nohup命令的使用。 背景 每次使用Jupyter Notebook都需要在终端上键入 jupyter noteboo" />
+<meta property="og:title" content="若依框架简易指南" />
+<meta property="og:description" content="若依框架简易指南" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://george-gou.github.io/blog/post/running-service-in-ubuntu-server/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2021-09-10T22:18:12+08:00" />
-<meta property="article:modified_time" content="2021-11-14T14:17:01+08:00" />
+<meta property="og:url" content="https://george-gou.github.io/blog/post/ruoyi_framwork/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-03-04T16:28:31+08:00" />
+<meta property="article:modified_time" content="2022-04-19T22:32:37+08:00" />
 
-<meta itemprop="name" content="在服务器后台运行Jupyter Notebook服务">
-<meta itemprop="description" content="本文介绍如何在 Linux 服务器后台运行 Web 服务，以及 nohup命令的使用。 背景 每次使用Jupyter Notebook都需要在终端上键入 jupyter noteboo"><meta itemprop="datePublished" content="2021-09-10T22:18:12+08:00" />
-<meta itemprop="dateModified" content="2021-11-14T14:17:01+08:00" />
-<meta itemprop="wordCount" content="616">
-<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="在服务器后台运行Jupyter Notebook服务"/>
-<meta name="twitter:description" content="本文介绍如何在 Linux 服务器后台运行 Web 服务，以及 nohup命令的使用。 背景 每次使用Jupyter Notebook都需要在终端上键入 jupyter noteboo"/>
+<meta itemprop="name" content="若依框架简易指南">
+<meta itemprop="description" content="若依框架简易指南"><meta itemprop="datePublished" content="2022-03-04T16:28:31+08:00" />
+<meta itemprop="dateModified" content="2022-04-19T22:32:37+08:00" />
+<meta itemprop="wordCount" content="394">
+<meta itemprop="keywords" content="Ruoyi," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="若依框架简易指南"/>
+<meta name="twitter:description" content="若依框架简易指南"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -133,13 +133,13 @@
           <article class="post">
     
     <header class="post-header">
-      <h1 class="post-title">在服务器后台运行Jupyter Notebook服务</h1>
+      <h1 class="post-title">若依框架简易指南</h1>
 
       <div class="post-meta">
-        <span class="post-time"> 2021-09-10 </span>
+        <span class="post-time"> 2022-03-04 </span>
         
-          <span class="more-meta"> 616 words </span>
-          <span class="more-meta"> 2 mins read </span>
+          <span class="more-meta"> 394 words </span>
+          <span class="more-meta"> 1 min read </span>
         
       </div>
     </header>
@@ -149,84 +149,112 @@
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
   <ul>
-    <li>
-      <ul>
-        <li><a href="#背景">背景</a></li>
-        <li><a href="#nohup命令使用">nohup命令使用</a>
-          <ul>
-            <li><a href="#命令后台运行">命令后台运行</a></li>
-            <li><a href="#后台挂起-jupyter-notebook">后台挂起 jupyter notebook</a></li>
-          </ul>
-        </li>
-        <li><a href="#参考文献">参考文献</a></li>
-      </ul>
-    </li>
+    <li><a href="#环境准备">环境准备</a></li>
+    <li><a href="#运行系统">运行系统</a></li>
+    <li><a href="#references">引用来源</a></li>
   </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      <p>本文介绍如何在 Linux 服务器后台运行 Web 服务，以及 <code>nohup</code>命令的使用。</p>
-<h2 id="背景">背景</h2>
-<p>每次使用<code>Jupyter Notebook</code>都需要在终端上键入 <code>jupyter notebook</code>才能在浏览器上访问服务，这样就显得比较麻烦，可以让其像系统服务一样运行在后台，方便日常使用。同样 静态网页生成器<code>Hugo</code>、文档编辑器 <code>sharelatex</code>服务都可以使用该方法，实现后台运行。</p>
-<h2 id="nohup命令使用">nohup命令使用</h2>
-<p>Linux中每一个命令在执行中都会启动一个进程，该进程在退出终端时将自动终止。对于特定的服务和应用，如果想一直运行在后台的话，就需要用到 <code>nohup</code>命令，该命令可以让程序在后台挂起。本质上，<code>nohup</code>命令是通过阻止进程接受到 <code>SIGNUP</code>(信号挂起)，该信号负责关闭终端时退出进程。</p>
-<p>执行 <code>nohup</code>后，用户无法使用 <code>stdin</code>，并将 <code>stdout</code>和 <code>stderr</code>的内容输出到 <code>nohup.out</code>文件中。</p>
-<blockquote>
-<p>如果 <code>nohup</code> 命令的输出被重定向到某个其他文件，则不会生成 <code>nohup.out</code> 文件</p>
-</blockquote>
-<p>将输出重定位到 <code>output.txt</code></p>
+      <p>若依框架是一个基于SpringBoot的权限管理系统</p>
+<h1 id="环境准备">环境准备</h1>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">$ nohup bash test.sh &gt; output.txt
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">JDK &gt;<span class="o">=</span> 1.8  <span class="c1">#Java 运行环境</span>
+Mysql &gt;<span class="o">=</span> 5.7 <span class="c1">#数据库</span>
+Maven &gt;<span class="o">=</span> 3.0 <span class="c1">#Java包管理工具</span>
+<span class="nv">Redis</span> <span class="o">=</span> 6.2.6 <span class="c1">#本文使用的最新稳定版  </span>
+<span class="nv">Node</span> <span class="o">=</span> 16.14.0 <span class="c1">#本文使用的最新稳定版</span>
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="命令后台运行">命令后台运行</h3>
+</div><h1 id="运行系统">运行系统</h1>
+<p>1、克隆项目到本地 git clone <a href="https://gitee.com/y_project/RuoYi-Vue">https://gitee.com/y_project/RuoYi-Vue</a><br>
+2、导入项目到 Idea 软件，Maven会自动下载依赖<br>
+3、修改必要配置</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">$ nohup bash test.sh <span class="p">&amp;</span>   <span class="c1">#生成 nohup.out 存储输出日志</span>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">主要修改两个配置文件
+1、ruoyi-admin/src/main/resources/application.yml <span class="c1">#配置Redis、服务器端口、日志、Mybatis等参数</span>
+2、application-druid.yml <span class="c1">#配置主从数据库信息（名称、用户、密码等）</span>
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="后台挂起-jupyter-notebook">后台挂起 jupyter notebook</h3>
+</div><p>4、启动后台服务<br>
+$\quad$ 打开文件 <a href="">ruoyi-admin/src/main/java/com/ruoyi/RuoYiApplication.java</a> , 运行主函数即可<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">nohup jupyter notebook --allow-root &gt; jupyter.log 2&gt;<span class="p">&amp;</span><span class="m">1</span> <span class="p">&amp;</span>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="o">(</span>♥◠‿◠<span class="o">)</span>ﾉﾞ  若依启动成功   ლ<span class="o">(</span>´ڡ<span class="sb">`</span>ლ<span class="o">)</span>ﾞ  
+ .-------.       ____     __        
+ <span class="p">|</span>  _ _   <span class="se">\ </span>     <span class="se">\ </span>  <span class="se">\ </span>  /  /    
+ <span class="p">|</span> <span class="o">(</span> <span class="s1">&#39; )  |       \  _. /  &#39;</span>       
+ <span class="p">|</span><span class="o">(</span>_ o _<span class="o">)</span> /        _<span class="o">(</span> <span class="o">)</span>_ .<span class="s1">&#39;         
+</span><span class="s1"> | (_,_).&#39;</span> __  ___<span class="o">(</span>_ o _<span class="o">)</span><span class="s1">&#39;          
+</span><span class="s1"> |  |\ \  |  ||   |(_,_)&#39;</span>         
+ <span class="p">|</span>  <span class="p">|</span> <span class="se">\ </span><span class="sb">`</span><span class="s1">&#39;   /|   `-&#39;</span>  /           
+ <span class="p">|</span>  <span class="p">|</span>  <span class="se">\ </span>   /  <span class="se">\ </span>     /           
+ <span class="s1">&#39;&#39;</span>-<span class="s1">&#39;   `&#39;</span>-<span class="s1">&#39;    `-..-&#39;</span>              
+<span class="c1">#启动成功界面</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>上述命令将 <code>jupyter notebook</code>挂在后台运行，<code>&gt; jupyter.log</code> 目的是将 <code>nohup</code>输出重定位到 <code>jupyter.log</code>文件里面，<code>2&gt;&amp;1</code>的含义为<strong>将标准错误输出重定向到标准输出</strong>。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">事实上，1和2都是Linux系统中的文件描述符，其中0表示标准输入(stdin)、1表示标准输出(stdout)、2表示标准错误输出(stderr)，
-</code></pre></td></tr></table>
-</div>
-</div><h2 id="参考文献">参考文献</h2>
-<p><a href="https://www.geeksforgeeks.org/nohup-command-in-linux-with-examples/">https://www.geeksforgeeks.org/nohup-command-in-linux-with-examples/</a></p>
-
+</div><h1 id="references" class="no-underline">引用来源</h1>
+<section class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1" role="doc-endnote">
+<p><a href="http://doc.ruoyi.vip/ruoyi/document/hjbs.html">http://doc.ruoyi.vip/ruoyi/document/hjbs.html</a>&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
     </div>
 
     
-<footer class="post-footer">
-      
+<div class="post-reward">
+  <input type="checkbox" name="reward" id="reward" hidden />
+  <label class="reward-button" for="reward">Reward</label>
+  <div class="qr-code">
+    
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/blog/alipay-qr-code.PNG">
+        <span>wechat</span>
+      </label>
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/blog/wechat-qr-code.PNG">
+        <span>alipay</span>
+      </label>
+  </div>
+</div><footer class="post-footer">
+      <div class="post-tags">
+          <a href="/blog/tags/ruoyi/">Ruoyi</a>
+          </div>
       <nav class="post-nav">
-        <a class="prev" href="/blog/post/how-to-use-nginx-realise-reverse-proxy/">
-            <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">如何利用Nginx实现反向代理</span>
-            <span class="prev-text nav-mobile">Prev</span>
-          </a>
-        <a class="next" href="/blog/post/how_to_remote_access_jupyter_notebook/">
-            <span class="next-text nav-default">如何远程访问服务器端Jupyter Notebook</span>
+        
+        <a class="next" href="/blog/post/docker_groops/">
+            <span class="next-text nav-default">Groops docker 镜像制作</span>
             <span class="next-text nav-mobile">Next</span>
             <i class="iconfont icon-right"></i>
           </a>
@@ -285,6 +313,15 @@
 
 
 <script type="text/javascript" src="/blog/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        tags: 'ams',
+        }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js" integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin="anonymous"></script>
 
 
 

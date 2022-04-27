@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Docker网络探秘 - Jianing Gou&#39;Blog</title>
+  <title>Docker网络探秘 - Gravpher&#39;s Blog</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="Gravpher" /><meta name="description" content="Docker网络 Docker 是一个及其轻量化的应用容器，能够轻松将开发环境与应用打包至镜像进行发布，能达到“Develop Once，Run Anywhe" /><meta name="keywords" content="Gou, Jia, Ning" />
+<meta name="author" content="Gravpher" /><meta name="description" content="Docker网络 Docker 是一个及其轻量化的应用容器，能够轻松将开发环境与应用打包至镜像进行发布，能达到“Develop Once，Run Anywhe" />
 
 
 
@@ -44,11 +44,11 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://george-gou.github.io/blog/post/docker_net/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2021-11-03T16:48:18+08:00" />
-<meta property="article:modified_time" content="2021-11-03T16:48:18+08:00" />
+<meta property="article:modified_time" content="2022-04-27T20:13:22+08:00" />
 
 <meta itemprop="name" content="Docker网络探秘">
 <meta itemprop="description" content="Docker网络 Docker 是一个及其轻量化的应用容器，能够轻松将开发环境与应用打包至镜像进行发布，能达到“Develop Once，Run Anywhe"><meta itemprop="datePublished" content="2021-11-03T16:48:18+08:00" />
-<meta itemprop="dateModified" content="2021-11-03T16:48:18+08:00" />
+<meta itemprop="dateModified" content="2022-04-27T20:13:22+08:00" />
 <meta itemprop="wordCount" content="640">
 <meta itemprop="keywords" content="docker," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Docker网络探秘"/>
@@ -67,7 +67,7 @@
 <body>
   <div id="mobile-navbar" class="mobile-navbar">
   <div class="mobile-header-logo">
-    <a href="/blog/" class="logo">Jianing Gou</a>
+    <a href="/blog/" class="logo">Gravpher</a>
   </div>
   <div class="mobile-navbar-icon">
     <span></span>
@@ -100,7 +100,7 @@
   <div class="container" id="mobile-panel">
     <header id="header" class="header">
         <div class="logo-wrapper">
-  <a href="/blog/" class="logo">Jianing Gou</a>
+  <a href="/blog/" class="logo">Gravpher</a>
 </div>
 
 
@@ -138,6 +138,8 @@
       <div class="post-meta">
         <span class="post-time"> 2021-11-03 </span>
         
+          <span class="more-meta"> 640 words </span>
+          <span class="more-meta"> 2 mins read </span>
         
       </div>
     </header>
@@ -200,7 +202,7 @@ docker0: <span class="nv">flags</span><span class="o">=</span>4163&lt;UP,BROADCA
 docker2：tomcat02 172.17.0.3
 </code></pre></td></tr></table>
 </div>
-</div><p><img src="https://cdn.jsdelivr.net/gh/George-Gou/PictureBed@master/2022/docker%E7%BD%91%E7%BB%9C" alt="img"></p>
+</div><p><img src="https://cdn.jsdelivr.net/gh/George-Gou/PictureBed@master/2022/docker_net.png" alt="img"></p>
 <p>如果容器采用 host 模式，这种情况下容器与宿主机共享网络，其余情况通过 veth-pair 进行桥接，进而实现容器间的通信。</p>
 <h3 id="如何使用docker部署-redis-集群">如何使用Docker部署 redis 集群</h3>
 <p>在如今的大数据与机器学习时代，几乎所有的服务都跑在集群上的。相比单机服务器来说，集群能够发挥负载均衡、高可用等特性。下面将演示如何在 docker 容器中部署 6 个redis 集群。</p>
@@ -338,7 +340,7 @@ cat <span class="s">&lt;&lt; EOF &gt;/mydata/redis/node-${port}/conf/redis.conf
   <span class="copyright-year">
     &copy; 
     2019 - 
-    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>George Gou</span>
+    2022<span class="heart"><i class="iconfont icon-heart"></i></span><span>Gravpher</span>
   </span>
 </div>
 
