@@ -75,3 +75,14 @@ git push -u origin dev
 然后在 Github 网页上刷新自己的代码仓库，就可以看到：`dev had recent pushes 1 minute ago` 字样，右边有一个`Compare & pull request`按钮，点击它，就进入了`Open a pull request`界面，这里可以写一个 comment 就可以提交代码了。点击 `Create pull request`提交代码即可。
 然后我再`review`大家提交的代码，如果没有问题就合并到主分支里面。
 ![image.png](https://cdn.jsdelivr.net/gh/George-Gou/PictureBed@master/2022/github_pull_request.png)
+
+## 3、项目文档本地预览
+项目是由 mkdocs 软件包构建，其是基于 Python 开发的，我们只需要安装 Python 和 mkdocs 环境就可以运行，非常简单。
+```shell
+pip install mkdocs
+pip install mkdocs-material
+cd r2de
+# 运行文档
+mkdocs serve
+#即可以在127.0.0.1:8000端口访问
+```
