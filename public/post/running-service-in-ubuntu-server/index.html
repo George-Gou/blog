@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.87.0 with theme even" />
+<meta name="generator" content="Hugo 0.97.3 with theme even" />
 
 
 <link rel="canonical" href="https://george-gou.github.io/blog/post/running-service-in-ubuntu-server/" />
@@ -181,8 +181,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">$ nohup bash test.sh &gt; output.txt
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">$ nohup bash test.sh &gt; output.txt
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="命令后台运行">命令后台运行</h3>
 <div class="highlight"><div class="chroma">
@@ -190,8 +190,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">$ nohup bash test.sh <span class="p">&amp;</span>   <span class="c1">#生成 nohup.out 存储输出日志</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">$ nohup bash test.sh <span class="p">&amp;</span>   <span class="c1">#生成 nohup.out 存储输出日志</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="后台挂起-jupyter-notebook">后台挂起 jupyter notebook</h3>
 <div class="highlight"><div class="chroma">
@@ -199,8 +199,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">nohup jupyter notebook --allow-root &gt; jupyter.log 2&gt;<span class="p">&amp;</span><span class="m">1</span> <span class="p">&amp;</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">nohup jupyter notebook --allow-root &gt; jupyter.log 2&gt;<span class="p">&amp;</span><span class="m">1</span> <span class="p">&amp;</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>上述命令将 <code>jupyter notebook</code>挂在后台运行，<code>&gt; jupyter.log</code> 目的是将 <code>nohup</code>输出重定位到 <code>jupyter.log</code>文件里面，<code>2&gt;&amp;1</code>的含义为<strong>将标准错误输出重定向到标准输出</strong>。</p>
 <div class="highlight"><div class="chroma">
@@ -208,8 +208,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">事实上，1和2都是Linux系统中的文件描述符，其中0表示标准输入(stdin)、1表示标准输出(stdout)、2表示标准错误输出(stderr)，
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">事实上，1和2都是Linux系统中的文件描述符，其中0表示标准输入(stdin)、1表示标准输出(stdout)、2表示标准错误输出(stderr)，
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="参考文献">参考文献</h2>
 <p><a href="https://www.geeksforgeeks.org/nohup-command-in-linux-with-examples/">https://www.geeksforgeeks.org/nohup-command-in-linux-with-examples/</a></p>
@@ -284,7 +284,7 @@
 
 
 
-<script type="text/javascript" src="/blog/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+<script type="text/javascript" src="/blog/js/main.min.64437849d125a2d603b3e71d6de5225d641a32d17168a58106e0b61852079683.js"></script>
 
 
 

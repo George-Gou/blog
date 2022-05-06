@@ -183,8 +183,8 @@ copyright = ""            # default: author.name ↓        # 默认为下面配
 
   [params.reward]                                         # 文章打赏
     enable = true
-    wechat = "/blog/alipay-qr-code.PNG"           # 微信二维码
-    alipay = "/blog/wechat-qr-code.PNG"           # 支付宝二维码
+    wechat = "/blog/wechat-qr-code.PNG"           # 微信二维码
+    alipay = "/blog/alipay-qr-code.PNG"           # 支付宝二维码
 
   [params.social]                                         # 社交链接
     a-email = "goujianing19@mails.ucas.ac.cn"

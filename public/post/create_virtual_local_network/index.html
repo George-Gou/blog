@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.87.0 with theme even" />
+<meta name="generator" content="Hugo 0.97.3 with theme even" />
 
 
 <link rel="canonical" href="https://george-gou.github.io/blog/post/create_virtual_local_network/" />
@@ -201,8 +201,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">zerotier-one: fatal error: cannot <span class="nb">bind</span> to <span class="nb">local</span> control interface port
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">zerotier-one: fatal error: cannot <span class="nb">bind</span> to <span class="nb">local</span> control interface port
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>查看端口占用情况：</p>
 <div class="highlight"><div class="chroma">
@@ -219,17 +219,17 @@
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"># sudo lsof -i:9993
-COMMAND     PID         USER   FD   TYPE DEVICE SIZE/OFF NODE NAME
-zerotier- 29046 zerotier-one    6u  IPv4 131195      0t0  TCP localhost:9993 (LISTEN)
-zerotier- 29046 zerotier-one    7u  IPv6 131196      0t0  TCP ip6-localhost:9993 (LISTEN)
-zerotier- 29046 zerotier-one    9u  IPv4 131204      0t0  UDP george:9993 
-zerotier- 29046 zerotier-one   10u  IPv4 131205      0t0  TCP george:9993 (LISTEN)
-zerotier- 29046 zerotier-one   11u  IPv4 131206      0t0  UDP george:9993 
-zerotier- 29046 zerotier-one   12u  IPv4 131207      0t0  TCP george:9993 (LISTEN)
-zerotier- 29046 zerotier-one   13u  IPv4 131208      0t0  UDP george:9993 
-zerotier- 29046 zerotier-one   14u  IPv4 131209      0t0  TCP george:9993 (LISTEN)
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># sudo lsof -i:9993
+</span></span><span class="line"><span class="cl">COMMAND     PID         USER   FD   TYPE DEVICE SIZE/OFF NODE NAME
+</span></span><span class="line"><span class="cl">zerotier- 29046 zerotier-one    6u  IPv4 131195      0t0  TCP localhost:9993 (LISTEN)
+</span></span><span class="line"><span class="cl">zerotier- 29046 zerotier-one    7u  IPv6 131196      0t0  TCP ip6-localhost:9993 (LISTEN)
+</span></span><span class="line"><span class="cl">zerotier- 29046 zerotier-one    9u  IPv4 131204      0t0  UDP george:9993 
+</span></span><span class="line"><span class="cl">zerotier- 29046 zerotier-one   10u  IPv4 131205      0t0  TCP george:9993 (LISTEN)
+</span></span><span class="line"><span class="cl">zerotier- 29046 zerotier-one   11u  IPv4 131206      0t0  UDP george:9993 
+</span></span><span class="line"><span class="cl">zerotier- 29046 zerotier-one   12u  IPv4 131207      0t0  TCP george:9993 (LISTEN)
+</span></span><span class="line"><span class="cl">zerotier- 29046 zerotier-one   13u  IPv4 131208      0t0  UDP george:9993 
+</span></span><span class="line"><span class="cl">zerotier- 29046 zerotier-one   14u  IPv4 131209      0t0  TCP george:9993 (LISTEN)
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>发现端口已经被zerotier占用，这个时候直接杀掉该进程</p>
 <div class="highlight"><div class="chroma">
@@ -238,9 +238,9 @@ zerotier- 29046 zerotier-one   14u  IPv4 131209      0t0  TCP george:9993 (LISTE
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">sudo kill 29046
-#PID号
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">sudo kill 29046
+</span></span><span class="line"><span class="cl">#PID号
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>之后重启即可。</p>
 <div class="highlight"><div class="chroma">
@@ -250,10 +250,10 @@ zerotier- 29046 zerotier-one   14u  IPv4 131209      0t0  TCP george:9993 (LISTE
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">systemctl stop zerotier-one           //关闭zerotier
-systemctl status zerotier-one         //显示是否已启动
-systemctl restart zerotier-one        //重新启动
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">systemctl stop zerotier-one           //关闭zerotier
+</span></span><span class="line"><span class="cl">systemctl status zerotier-one         //显示是否已启动
+</span></span><span class="line"><span class="cl">systemctl restart zerotier-one        //重新启动
+</span></span></code></pre></td></tr></table>
 </div>
 </div>
     </div>
@@ -328,7 +328,7 @@ systemctl restart zerotier-one        //重新启动
 
 
 
-<script type="text/javascript" src="/blog/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+<script type="text/javascript" src="/blog/js/main.min.64437849d125a2d603b3e71d6de5225d641a32d17168a58106e0b61852079683.js"></script>
 
 
 

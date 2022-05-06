@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.87.0 with theme even" />
+<meta name="generator" content="Hugo 0.97.3 with theme even" />
 
 
 <link rel="canonical" href="https://george-gou.github.io/blog/post/port_delivery/" />
@@ -183,8 +183,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">curl cip.cc
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">curl cip.cc
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>前提是一定要有一个公网 IP，如果你是通过路由器拨号连接到的互联网。分配的 IP 本身就是局域网的话，得到类似于如下的 IP 地址：</p>
 <div class="highlight"><div class="chroma">
@@ -198,14 +198,14 @@
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">10.x.x.x
-
-172.x.x.x
-
-192.168.x.x
-
-100.x.x.x
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">10.x.x.x
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">172.x.x.x
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">192.168.x.x
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">100.x.x.x
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p><strong>这种情况下就无法进行端口映射</strong>，这样的话就需要参考第三方的内网穿透软件才能实现。</p>
 <h3 id="1进行路由器设置端口映射">1、进行路由器设置端口映射</h3>
@@ -218,8 +218,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">ssh -p 外部端口 用户名@服务器外网ip
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">ssh -p 外部端口 用户名@服务器外网ip
+</span></span></code></pre></td></tr></table>
 </div>
 </div>
     </div>
@@ -292,7 +292,7 @@
 
 
 
-<script type="text/javascript" src="/blog/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+<script type="text/javascript" src="/blog/js/main.min.64437849d125a2d603b3e71d6de5225d641a32d17168a58106e0b61852079683.js"></script>
 
 
 

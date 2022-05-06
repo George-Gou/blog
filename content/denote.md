@@ -20,3 +20,5 @@ view: 2
 ![image-20210426123002427](https://cdn.jsdelivr.net/gh/George-Gou/PictureBed@master/2022/image-20210426123002427.png)
 
 希望大家多提宝贵意见，对您的捐赠我身怀感恩，您的支持是我做下去的最大动力。
+
+![image-20210426123002427](https://cdn.jsdelivr.net/gh/George-Gou/PictureBed@master/2022/wechat.png)

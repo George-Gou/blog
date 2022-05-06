@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.87.0 with theme even" />
+<meta name="generator" content="Hugo 0.97.3 with theme even" />
 
 
 <link rel="canonical" href="https://george-gou.github.io/blog/post/deeplearning_env/" />
@@ -49,7 +49,7 @@
 <meta itemprop="name" content="CentOS 7搭建深度学习环境">
 <meta itemprop="description" content="本文介绍如何使用CentOS 7搭建深度学习环境"><meta itemprop="datePublished" content="2021-11-04T15:37:06+08:00" />
 <meta itemprop="dateModified" content="2022-04-19T22:32:37+08:00" />
-<meta itemprop="wordCount" content="1704">
+<meta itemprop="wordCount" content="1703">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="CentOS 7搭建深度学习环境"/>
 <meta name="twitter:description" content="本文介绍如何使用CentOS 7搭建深度学习环境"/>
@@ -138,7 +138,7 @@
       <div class="post-meta">
         <span class="post-time"> 2021-11-04 </span>
         
-          <span class="more-meta"> 1704 words </span>
+          <span class="more-meta"> 1703 words </span>
           <span class="more-meta"> 4 mins read </span>
         
       </div>
@@ -205,11 +205,11 @@
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">Installation Instructions:
-<span class="sb">`</span>sudo rpm -i cuda-repo-rhel7-10-0-local-10.0.130-410.48-1.0-1.x86_64.rpm<span class="sb">`</span>
-<span class="sb">`</span>sudo yum clean all<span class="sb">`</span>
-<span class="sb">`</span>sudo yum install cuda<span class="sb">`</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">Installation Instructions:
+</span></span><span class="line"><span class="cl"><span class="sb">`</span>sudo rpm -i cuda-repo-rhel7-10-0-local-10.0.130-410.48-1.0-1.x86_64.rpm<span class="sb">`</span>
+</span></span><span class="line"><span class="cl"><span class="sb">`</span>sudo yum clean all<span class="sb">`</span>
+</span></span><span class="line"><span class="cl"><span class="sb">`</span>sudo yum install cuda<span class="sb">`</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="安装cudnn">安装CuDNN</h2>
 <p>CuDNN是 CUDA 和 DNN 的结合，利用 CUDA 搭配深度学习任务的框架</p>
@@ -219,13 +219,11 @@
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
-</span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">$ sudo rpm -ivh libcudnn7-7.6.3.30-1.cuda10.0.x86_64.rpm   <span class="c1">#必须先安装 Runtime 环境，才能继续安装开发者版本</span>
-$ sudo rpm -ivh libcudnn7-devel-7.6.3.30-1.cuda10.0.x86_64.rpm 
-
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">$ sudo rpm -ivh libcudnn7-7.6.3.30-1.cuda10.0.x86_64.rpm   <span class="c1">#必须先安装 Runtime 环境，才能继续安装开发者版本</span>
+</span></span><span class="line"><span class="cl">$ sudo rpm -ivh libcudnn7-devel-7.6.3.30-1.cuda10.0.x86_64.rpm 
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="安装显卡驱动">安装显卡驱动</h2>
 <p>一般来说，安装最新的驱动是最佳选择。</p>
@@ -239,10 +237,10 @@ $ sudo rpm -ivh libcudnn7-devel-7.6.3.30-1.cuda10.0.x86_64.rpm
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">$ lspci <span class="p">|</span> grep -i nvidia <span class="c1"># 查看显卡版本信息</span>
-<span class="c1">#如果显示找不到指令，安装响应软件包即可</span>
-$ yum -y install pciutils
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">$ lspci <span class="p">|</span> grep -i nvidia <span class="c1"># 查看显卡版本信息</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#如果显示找不到指令，安装响应软件包即可</span>
+</span></span><span class="line"><span class="cl">$ yum -y install pciutils
+</span></span></code></pre></td></tr></table>
 </div>
 </div><ul>
 <li>禁用自带的 nouveau 驱动程序，防止冲突</li>
@@ -277,33 +275,33 @@ $ yum -y install pciutils
 </span><span class="lnt">26
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="c1">#查看内核版本与源码版本是否一致</span>
-<span class="o">[</span>root@localhost include<span class="o">]</span><span class="c1"># ls /boot | grep vmlinu</span>
-vmlinuz-0-rescue-3a38ede036ec417cad8ea0d147ea0c46
-vmlinuz-3.10.0-1160.45.1.el7.x86_64
-vmlinuz-3.10.0-1160.el7.x86_64
-<span class="o">[</span>root@localhost include<span class="o">]</span><span class="c1"># rpm -aq |grep kernel-devel</span>
-kernel-devel-3.10.0-1160.el7.x86_64
-kernel-devel-3.10.0-1160.45.1.el7.x86_64
-<span class="c1">#屏蔽 nouveau</span>
-<span class="o">[</span>root@localhost include<span class="o">]</span><span class="c1"># vim /lib/modprobe.d/dist-blacklist.conf</span>
-<span class="c1">#blacklist nvidiafb 将该项注释掉</span>
-<span class="o">[</span>root@localhost include<span class="o">]</span><span class="c1"># echo -e &#34;blacklist nouveau\noptions nouveau modeset=0&#34; &gt; /usr/lib/modprobe.d/dist-blacklist.conf</span>
-<span class="c1">#重建  initramfs image</span>
-<span class="o">[</span>root@localhost include<span class="o">]</span><span class="c1"># mv /boot/initramfs-$(uname -r).img /boot/initramfs-$(uname -r).img.bak</span>
-<span class="o">[</span>root@localhost include<span class="o">]</span><span class="c1"># dracut /boot/initramfs-$(uname -r).img $(uname -r)</span>
-<span class="c1">#修改运行级别为文本模式</span>
-<span class="o">[</span>root@localhost include<span class="o">]</span><span class="c1"># systemctl set-default multi-user.target</span>
-<span class="c1">#重启</span>
-<span class="o">[</span>root@localhost include<span class="o">]</span><span class="c1"># reboot</span>
-<span class="c1">#查看nouveau是否被禁用</span>
-<span class="o">[</span>root@localhost include<span class="o">]</span><span class="c1"># lsmod | grep nouveau </span>
-<span class="c1">#没有返回内容，说明已经被禁用</span>
-<span class="o">[</span>root@localhost include<span class="o">]</span><span class="c1"># chmod 777 NVIDIA-Linux-x86_64-470.82.00.run </span>
-<span class="c1">#将文件权限设置为可执行</span>
-<span class="o">[</span>root@localhost include<span class="o">]</span><span class="c1"># ./NVIDIA-Linux-x86_64-470.82.00.run </span>
-<span class="o">[</span>root@localhost deeplearning<span class="o">]</span><span class="c1"># nvidia-smi # 有返回内容则安装完毕</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1">#查看内核版本与源码版本是否一致</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@localhost include<span class="o">]</span><span class="c1"># ls /boot | grep vmlinu</span>
+</span></span><span class="line"><span class="cl">vmlinuz-0-rescue-3a38ede036ec417cad8ea0d147ea0c46
+</span></span><span class="line"><span class="cl">vmlinuz-3.10.0-1160.45.1.el7.x86_64
+</span></span><span class="line"><span class="cl">vmlinuz-3.10.0-1160.el7.x86_64
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@localhost include<span class="o">]</span><span class="c1"># rpm -aq |grep kernel-devel</span>
+</span></span><span class="line"><span class="cl">kernel-devel-3.10.0-1160.el7.x86_64
+</span></span><span class="line"><span class="cl">kernel-devel-3.10.0-1160.45.1.el7.x86_64
+</span></span><span class="line"><span class="cl"><span class="c1">#屏蔽 nouveau</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@localhost include<span class="o">]</span><span class="c1"># vim /lib/modprobe.d/dist-blacklist.conf</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#blacklist nvidiafb 将该项注释掉</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@localhost include<span class="o">]</span><span class="c1"># echo -e &#34;blacklist nouveau\noptions nouveau modeset=0&#34; &gt; /usr/lib/modprobe.d/dist-blacklist.conf</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#重建  initramfs image</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@localhost include<span class="o">]</span><span class="c1"># mv /boot/initramfs-$(uname -r).img /boot/initramfs-$(uname -r).img.bak</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@localhost include<span class="o">]</span><span class="c1"># dracut /boot/initramfs-$(uname -r).img $(uname -r)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#修改运行级别为文本模式</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@localhost include<span class="o">]</span><span class="c1"># systemctl set-default multi-user.target</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#重启</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@localhost include<span class="o">]</span><span class="c1"># reboot</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#查看nouveau是否被禁用</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@localhost include<span class="o">]</span><span class="c1"># lsmod | grep nouveau </span>
+</span></span><span class="line"><span class="cl"><span class="c1">#没有返回内容，说明已经被禁用</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@localhost include<span class="o">]</span><span class="c1"># chmod 777 NVIDIA-Linux-x86_64-470.82.00.run </span>
+</span></span><span class="line"><span class="cl"><span class="c1">#将文件权限设置为可执行</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@localhost include<span class="o">]</span><span class="c1"># ./NVIDIA-Linux-x86_64-470.82.00.run </span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@localhost deeplearning<span class="o">]</span><span class="c1"># nvidia-smi # 有返回内容则安装完毕</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p><img src="https://cdn.jsdelivr.net/gh/George-Gou/PictureBed@master/2022/202111041945245.png" alt="image-20211104194538022"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/George-Gou/PictureBed@master/2022/202111041947802.png" alt="image-20211104194658765"></p>
@@ -342,33 +340,33 @@ kernel-devel-3.10.0-1160.45.1.el7.x86_64
 </span><span class="lnt">26
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="o">[</span>root@localhost deeplearning<span class="o">]</span><span class="c1"># wget https://repo.anaconda.com/archive/Anaconda3-2021.05-Linux-x86_64.sh</span>
-<span class="o">[</span>root@localhost deeplearning<span class="o">]</span><span class="c1"># bash Anaconda3-2021.05-Linux-x86_64.sh</span>
-<span class="c1">#可以自定义安装目录，并添加环境变量</span>
-<span class="o">[</span>root@localhost deeplearning<span class="o">]</span><span class="c1"># echo -e &#34;PATH=$PATH:/home/george/deeplearning/anaconda3/bin\nexport PATH&#34; &gt; ~/.bashrc</span>
-<span class="o">[</span>root@localhost deeplearning<span class="o">]</span><span class="c1"># source ~/.bashrc</span>
-<span class="c1"># 创建 tensorflow 虚拟环境</span>
-<span class="o">[</span>root@localhost deeplearning<span class="o">]</span><span class="c1"># conda create --name tf</span>
-<span class="o">[</span>root@localhost deeplearning<span class="o">]</span><span class="c1"># conda activate tf</span>
-<span class="o">[</span>root@localhost deeplearning<span class="o">]</span><span class="c1"># conda install tensorflow-gpu==2.0.0</span>
-<span class="c1">#该命令会自动安装TensorFlow所有的依赖环境</span>
-<span class="o">[</span>root@localhost deeplearning<span class="o">]</span><span class="c1"># conda install jupyter notebook</span>
-<span class="c1">#配置 jupyter notebook，方便远程使用网页应用编写代码和文档</span>
-<span class="o">[</span>root@localhost deeplearning<span class="o">]</span><span class="c1"># jupyter notebook --generate-config</span>
-<span class="c1">#生成jupyter配置文件</span>
-<span class="o">[</span>root@localhost deeplearning<span class="o">]</span><span class="c1"># python</span>
-<span class="c1">#进入python交互程序</span>
-&gt;&gt;&gt; from notebook.auth import passwd
-&gt;&gt;&gt; passwd<span class="o">()</span>
-Enter password: 
-Verify password: 
-<span class="c1">#这里会生成一段秘钥</span>
-<span class="o">(</span>base<span class="o">)</span> <span class="o">[</span>george@localhost .jupyter<span class="o">]</span>$ vi /home/george/.jupyterjupyter_notebook_config.py
-<span class="c1"># 修改几个配置参数</span>
-c.NotebookApp.ip <span class="o">=</span> <span class="s1">&#39;*&#39;</span>
-c.NotebookApp.password <span class="o">=</span> <span class="s1">&#39;password your created just now&#39;</span>
-c.NotebookApp.open_browser <span class="o">=</span> <span class="s1">&#39;False&#39;</span> <span class="c1">#默认不在本地打开窗口，因为这是服务端</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="o">[</span>root@localhost deeplearning<span class="o">]</span><span class="c1"># wget https://repo.anaconda.com/archive/Anaconda3-2021.05-Linux-x86_64.sh</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@localhost deeplearning<span class="o">]</span><span class="c1"># bash Anaconda3-2021.05-Linux-x86_64.sh</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#可以自定义安装目录，并添加环境变量</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@localhost deeplearning<span class="o">]</span><span class="c1"># echo -e &#34;PATH=$PATH:/home/george/deeplearning/anaconda3/bin\nexport PATH&#34; &gt; ~/.bashrc</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@localhost deeplearning<span class="o">]</span><span class="c1"># source ~/.bashrc</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 创建 tensorflow 虚拟环境</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@localhost deeplearning<span class="o">]</span><span class="c1"># conda create --name tf</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@localhost deeplearning<span class="o">]</span><span class="c1"># conda activate tf</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@localhost deeplearning<span class="o">]</span><span class="c1"># conda install tensorflow-gpu==2.0.0</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#该命令会自动安装TensorFlow所有的依赖环境</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@localhost deeplearning<span class="o">]</span><span class="c1"># conda install jupyter notebook</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#配置 jupyter notebook，方便远程使用网页应用编写代码和文档</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@localhost deeplearning<span class="o">]</span><span class="c1"># jupyter notebook --generate-config</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#生成jupyter配置文件</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@localhost deeplearning<span class="o">]</span><span class="c1"># python</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#进入python交互程序</span>
+</span></span><span class="line"><span class="cl">&gt;&gt;&gt; from notebook.auth import passwd
+</span></span><span class="line"><span class="cl">&gt;&gt;&gt; passwd<span class="o">()</span>
+</span></span><span class="line"><span class="cl">Enter password: 
+</span></span><span class="line"><span class="cl">Verify password: 
+</span></span><span class="line"><span class="cl"><span class="c1">#这里会生成一段秘钥</span>
+</span></span><span class="line"><span class="cl"><span class="o">(</span>base<span class="o">)</span> <span class="o">[</span>george@localhost .jupyter<span class="o">]</span>$ vi /home/george/.jupyterjupyter_notebook_config.py
+</span></span><span class="line"><span class="cl"><span class="c1"># 修改几个配置参数</span>
+</span></span><span class="line"><span class="cl">c.NotebookApp.ip <span class="o">=</span> <span class="s1">&#39;*&#39;</span>
+</span></span><span class="line"><span class="cl">c.NotebookApp.password <span class="o">=</span> <span class="s1">&#39;password your created just now&#39;</span>
+</span></span><span class="line"><span class="cl">c.NotebookApp.open_browser <span class="o">=</span> <span class="s1">&#39;False&#39;</span> <span class="c1">#默认不在本地打开窗口，因为这是服务端</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="端口管理">端口管理</h3>
 <p>使用 iptables 工具可以方便地进行端口管理</p>
@@ -387,18 +385,18 @@ c.NotebookApp.open_browser <span class="o">=</span> <span class="s1">&#39;False&
 </span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># 关闭防火墙</span>
-systemctl stop firewalld.service
-systemctl disable firewalld.service
-systemctl mask firewalld.service
-<span class="c1"># 安装 iptables</span>
-sudo yum install iptables-services -y
-<span class="c1"># 启动 iptables</span>
-systemctl <span class="nb">enable</span> iptables
-systemctl start iptables
-<span class="c1">#查看其状态</span>
-systemctl statusiptables
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># 关闭防火墙</span>
+</span></span><span class="line"><span class="cl">systemctl stop firewalld.service
+</span></span><span class="line"><span class="cl">systemctl disable firewalld.service
+</span></span><span class="line"><span class="cl">systemctl mask firewalld.service
+</span></span><span class="line"><span class="cl"><span class="c1"># 安装 iptables</span>
+</span></span><span class="line"><span class="cl">sudo yum install iptables-services -y
+</span></span><span class="line"><span class="cl"><span class="c1"># 启动 iptables</span>
+</span></span><span class="line"><span class="cl">systemctl <span class="nb">enable</span> iptables
+</span></span><span class="line"><span class="cl">systemctl start iptables
+</span></span><span class="line"><span class="cl"><span class="c1">#查看其状态</span>
+</span></span><span class="line"><span class="cl">systemctl statusiptables
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p><img src="https://cdn.jsdelivr.net/gh/George-Gou/PictureBed@master/2022/202111042108696.png" alt="image-20211104210853275"></p>
 <div class="highlight"><div class="chroma">
@@ -413,15 +411,15 @@ systemctl statusiptables
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="c1">#编辑防火墙软件</span>
-sudo vim /etc/sysconfig/iptables
-<span class="c1">#添加开放端口供服务访问</span>
--A INPUT -m state --state NEW -m tcp -p tcp --dport <span class="m">8888</span> -j ACCEPT
-<span class="c1">#重启以生效</span>
-systemctl restart iptables.service
-<span class="c1"># 设置防火墙开启自启</span>
-systemctl <span class="nb">enable</span> iptables.service
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1">#编辑防火墙软件</span>
+</span></span><span class="line"><span class="cl">sudo vim /etc/sysconfig/iptables
+</span></span><span class="line"><span class="cl"><span class="c1">#添加开放端口供服务访问</span>
+</span></span><span class="line"><span class="cl">-A INPUT -m state --state NEW -m tcp -p tcp --dport <span class="m">8888</span> -j ACCEPT
+</span></span><span class="line"><span class="cl"><span class="c1">#重启以生效</span>
+</span></span><span class="line"><span class="cl">systemctl restart iptables.service
+</span></span><span class="line"><span class="cl"><span class="c1"># 设置防火墙开启自启</span>
+</span></span><span class="line"><span class="cl">systemctl <span class="nb">enable</span> iptables.service
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="配置-jupyterhub-服务">配置 Jupyterhub 服务</h2>
 <p>由于 jupyter notebook 只能单用户登录使用，不符合实际要求，这里我们配置 jupyterhub 服务。</p>
@@ -439,17 +437,17 @@ systemctl <span class="nb">enable</span> iptables.service
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">$ conda install JupyterHub  <span class="c1">#conda 环境下安装jupyterhub</span>
-$ jupyterhub --generate-config   <span class="c1">#生成配置文件                               Writing default config to: jupyterhub_config.py</span>
-c.JupyterHub.hub_ip <span class="o">=</span> <span class="s1">&#39;&#39;</span>
-c.JupyterHub.hub_connect_ip <span class="o">=</span> <span class="s1">&#39;0.0.0.0&#39;</span>
-c.JupyterHub.bind_url <span class="o">=</span> <span class="s1">&#39;http://0.0.0.0:8888&#39;</span>
-c.JupyterHub.admin_users <span class="o">=</span> set<span class="o">(</span><span class="s1">&#39;george&#39;</span><span class="o">)</span>
-c.JupyterHub.ip <span class="o">=</span> <span class="s1">&#39;192.168.1.14&#39;</span>
-c.JupyterHub.hub_port <span class="o">=</span> <span class="m">8081</span>
-<span class="c1"># 启动服务</span>
-<span class="c1">#$ jupyterhub </span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">$ conda install JupyterHub  <span class="c1">#conda 环境下安装jupyterhub</span>
+</span></span><span class="line"><span class="cl">$ jupyterhub --generate-config   <span class="c1">#生成配置文件                               Writing default config to: jupyterhub_config.py</span>
+</span></span><span class="line"><span class="cl">c.JupyterHub.hub_ip <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+</span></span><span class="line"><span class="cl">c.JupyterHub.hub_connect_ip <span class="o">=</span> <span class="s1">&#39;0.0.0.0&#39;</span>
+</span></span><span class="line"><span class="cl">c.JupyterHub.bind_url <span class="o">=</span> <span class="s1">&#39;http://0.0.0.0:8888&#39;</span>
+</span></span><span class="line"><span class="cl">c.JupyterHub.admin_users <span class="o">=</span> set<span class="o">(</span><span class="s1">&#39;george&#39;</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">c.JupyterHub.ip <span class="o">=</span> <span class="s1">&#39;192.168.1.14&#39;</span>
+</span></span><span class="line"><span class="cl">c.JupyterHub.hub_port <span class="o">=</span> <span class="m">8081</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 启动服务</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#$ jupyterhub </span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p><img src="https://cdn.jsdelivr.net/gh/George-Gou/PictureBed@master/2022/202111140004651.png" alt="image-20211114000436416"></p>
 <h3 id="在-kubernetes-上部署-jupyterhub-服务">在 Kubernetes 上部署 jupyterhub 服务</h3>
@@ -528,7 +526,7 @@ c.JupyterHub.hub_port <span class="o">=</span> <span class="m">8081</span>
 
 
 
-<script type="text/javascript" src="/blog/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+<script type="text/javascript" src="/blog/js/main.min.64437849d125a2d603b3e71d6de5225d641a32d17168a58106e0b61852079683.js"></script>
 
 
 

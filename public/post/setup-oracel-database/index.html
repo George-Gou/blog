@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.87.0 with theme even" />
+<meta name="generator" content="Hugo 0.97.3 with theme even" />
 
 
 <link rel="canonical" href="https://george-gou.github.io/blog/post/setup-oracel-database/" />
@@ -49,7 +49,7 @@
 <meta itemprop="name" content="Cetos7 下安装oracle数据库">
 <meta itemprop="description" content=""><meta itemprop="datePublished" content="2021-11-18T17:28:12+08:00" />
 <meta itemprop="dateModified" content="2022-04-19T22:32:37+08:00" />
-<meta itemprop="wordCount" content="2209">
+<meta itemprop="wordCount" content="2208">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Cetos7 下安装oracle数据库"/>
 <meta name="twitter:description" content=""/>
@@ -138,7 +138,7 @@
       <div class="post-meta">
         <span class="post-time"> 2021-11-18 </span>
         
-          <span class="more-meta"> 2209 words </span>
+          <span class="more-meta"> 2208 words </span>
           <span class="more-meta"> 5 mins read </span>
         
       </div>
@@ -197,32 +197,32 @@
 </span><span class="lnt">25
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">$ yum -y install binutils <span class="se">\
-</span><span class="se"></span>compat-libstdc++-33 <span class="se">\
-</span><span class="se"></span>elfutils-libelf <span class="se">\
-</span><span class="se"></span>elfutils-libelf-devel <span class="se">\
-</span><span class="se"></span>expat <span class="se">\
-</span><span class="se"></span>gcc <span class="se">\
-</span><span class="se"></span>gcc-c++ <span class="se">\
-</span><span class="se"></span>glibc <span class="se">\
-</span><span class="se"></span>glibc-common <span class="se">\
-</span><span class="se"></span>glibc-devel <span class="se">\
-</span><span class="se"></span>glibc-headers <span class="se">\
-</span><span class="se"></span>libaio <span class="se">\
-</span><span class="se"></span>libaio-devel <span class="se">\
-</span><span class="se"></span>libgcc <span class="se">\
-</span><span class="se"></span>libstdc++ <span class="se">\
-</span><span class="se"></span>libstdc++-devel <span class="se">\
-</span><span class="se"></span>make <span class="se">\
-</span><span class="se"></span>pdksh <span class="se">\
-</span><span class="se"></span>sysstat <span class="se">\
-</span><span class="se"></span>unixODBC <span class="se">\
-</span><span class="se"></span>unixODBC-devel
-<span class="c1">#安装 pdksh 包，不然安装过程会提示</span>
-$ wget -O /tmp/pdksh-5.2.14-37.el5_8.1.x86_64.rpm http://vault.centos.org/5.11/os/x86_64/CentOS/pdksh-5.2.14-37.el5_8.1.x86_64.rpm
-$ <span class="nb">cd</span> /tmp/
-rpm -ivh pdksh-5.2.14-37.el5_8.1.x86_64.rpm
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">$ yum -y install binutils <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>compat-libstdc++-33 <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>elfutils-libelf <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>elfutils-libelf-devel <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>expat <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>gcc <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>gcc-c++ <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>glibc <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>glibc-common <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>glibc-devel <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>glibc-headers <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>libaio <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>libaio-devel <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>libgcc <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>libstdc++ <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>libstdc++-devel <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>make <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>pdksh <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>sysstat <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>unixODBC <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>unixODBC-devel
+</span></span><span class="line"><span class="cl"><span class="c1">#安装 pdksh 包，不然安装过程会提示</span>
+</span></span><span class="line"><span class="cl">$ wget -O /tmp/pdksh-5.2.14-37.el5_8.1.x86_64.rpm http://vault.centos.org/5.11/os/x86_64/CentOS/pdksh-5.2.14-37.el5_8.1.x86_64.rpm
+</span></span><span class="line"><span class="cl">$ <span class="nb">cd</span> /tmp/
+</span></span><span class="line"><span class="cl">rpm -ivh pdksh-5.2.14-37.el5_8.1.x86_64.rpm
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="2创建oracel用户组">2、创建oracel用户组</h2>
 <div class="highlight"><div class="chroma">
@@ -281,59 +281,59 @@ rpm -ivh pdksh-5.2.14-37.el5_8.1.x86_64.rpm
 </span><span class="lnt">52
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">$ groupadd oinstall
-$ groupadd dba
-$ groupadd asmadmin
-$ groupadd asmdba
-$ useradd -g oinstall -G dba,asmdba oracle -d /home/oracle
-$ passwd oracle
-<span class="c1"># 本机ip地质映射</span>
-$ vim /etc/hosts
-192.168.1.14 centos-oracle 
-$ PING -c <span class="o">(</span>192.168.1.14<span class="o">)</span> 56<span class="o">(</span>84<span class="o">)</span> bytes of data.
-<span class="m">64</span> bytes from -c <span class="o">(</span>192.168.1.14<span class="o">)</span>: <span class="nv">icmp_seq</span><span class="o">=</span><span class="m">1</span> <span class="nv">ttl</span><span class="o">=</span><span class="m">64</span> <span class="nv">time</span><span class="o">=</span>0.022 ms
-<span class="m">64</span> bytes from -c <span class="o">(</span>192.168.1.14<span class="o">)</span>: <span class="nv">icmp_seq</span><span class="o">=</span><span class="m">2</span> <span class="nv">ttl</span><span class="o">=</span><span class="m">64</span> <span class="nv">time</span><span class="o">=</span>0.021 ms
-<span class="m">64</span> bytes from -c <span class="o">(</span>192.168.1.14<span class="o">)</span>: <span class="nv">icmp_seq</span><span class="o">=</span><span class="m">3</span> <span class="nv">ttl</span><span class="o">=</span><span class="m">64</span> <span class="nv">time</span><span class="o">=</span>0.022 ms
-<span class="c1"># 测试 </span>
-<span class="c1"># 创建 oracel 安装目录</span>
-$ mkdir -p /home/oracle//db/app/oracle/product/11.2.0
-$ mkdir /home/oracle/db/app/oracle/oradata
-$ mkdir /home/oracle/db/app/oracle/inventory
-$ mkdir /home/oracle/db/app/oracle/fast_recovery_area
-$ chown -R oracle:oinstall /home/oracle/db/app/oracle
-$ chmod -R <span class="m">775</span> /home/oracle/db/app/oracle
-<span class="c1"># 配置环境变量</span>
-$ su - oracle
-$ vim .bash_profile
-<span class="nb">umask</span> <span class="m">022</span>
-<span class="nb">export</span> <span class="nv">ORACLE_HOSTNAME</span><span class="o">=</span>centos-oracle
-<span class="nb">export</span> <span class="nv">ORACLE_BASE</span><span class="o">=</span>/home/oracle/db/app/oracle
-<span class="nb">export</span> <span class="nv">ORACLE_HOME</span><span class="o">=</span><span class="nv">$ORACLE_BASE</span>/product/11.2.0/
-<span class="nb">export</span> <span class="nv">ORACLE_SID</span><span class="o">=</span>ogeorge
-<span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span>.:<span class="nv">$ORACLE_HOME</span>/bin:<span class="nv">$ORACLE_HOME</span>/OPatch:<span class="nv">$ORACLE_HOME</span>/jdk/bin:<span class="nv">$PATH</span>
-<span class="nb">export</span> <span class="nv">LC_ALL</span><span class="o">=</span><span class="s2">&#34;en_US&#34;</span>
-<span class="nb">export</span> <span class="nv">LANG</span><span class="o">=</span><span class="s2">&#34;en_US&#34;</span>
-<span class="nb">export</span> <span class="nv">NLS_LANG</span><span class="o">=</span><span class="s2">&#34;AMERICAN_AMERICA.ZHS16GBK&#34;</span>
-<span class="nb">export</span> <span class="nv">NLS_DATE_FORMAT</span><span class="o">=</span><span class="s2">&#34;YYYY-MM-DD HH24:MI:SS&#34;</span>
-$ <span class="nb">cd</span> db/
-$ unzip linux.x64_11gR2_database_1of2.zip -d /home/oracle/db
-$ unzip linux.x64_11gR2_database_2of2.zip -d /home/oracle/db
-$ mkdir db/etc/
-$ cp db/database/response/* db/etc/
-<span class="c1">#修改安装配置文件，参数配置如下</span>
-oracle.install.option<span class="o">=</span>INSTALL_DB_SWONLY
-<span class="nv">DECLINE_SECURITY_UPDATES</span><span class="o">=</span><span class="nb">true</span>
-<span class="nv">UNIX_GROUP_NAME</span><span class="o">=</span>oinstall
-<span class="nv">INVENTORY_LOCATION</span><span class="o">=</span>/home/oracle/db/app/oracle/inventory
-<span class="nv">SELECTED_LANGUAGES</span><span class="o">=</span>en,zh_CN
-<span class="nv">ORACLE_HOSTNAME</span><span class="o">=</span>centos-oracle
-<span class="nv">ORACLE_HOME</span><span class="o">=</span>/home/oracle/db/app/oracle/product/11.2.0
-<span class="nv">ORACLE_BASE</span><span class="o">=</span>/home/oracle/db/app/oracle
-oracle.install.db.InstallEdition<span class="o">=</span>EE
-oracle.install.db.isCustomInstall<span class="o">=</span><span class="nb">true</span>
-oracle.install.db.DBA_GROUP<span class="o">=</span>dba
-oracle.install.db.OPER_GROUP<span class="o">=</span>dba
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">$ groupadd oinstall
+</span></span><span class="line"><span class="cl">$ groupadd dba
+</span></span><span class="line"><span class="cl">$ groupadd asmadmin
+</span></span><span class="line"><span class="cl">$ groupadd asmdba
+</span></span><span class="line"><span class="cl">$ useradd -g oinstall -G dba,asmdba oracle -d /home/oracle
+</span></span><span class="line"><span class="cl">$ passwd oracle
+</span></span><span class="line"><span class="cl"><span class="c1"># 本机ip地质映射</span>
+</span></span><span class="line"><span class="cl">$ vim /etc/hosts
+</span></span><span class="line"><span class="cl">192.168.1.14 centos-oracle 
+</span></span><span class="line"><span class="cl">$ PING -c <span class="o">(</span>192.168.1.14<span class="o">)</span> 56<span class="o">(</span>84<span class="o">)</span> bytes of data.
+</span></span><span class="line"><span class="cl"><span class="m">64</span> bytes from -c <span class="o">(</span>192.168.1.14<span class="o">)</span>: <span class="nv">icmp_seq</span><span class="o">=</span><span class="m">1</span> <span class="nv">ttl</span><span class="o">=</span><span class="m">64</span> <span class="nv">time</span><span class="o">=</span>0.022 ms
+</span></span><span class="line"><span class="cl"><span class="m">64</span> bytes from -c <span class="o">(</span>192.168.1.14<span class="o">)</span>: <span class="nv">icmp_seq</span><span class="o">=</span><span class="m">2</span> <span class="nv">ttl</span><span class="o">=</span><span class="m">64</span> <span class="nv">time</span><span class="o">=</span>0.021 ms
+</span></span><span class="line"><span class="cl"><span class="m">64</span> bytes from -c <span class="o">(</span>192.168.1.14<span class="o">)</span>: <span class="nv">icmp_seq</span><span class="o">=</span><span class="m">3</span> <span class="nv">ttl</span><span class="o">=</span><span class="m">64</span> <span class="nv">time</span><span class="o">=</span>0.022 ms
+</span></span><span class="line"><span class="cl"><span class="c1"># 测试 </span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 创建 oracel 安装目录</span>
+</span></span><span class="line"><span class="cl">$ mkdir -p /home/oracle//db/app/oracle/product/11.2.0
+</span></span><span class="line"><span class="cl">$ mkdir /home/oracle/db/app/oracle/oradata
+</span></span><span class="line"><span class="cl">$ mkdir /home/oracle/db/app/oracle/inventory
+</span></span><span class="line"><span class="cl">$ mkdir /home/oracle/db/app/oracle/fast_recovery_area
+</span></span><span class="line"><span class="cl">$ chown -R oracle:oinstall /home/oracle/db/app/oracle
+</span></span><span class="line"><span class="cl">$ chmod -R <span class="m">775</span> /home/oracle/db/app/oracle
+</span></span><span class="line"><span class="cl"><span class="c1"># 配置环境变量</span>
+</span></span><span class="line"><span class="cl">$ su - oracle
+</span></span><span class="line"><span class="cl">$ vim .bash_profile
+</span></span><span class="line"><span class="cl"><span class="nb">umask</span> <span class="m">022</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">ORACLE_HOSTNAME</span><span class="o">=</span>centos-oracle
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">ORACLE_BASE</span><span class="o">=</span>/home/oracle/db/app/oracle
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">ORACLE_HOME</span><span class="o">=</span><span class="nv">$ORACLE_BASE</span>/product/11.2.0/
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">ORACLE_SID</span><span class="o">=</span>ogeorge
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span>.:<span class="nv">$ORACLE_HOME</span>/bin:<span class="nv">$ORACLE_HOME</span>/OPatch:<span class="nv">$ORACLE_HOME</span>/jdk/bin:<span class="nv">$PATH</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">LC_ALL</span><span class="o">=</span><span class="s2">&#34;en_US&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">LANG</span><span class="o">=</span><span class="s2">&#34;en_US&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">NLS_LANG</span><span class="o">=</span><span class="s2">&#34;AMERICAN_AMERICA.ZHS16GBK&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">NLS_DATE_FORMAT</span><span class="o">=</span><span class="s2">&#34;YYYY-MM-DD HH24:MI:SS&#34;</span>
+</span></span><span class="line"><span class="cl">$ <span class="nb">cd</span> db/
+</span></span><span class="line"><span class="cl">$ unzip linux.x64_11gR2_database_1of2.zip -d /home/oracle/db
+</span></span><span class="line"><span class="cl">$ unzip linux.x64_11gR2_database_2of2.zip -d /home/oracle/db
+</span></span><span class="line"><span class="cl">$ mkdir db/etc/
+</span></span><span class="line"><span class="cl">$ cp db/database/response/* db/etc/
+</span></span><span class="line"><span class="cl"><span class="c1">#修改安装配置文件，参数配置如下</span>
+</span></span><span class="line"><span class="cl">oracle.install.option<span class="o">=</span>INSTALL_DB_SWONLY
+</span></span><span class="line"><span class="cl"><span class="nv">DECLINE_SECURITY_UPDATES</span><span class="o">=</span><span class="nb">true</span>
+</span></span><span class="line"><span class="cl"><span class="nv">UNIX_GROUP_NAME</span><span class="o">=</span>oinstall
+</span></span><span class="line"><span class="cl"><span class="nv">INVENTORY_LOCATION</span><span class="o">=</span>/home/oracle/db/app/oracle/inventory
+</span></span><span class="line"><span class="cl"><span class="nv">SELECTED_LANGUAGES</span><span class="o">=</span>en,zh_CN
+</span></span><span class="line"><span class="cl"><span class="nv">ORACLE_HOSTNAME</span><span class="o">=</span>centos-oracle
+</span></span><span class="line"><span class="cl"><span class="nv">ORACLE_HOME</span><span class="o">=</span>/home/oracle/db/app/oracle/product/11.2.0
+</span></span><span class="line"><span class="cl"><span class="nv">ORACLE_BASE</span><span class="o">=</span>/home/oracle/db/app/oracle
+</span></span><span class="line"><span class="cl">oracle.install.db.InstallEdition<span class="o">=</span>EE
+</span></span><span class="line"><span class="cl">oracle.install.db.isCustomInstall<span class="o">=</span><span class="nb">true</span>
+</span></span><span class="line"><span class="cl">oracle.install.db.DBA_GROUP<span class="o">=</span>dba
+</span></span><span class="line"><span class="cl">oracle.install.db.OPER_GROUP<span class="o">=</span>dba
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="3开启安装-oracle">3、开启安装 oracle</h2>
 <div class="highlight"><div class="chroma">
@@ -388,55 +388,55 @@ oracle.install.db.OPER_GROUP<span class="o">=</span>dba
 </span><span class="lnt">48
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="c1">## 开启安装 oracel</span>
-$ su - oracle
-$ ./runInstaller -silent -ignorePrereq -responseFile ./runInstaller -silent -ignorePrereq -responseFile /home/oracle/db/etc/db_install.rsp
-<span class="o">[</span>oracle@localhost database<span class="o">]</span>$ ./runInstaller -silent -ignorePrereq -responseFile /db/etc/db_install.rsp
-Starting Oracle Universal Installer...
-
-Checking Temp space: must be greater than <span class="m">120</span> MB.   Actual <span class="m">36093</span> MB    Passed
-Checking swap space: <span class="m">0</span> MB available, <span class="m">150</span> MB required.    Failed <span class="o">&lt;&lt;&lt;</span>&lt;
-
-Some requirement checks failed. You must fulfill these requirements before
-
-continuing with the installation,
-
-
-Exiting Oracle Universal Installer, log <span class="k">for</span> this session can be found at /tmp/OraInstall2021-11-18_10-10-22PM/installActions2021-11-18_10-10-22PM.log
-<span class="c1"># 出现 swap 空间不足</span>
-<span class="c1"># 首先查看 swap 存在吗</span>
-$ swapon -s <span class="c1">#返回为空，则表示没有 swap 文件</span>
-$ df -hal
-<span class="c1"># 创建并允许 Swap 文件下面使用 dd 命令来创建 Swap 文件。检查返回的信息，还剩余足够的硬盘空间即可</span>
-$ dd <span class="k">if</span><span class="o">=</span>/dev/zero <span class="nv">of</span><span class="o">=</span>/swapfile <span class="nv">bs</span><span class="o">=</span><span class="m">1024</span> <span class="nv">count</span><span class="o">=</span>512k
-524288+0 records in
-524288+0 records out
-<span class="m">536870912</span> bytes <span class="o">(</span><span class="m">537</span> MB<span class="o">)</span> copied, 1.00887 s, <span class="m">532</span> MB/s
-$ mkswap /swapfile
-Setting up swapspace version 1, <span class="nv">size</span> <span class="o">=</span> <span class="m">524284</span> KiB
-no label, <span class="nv">UUID</span><span class="o">=</span>d1990601-8abe-4218-a3dc-7b262618991f
-$ swapon /swapfile
-
-<span class="c1"># 再开始安装</span>
-<span class="o">[</span>oracle@-c database<span class="o">]</span>$ ./runInstaller -silent -ignorePrereq -responseFile /home/oracle/db/etc/db_install.rsp
-Starting Oracle Universal Installer...
-
-Checking Temp space: must be greater than <span class="m">120</span> MB.   Actual <span class="m">37938</span> MB    Passed
-Checking swap space: must be greater than <span class="m">150</span> MB.   Actual <span class="m">511</span> MB    Passed
-Preparing to launch Oracle Universal Installer from /tmp/OraInstall2021-11-19_01-39-35AM. Please <span class="nb">wait</span> ...<span class="o">[</span>oracle@-c database<span class="o">]</span>$ <span class="o">[</span>WARNING<span class="o">]</span> <span class="o">[</span>INS-32055<span class="o">]</span> The Central Inventory is located in the Oracle base.
-   CAUSE: The Central Inventory is located in the Oracle base.
-   ACTION: Oracle recommends placing this Central Inventory in a location outside the Oracle base directory.
-<span class="o">[</span>WARNING<span class="o">]</span> <span class="o">[</span>INS-32055<span class="o">]</span> The Central Inventory is located in the Oracle base.
-   CAUSE: The Central Inventory is located in the Oracle base.
-   ACTION: Oracle recommends placing this Central Inventory in a location outside the Oracle base directory.
-You can find the log of this install session at:
- /home/oracle/db/app/oracle/inventory/logs/installActions2021-11-19_01-39-35AM.log
-
-$ su root
-$ sh /home/oracle/db/app/oracle/inventory/orainstRoot.sh
-$ sh /home/oracle/db/app/oracle/product/11.2.0/root.sh
-Check /home/oracle/db/app/oracle/product/11.2.0/install/root_-c_2021-11-19_01-44-04.log <span class="k">for</span> the output of root script
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1">## 开启安装 oracel</span>
+</span></span><span class="line"><span class="cl">$ su - oracle
+</span></span><span class="line"><span class="cl">$ ./runInstaller -silent -ignorePrereq -responseFile ./runInstaller -silent -ignorePrereq -responseFile /home/oracle/db/etc/db_install.rsp
+</span></span><span class="line"><span class="cl"><span class="o">[</span>oracle@localhost database<span class="o">]</span>$ ./runInstaller -silent -ignorePrereq -responseFile /db/etc/db_install.rsp
+</span></span><span class="line"><span class="cl">Starting Oracle Universal Installer...
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Checking Temp space: must be greater than <span class="m">120</span> MB.   Actual <span class="m">36093</span> MB    Passed
+</span></span><span class="line"><span class="cl">Checking swap space: <span class="m">0</span> MB available, <span class="m">150</span> MB required.    Failed <span class="o">&lt;&lt;&lt;</span>&lt;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Some requirement checks failed. You must fulfill these requirements before
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">continuing with the installation,
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Exiting Oracle Universal Installer, log <span class="k">for</span> this session can be found at /tmp/OraInstall2021-11-18_10-10-22PM/installActions2021-11-18_10-10-22PM.log
+</span></span><span class="line"><span class="cl"><span class="c1"># 出现 swap 空间不足</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 首先查看 swap 存在吗</span>
+</span></span><span class="line"><span class="cl">$ swapon -s <span class="c1">#返回为空，则表示没有 swap 文件</span>
+</span></span><span class="line"><span class="cl">$ df -hal
+</span></span><span class="line"><span class="cl"><span class="c1"># 创建并允许 Swap 文件下面使用 dd 命令来创建 Swap 文件。检查返回的信息，还剩余足够的硬盘空间即可</span>
+</span></span><span class="line"><span class="cl">$ dd <span class="k">if</span><span class="o">=</span>/dev/zero <span class="nv">of</span><span class="o">=</span>/swapfile <span class="nv">bs</span><span class="o">=</span><span class="m">1024</span> <span class="nv">count</span><span class="o">=</span>512k
+</span></span><span class="line"><span class="cl">524288+0 records in
+</span></span><span class="line"><span class="cl">524288+0 records out
+</span></span><span class="line"><span class="cl"><span class="m">536870912</span> bytes <span class="o">(</span><span class="m">537</span> MB<span class="o">)</span> copied, 1.00887 s, <span class="m">532</span> MB/s
+</span></span><span class="line"><span class="cl">$ mkswap /swapfile
+</span></span><span class="line"><span class="cl">Setting up swapspace version 1, <span class="nv">size</span> <span class="o">=</span> <span class="m">524284</span> KiB
+</span></span><span class="line"><span class="cl">no label, <span class="nv">UUID</span><span class="o">=</span>d1990601-8abe-4218-a3dc-7b262618991f
+</span></span><span class="line"><span class="cl">$ swapon /swapfile
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 再开始安装</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>oracle@-c database<span class="o">]</span>$ ./runInstaller -silent -ignorePrereq -responseFile /home/oracle/db/etc/db_install.rsp
+</span></span><span class="line"><span class="cl">Starting Oracle Universal Installer...
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Checking Temp space: must be greater than <span class="m">120</span> MB.   Actual <span class="m">37938</span> MB    Passed
+</span></span><span class="line"><span class="cl">Checking swap space: must be greater than <span class="m">150</span> MB.   Actual <span class="m">511</span> MB    Passed
+</span></span><span class="line"><span class="cl">Preparing to launch Oracle Universal Installer from /tmp/OraInstall2021-11-19_01-39-35AM. Please <span class="nb">wait</span> ...<span class="o">[</span>oracle@-c database<span class="o">]</span>$ <span class="o">[</span>WARNING<span class="o">]</span> <span class="o">[</span>INS-32055<span class="o">]</span> The Central Inventory is located in the Oracle base.
+</span></span><span class="line"><span class="cl">   CAUSE: The Central Inventory is located in the Oracle base.
+</span></span><span class="line"><span class="cl">   ACTION: Oracle recommends placing this Central Inventory in a location outside the Oracle base directory.
+</span></span><span class="line"><span class="cl"><span class="o">[</span>WARNING<span class="o">]</span> <span class="o">[</span>INS-32055<span class="o">]</span> The Central Inventory is located in the Oracle base.
+</span></span><span class="line"><span class="cl">   CAUSE: The Central Inventory is located in the Oracle base.
+</span></span><span class="line"><span class="cl">   ACTION: Oracle recommends placing this Central Inventory in a location outside the Oracle base directory.
+</span></span><span class="line"><span class="cl">You can find the log of this install session at:
+</span></span><span class="line"><span class="cl"> /home/oracle/db/app/oracle/inventory/logs/installActions2021-11-19_01-39-35AM.log
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">$ su root
+</span></span><span class="line"><span class="cl">$ sh /home/oracle/db/app/oracle/inventory/orainstRoot.sh
+</span></span><span class="line"><span class="cl">$ sh /home/oracle/db/app/oracle/product/11.2.0/root.sh
+</span></span><span class="line"><span class="cl">Check /home/oracle/db/app/oracle/product/11.2.0/install/root_-c_2021-11-19_01-44-04.log <span class="k">for</span> the output of root script
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p><img src="https://cdn.jsdelivr.net/gh/George-Gou/PictureBed@master/2022/202111191518402.png" alt="image-20211119151840998"></p>
 <h2 id="4配置静默监听">4、配置静默监听</h2>
@@ -459,22 +459,22 @@ Check /home/oracle/db/app/oracle/product/11.2.0/install/root_-c_2021-11-19_01-44
 </span><span class="lnt">15
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="o">[</span>oracle@-c bin<span class="o">]</span>$ su - oracle
-<span class="o">[</span>oracle@-c bin<span class="o">]</span>$ netca /silent /responsefile /home/oracle/db/etc/netca.rsp
-
-Parsing <span class="nb">command</span> line arguments:
-    Parameter <span class="s2">&#34;silent&#34;</span> <span class="o">=</span> <span class="nb">true</span>
-    Parameter <span class="s2">&#34;responsefile&#34;</span> <span class="o">=</span> /home/oracle/db/etc/netca.rsp
-Done parsing <span class="nb">command</span> line arguments.
-Oracle Net Services Configuration:
-Profile configuration complete.
-Listener <span class="s2">&#34;LISTENER&#34;</span> already exists.
-Oracle Net Services configuration successful. The <span class="nb">exit</span> code is <span class="m">0</span>
-<span class="o">[</span>oracle@-c bin<span class="o">]</span>$ netstat -tnulp <span class="p">|</span> grep <span class="m">1521</span> <span class="c1">#查看监听的端口</span>
-<span class="o">(</span>Not all processes could be identified, non-owned process info
- will not be shown, you would have to be root to see it all.<span class="o">)</span>
-tcp6       <span class="m">0</span>      <span class="m">0</span> :::1521                 :::*                    LISTEN      2861/tnslsnr
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="o">[</span>oracle@-c bin<span class="o">]</span>$ su - oracle
+</span></span><span class="line"><span class="cl"><span class="o">[</span>oracle@-c bin<span class="o">]</span>$ netca /silent /responsefile /home/oracle/db/etc/netca.rsp
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Parsing <span class="nb">command</span> line arguments:
+</span></span><span class="line"><span class="cl">    Parameter <span class="s2">&#34;silent&#34;</span> <span class="o">=</span> <span class="nb">true</span>
+</span></span><span class="line"><span class="cl">    Parameter <span class="s2">&#34;responsefile&#34;</span> <span class="o">=</span> /home/oracle/db/etc/netca.rsp
+</span></span><span class="line"><span class="cl">Done parsing <span class="nb">command</span> line arguments.
+</span></span><span class="line"><span class="cl">Oracle Net Services Configuration:
+</span></span><span class="line"><span class="cl">Profile configuration complete.
+</span></span><span class="line"><span class="cl">Listener <span class="s2">&#34;LISTENER&#34;</span> already exists.
+</span></span><span class="line"><span class="cl">Oracle Net Services configuration successful. The <span class="nb">exit</span> code is <span class="m">0</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>oracle@-c bin<span class="o">]</span>$ netstat -tnulp <span class="p">|</span> grep <span class="m">1521</span> <span class="c1">#查看监听的端口</span>
+</span></span><span class="line"><span class="cl"><span class="o">(</span>Not all processes could be identified, non-owned process info
+</span></span><span class="line"><span class="cl"> will not be shown, you would have to be root to see it all.<span class="o">)</span>
+</span></span><span class="line"><span class="cl">tcp6       <span class="m">0</span>      <span class="m">0</span> :::1521                 :::*                    LISTEN      2861/tnslsnr
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="5静默创建数据库">5、静默创建数据库</h2>
 <div class="highlight"><div class="chroma">
@@ -597,129 +597,127 @@ tcp6       <span class="m">0</span>      <span class="m">0</span> :::1521       
 </span><span class="lnt">116
 </span><span class="lnt">117
 </span><span class="lnt">118
-</span><span class="lnt">119
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">$ su root
-$ vi /home/oracleGDBNAME <span class="o">=</span> <span class="s2">&#34;ogeorge&#34;</span>
-<span class="nv">SID</span> <span class="o">=</span> <span class="s2">&#34;ogeorge&#34;</span>
-<span class="nv">SYSPASSWORD</span> <span class="o">=</span> <span class="s2">&#34;oracle&#34;</span>
-<span class="nv">SYSTEMPASSWORD</span> <span class="o">=</span> <span class="s2">&#34;oracle&#34;</span>
-<span class="nv">SYSMANPASSWORD</span> <span class="o">=</span> <span class="s2">&#34;oracle&#34;</span>
-<span class="nv">DBSNMPPASSWORD</span> <span class="o">=</span> <span class="s2">&#34;oracle&#34;</span>
-<span class="nv">DATAFILEDESTINATION</span> <span class="o">=</span>/home/oracle/db/app/oracle/oradata
-<span class="nv">RECOVERYAREADESTINATION</span><span class="o">=</span>/home/oracle/db/app/oracle/fast_recovery_area
-<span class="nv">CHARACTERSET</span> <span class="o">=</span> <span class="s2">&#34;AL32UTF8&#34;</span>
-<span class="nv">TOTALMEMORY</span> <span class="o">=</span> <span class="s2">&#34;1638&#34;</span>/db/etc/dbca.rsp //打开文件后可通过搜索将“<span class="o">=</span>”右边参数值补齐
-
-<span class="c1"># 执行静默数据库</span>
-$ su - oracle
-$ dbca -silent -responseFile /home/oracle/db/etc/dbca.rsp <span class="c1">#提示输入系统密码</span>
-Copying database files                                                                                             
-1% <span class="nb">complete</span>                                                                                                        
-3% <span class="nb">complete</span>                                                                                                        
-11% <span class="nb">complete</span>                                                                                                       
-18% <span class="nb">complete</span>                                                                                                       
-26% <span class="nb">complete</span>                                                                                                       
-37% <span class="nb">complete</span>                                                                                                       
-Creating and starting Oracle instance                                                                              
-40% <span class="nb">complete</span>                                                                                                       
-45% <span class="nb">complete</span>                                                                                                       
-50% <span class="nb">complete</span>                                                                                                       
-55% <span class="nb">complete</span>                                                                                                       
-56% <span class="nb">complete</span>                                                                                                       
-60% <span class="nb">complete</span>                                                                                                       
-62% <span class="nb">complete</span>                                                                                                       
-Completing Database Creation                                                                                       
-66% <span class="nb">complete</span>                                                                                                       
-70% <span class="nb">complete</span>                                                                                                       
-73% <span class="nb">complete</span>                                                                                                       
-85% <span class="nb">complete</span>
-96% <span class="nb">complete</span>
-100% <span class="nb">complete</span>
-Look at the log file <span class="s2">&#34;/home/oracle/db/app/oracle/cfgtoollogs/dbca/ogeorge11g/ogeorge11g.log&#34;</span> <span class="k">for</span> further details.
-<span class="o">[</span>oracle@-c bin<span class="o">]</span>$ tail /home/oracle/db/app/oracle/cfgtoollogs/dbca/ogeorge11g/ogeorge11g.log
-DBCA_PROGRESS : 70%
-DBCA_PROGRESS : 73%
-DBCA_PROGRESS : 85%
-DBCA_PROGRESS : 96%
-DBCA_PROGRESS : 100%
-Database creation complete. For details check the logfiles at:
- /home/oracle/db/app/oracle/cfgtoollogs/dbca/ogeorge11g.
-Database Information:
-Global Database Name:ogeorge11g.us.oracle.com
-System Identifier<span class="o">(</span>SID<span class="o">)</span>:ogeorge
-<span class="c1"># 查看oracle实例进程</span>
-<span class="o">[</span>oracle@-c bin<span class="o">]</span>$ ps -ef <span class="p">|</span> grep ora_ <span class="p">|</span> grep -v grep 
-oracle   <span class="m">28293</span>     <span class="m">1</span>  <span class="m">0</span> 04:31 ?        00:00:00 ora_pmon_DBUA0
-oracle   <span class="m">28295</span>     <span class="m">1</span>  <span class="m">0</span> 04:31 ?        00:00:00 ora_vktm_DBUA0
-oracle   <span class="m">28299</span>     <span class="m">1</span>  <span class="m">0</span> 04:31 ?        00:00:00 ora_gen0_DBUA0
-oracle   <span class="m">28301</span>     <span class="m">1</span>  <span class="m">0</span> 04:31 ?        00:00:00 ora_diag_DBUA0
-oracle   <span class="m">28303</span>     <span class="m">1</span>  <span class="m">0</span> 04:31 ?        00:00:00 ora_dbrm_DBUA0
-oracle   <span class="m">28305</span>     <span class="m">1</span>  <span class="m">0</span> 04:31 ?        00:00:00 ora_psp0_DBUA0
-oracle   <span class="m">28307</span>     <span class="m">1</span>  <span class="m">0</span> 04:31 ?        00:00:00 ora_dia0_DBUA0
-oracle   <span class="m">28309</span>     <span class="m">1</span>  <span class="m">0</span> 04:31 ?        00:00:00 ora_mman_DBUA0
-oracle   <span class="m">28311</span>     <span class="m">1</span>  <span class="m">0</span> 04:31 ?        00:00:00 ora_dbw0_DBUA0
-oracle   <span class="m">28313</span>     <span class="m">1</span>  <span class="m">0</span> 04:31 ?        00:00:00 ora_lgwr_DBUA0
-oracle   <span class="m">28315</span>     <span class="m">1</span>  <span class="m">0</span> 04:31 ?        00:00:00 ora_ckpt_DBUA0
-oracle   <span class="m">28317</span>     <span class="m">1</span>  <span class="m">0</span> 04:31 ?        00:00:00 ora_smon_DBUA0
-oracle   <span class="m">28319</span>     <span class="m">1</span>  <span class="m">0</span> 04:31 ?        00:00:00 ora_reco_DBUA0
-oracle   <span class="m">28321</span>     <span class="m">1</span>  <span class="m">0</span> 04:31 ?        00:00:00 ora_mmon_DBUA0
-oracle   <span class="m">28323</span>     <span class="m">1</span>  <span class="m">0</span> 04:31 ?        00:00:00 ora_mmnl_DBUA0
-oracle   <span class="m">32107</span>     <span class="m">1</span>  <span class="m">0</span> 04:38 ?        00:00:00 ora_pmon_ogeorge
-oracle   <span class="m">32109</span>     <span class="m">1</span>  <span class="m">0</span> 04:38 ?        00:00:00 ora_vktm_ogeorge
-oracle   <span class="m">32113</span>     <span class="m">1</span>  <span class="m">0</span> 04:38 ?        00:00:00 ora_gen0_ogeorge
-oracle   <span class="m">32115</span>     <span class="m">1</span>  <span class="m">0</span> 04:38 ?        00:00:00 ora_diag_ogeorge
-oracle   <span class="m">32117</span>     <span class="m">1</span>  <span class="m">0</span> 04:38 ?        00:00:00 ora_dbrm_ogeorge
-oracle   <span class="m">32119</span>     <span class="m">1</span>  <span class="m">0</span> 04:38 ?        00:00:00 ora_psp0_ogeorge
-oracle   <span class="m">32121</span>     <span class="m">1</span>  <span class="m">0</span> 04:38 ?        00:00:00 ora_dia0_ogeorge
-oracle   <span class="m">32123</span>     <span class="m">1</span>  <span class="m">0</span> 04:38 ?        00:00:00 ora_mman_ogeorge
-oracle   <span class="m">32125</span>     <span class="m">1</span>  <span class="m">0</span> 04:38 ?        00:00:00 ora_dbw0_ogeorge
-oracle   <span class="m">32127</span>     <span class="m">1</span>  <span class="m">0</span> 04:38 ?        00:00:00 ora_lgwr_ogeorge
-oracle   <span class="m">32129</span>     <span class="m">1</span>  <span class="m">0</span> 04:38 ?        00:00:00 ora_ckpt_ogeorge
-oracle   <span class="m">32131</span>     <span class="m">1</span>  <span class="m">0</span> 04:38 ?        00:00:00 ora_smon_ogeorge
-oracle   <span class="m">32133</span>     <span class="m">1</span>  <span class="m">0</span> 04:38 ?        00:00:00 ora_reco_ogeorge
-oracle   <span class="m">32135</span>     <span class="m">1</span>  <span class="m">0</span> 04:38 ?        00:00:00 ora_mmon_ogeorge
-oracle   <span class="m">32137</span>     <span class="m">1</span>  <span class="m">0</span> 04:38 ?        00:00:00 ora_mmnl_ogeorge
-oracle   <span class="m">32139</span>     <span class="m">1</span>  <span class="m">0</span> 04:38 ?        00:00:00 ora_d000_ogeorge
-oracle   <span class="m">32141</span>     <span class="m">1</span>  <span class="m">0</span> 04:38 ?        00:00:00 ora_s000_ogeorge
-oracle   <span class="m">32293</span>     <span class="m">1</span>  <span class="m">0</span> 04:38 ?        00:00:00 ora_qmnc_ogeorge
-oracle   <span class="m">32308</span>     <span class="m">1</span>  <span class="m">0</span> 04:38 ?        00:00:00 ora_cjq0_ogeorge
-oracle   <span class="m">32382</span>     <span class="m">1</span>  <span class="m">0</span> 04:38 ?        00:00:00 ora_q000_ogeorge
-oracle   <span class="m">32384</span>     <span class="m">1</span>  <span class="m">0</span> 04:38 ?        00:00:00 ora_q001_ogeorge
-
-<span class="c1">#查看监听状态</span>
-<span class="o">[</span>oracle@-c bin<span class="o">]</span>$ lsnrctl status 
-
-LSNRCTL <span class="k">for</span> Linux: Version 11.2.0.1.0 - Production on 19-NOV-2021 04:47:55
-
-Copyright <span class="o">(</span>c<span class="o">)</span> 1991, 2009, Oracle.  All rights reserved.
-
-Connecting to <span class="o">(</span><span class="nv">DESCRIPTION</span><span class="o">=(</span><span class="nv">ADDRESS</span><span class="o">=(</span><span class="nv">PROTOCOL</span><span class="o">=</span>IPC<span class="o">)(</span><span class="nv">KEY</span><span class="o">=</span>EXTPROC1521<span class="o">)))</span>
-STATUS of the LISTENER
-------------------------
-Alias                     LISTENER
-Version                   TNSLSNR <span class="k">for</span> Linux: Version 11.2.0.1.0 - Production
-Start Date                19-NOV-2021 02:17:27
-Uptime                    <span class="m">0</span> days <span class="m">2</span> hr. <span class="m">30</span> min. <span class="m">30</span> sec
-Trace Level               off
-Security                  ON: Local OS Authentication
-SNMP                      OFF
-Listener Parameter File   /home/oracle/db/app/oracle/product/11.2.0/network/admin/listener.ora
-Listener Log File         /home/oracle/db/app/oracle/product/11.2.0/log/diag/tnslsnr/-c/listener/alert/log.xml
-Listening Endpoints Summary...
-  <span class="o">(</span><span class="nv">DESCRIPTION</span><span class="o">=(</span><span class="nv">ADDRESS</span><span class="o">=(</span><span class="nv">PROTOCOL</span><span class="o">=</span>ipc<span class="o">)(</span><span class="nv">KEY</span><span class="o">=</span>EXTPROC1521<span class="o">)))</span>
-  <span class="o">(</span><span class="nv">DESCRIPTION</span><span class="o">=(</span><span class="nv">ADDRESS</span><span class="o">=(</span><span class="nv">PROTOCOL</span><span class="o">=</span>tcp<span class="o">)(</span><span class="nv">HOST</span><span class="o">=</span>-c<span class="o">)(</span><span class="nv">PORT</span><span class="o">=</span>1521<span class="o">)))</span>
-Services Summary...
-Service <span class="s2">&#34;DBUA0&#34;</span> has <span class="m">1</span> instance<span class="o">(</span>s<span class="o">)</span>.
-  Instance <span class="s2">&#34;DBUA0&#34;</span>, status BLOCKED, has <span class="m">1</span> handler<span class="o">(</span>s<span class="o">)</span> <span class="k">for</span> this service...
-Service <span class="s2">&#34;ogeorge11g.us.oracle.com&#34;</span> has <span class="m">1</span> instance<span class="o">(</span>s<span class="o">)</span>.
-  Instance <span class="s2">&#34;ogeorge&#34;</span>, status READY, has <span class="m">1</span> handler<span class="o">(</span>s<span class="o">)</span> <span class="k">for</span> this service...
-Service <span class="s2">&#34;ogeorgeXDB.us.oracle.com&#34;</span> has <span class="m">1</span> instance<span class="o">(</span>s<span class="o">)</span>.
-  Instance <span class="s2">&#34;ogeorge&#34;</span>, status READY, has <span class="m">1</span> handler<span class="o">(</span>s<span class="o">)</span> <span class="k">for</span> this service...
-The <span class="nb">command</span> completed successfully
-
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">$ su root
+</span></span><span class="line"><span class="cl">$ vi /home/oracleGDBNAME <span class="o">=</span> <span class="s2">&#34;ogeorge&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">SID</span> <span class="o">=</span> <span class="s2">&#34;ogeorge&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">SYSPASSWORD</span> <span class="o">=</span> <span class="s2">&#34;oracle&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">SYSTEMPASSWORD</span> <span class="o">=</span> <span class="s2">&#34;oracle&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">SYSMANPASSWORD</span> <span class="o">=</span> <span class="s2">&#34;oracle&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">DBSNMPPASSWORD</span> <span class="o">=</span> <span class="s2">&#34;oracle&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">DATAFILEDESTINATION</span> <span class="o">=</span>/home/oracle/db/app/oracle/oradata
+</span></span><span class="line"><span class="cl"><span class="nv">RECOVERYAREADESTINATION</span><span class="o">=</span>/home/oracle/db/app/oracle/fast_recovery_area
+</span></span><span class="line"><span class="cl"><span class="nv">CHARACTERSET</span> <span class="o">=</span> <span class="s2">&#34;AL32UTF8&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">TOTALMEMORY</span> <span class="o">=</span> <span class="s2">&#34;1638&#34;</span>/db/etc/dbca.rsp //打开文件后可通过搜索将“<span class="o">=</span>”右边参数值补齐
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 执行静默数据库</span>
+</span></span><span class="line"><span class="cl">$ su - oracle
+</span></span><span class="line"><span class="cl">$ dbca -silent -responseFile /home/oracle/db/etc/dbca.rsp <span class="c1">#提示输入系统密码</span>
+</span></span><span class="line"><span class="cl">Copying database files                                                                                             
+</span></span><span class="line"><span class="cl">1% <span class="nb">complete</span>                                                                                                        
+</span></span><span class="line"><span class="cl">3% <span class="nb">complete</span>                                                                                                        
+</span></span><span class="line"><span class="cl">11% <span class="nb">complete</span>                                                                                                       
+</span></span><span class="line"><span class="cl">18% <span class="nb">complete</span>                                                                                                       
+</span></span><span class="line"><span class="cl">26% <span class="nb">complete</span>                                                                                                       
+</span></span><span class="line"><span class="cl">37% <span class="nb">complete</span>                                                                                                       
+</span></span><span class="line"><span class="cl">Creating and starting Oracle instance                                                                              
+</span></span><span class="line"><span class="cl">40% <span class="nb">complete</span>                                                                                                       
+</span></span><span class="line"><span class="cl">45% <span class="nb">complete</span>                                                                                                       
+</span></span><span class="line"><span class="cl">50% <span class="nb">complete</span>                                                                                                       
+</span></span><span class="line"><span class="cl">55% <span class="nb">complete</span>                                                                                                       
+</span></span><span class="line"><span class="cl">56% <span class="nb">complete</span>                                                                                                       
+</span></span><span class="line"><span class="cl">60% <span class="nb">complete</span>                                                                                                       
+</span></span><span class="line"><span class="cl">62% <span class="nb">complete</span>                                                                                                       
+</span></span><span class="line"><span class="cl">Completing Database Creation                                                                                       
+</span></span><span class="line"><span class="cl">66% <span class="nb">complete</span>                                                                                                       
+</span></span><span class="line"><span class="cl">70% <span class="nb">complete</span>                                                                                                       
+</span></span><span class="line"><span class="cl">73% <span class="nb">complete</span>                                                                                                       
+</span></span><span class="line"><span class="cl">85% <span class="nb">complete</span>
+</span></span><span class="line"><span class="cl">96% <span class="nb">complete</span>
+</span></span><span class="line"><span class="cl">100% <span class="nb">complete</span>
+</span></span><span class="line"><span class="cl">Look at the log file <span class="s2">&#34;/home/oracle/db/app/oracle/cfgtoollogs/dbca/ogeorge11g/ogeorge11g.log&#34;</span> <span class="k">for</span> further details.
+</span></span><span class="line"><span class="cl"><span class="o">[</span>oracle@-c bin<span class="o">]</span>$ tail /home/oracle/db/app/oracle/cfgtoollogs/dbca/ogeorge11g/ogeorge11g.log
+</span></span><span class="line"><span class="cl">DBCA_PROGRESS : 70%
+</span></span><span class="line"><span class="cl">DBCA_PROGRESS : 73%
+</span></span><span class="line"><span class="cl">DBCA_PROGRESS : 85%
+</span></span><span class="line"><span class="cl">DBCA_PROGRESS : 96%
+</span></span><span class="line"><span class="cl">DBCA_PROGRESS : 100%
+</span></span><span class="line"><span class="cl">Database creation complete. For details check the logfiles at:
+</span></span><span class="line"><span class="cl"> /home/oracle/db/app/oracle/cfgtoollogs/dbca/ogeorge11g.
+</span></span><span class="line"><span class="cl">Database Information:
+</span></span><span class="line"><span class="cl">Global Database Name:ogeorge11g.us.oracle.com
+</span></span><span class="line"><span class="cl">System Identifier<span class="o">(</span>SID<span class="o">)</span>:ogeorge
+</span></span><span class="line"><span class="cl"><span class="c1"># 查看oracle实例进程</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>oracle@-c bin<span class="o">]</span>$ ps -ef <span class="p">|</span> grep ora_ <span class="p">|</span> grep -v grep 
+</span></span><span class="line"><span class="cl">oracle   <span class="m">28293</span>     <span class="m">1</span>  <span class="m">0</span> 04:31 ?        00:00:00 ora_pmon_DBUA0
+</span></span><span class="line"><span class="cl">oracle   <span class="m">28295</span>     <span class="m">1</span>  <span class="m">0</span> 04:31 ?        00:00:00 ora_vktm_DBUA0
+</span></span><span class="line"><span class="cl">oracle   <span class="m">28299</span>     <span class="m">1</span>  <span class="m">0</span> 04:31 ?        00:00:00 ora_gen0_DBUA0
+</span></span><span class="line"><span class="cl">oracle   <span class="m">28301</span>     <span class="m">1</span>  <span class="m">0</span> 04:31 ?        00:00:00 ora_diag_DBUA0
+</span></span><span class="line"><span class="cl">oracle   <span class="m">28303</span>     <span class="m">1</span>  <span class="m">0</span> 04:31 ?        00:00:00 ora_dbrm_DBUA0
+</span></span><span class="line"><span class="cl">oracle   <span class="m">28305</span>     <span class="m">1</span>  <span class="m">0</span> 04:31 ?        00:00:00 ora_psp0_DBUA0
+</span></span><span class="line"><span class="cl">oracle   <span class="m">28307</span>     <span class="m">1</span>  <span class="m">0</span> 04:31 ?        00:00:00 ora_dia0_DBUA0
+</span></span><span class="line"><span class="cl">oracle   <span class="m">28309</span>     <span class="m">1</span>  <span class="m">0</span> 04:31 ?        00:00:00 ora_mman_DBUA0
+</span></span><span class="line"><span class="cl">oracle   <span class="m">28311</span>     <span class="m">1</span>  <span class="m">0</span> 04:31 ?        00:00:00 ora_dbw0_DBUA0
+</span></span><span class="line"><span class="cl">oracle   <span class="m">28313</span>     <span class="m">1</span>  <span class="m">0</span> 04:31 ?        00:00:00 ora_lgwr_DBUA0
+</span></span><span class="line"><span class="cl">oracle   <span class="m">28315</span>     <span class="m">1</span>  <span class="m">0</span> 04:31 ?        00:00:00 ora_ckpt_DBUA0
+</span></span><span class="line"><span class="cl">oracle   <span class="m">28317</span>     <span class="m">1</span>  <span class="m">0</span> 04:31 ?        00:00:00 ora_smon_DBUA0
+</span></span><span class="line"><span class="cl">oracle   <span class="m">28319</span>     <span class="m">1</span>  <span class="m">0</span> 04:31 ?        00:00:00 ora_reco_DBUA0
+</span></span><span class="line"><span class="cl">oracle   <span class="m">28321</span>     <span class="m">1</span>  <span class="m">0</span> 04:31 ?        00:00:00 ora_mmon_DBUA0
+</span></span><span class="line"><span class="cl">oracle   <span class="m">28323</span>     <span class="m">1</span>  <span class="m">0</span> 04:31 ?        00:00:00 ora_mmnl_DBUA0
+</span></span><span class="line"><span class="cl">oracle   <span class="m">32107</span>     <span class="m">1</span>  <span class="m">0</span> 04:38 ?        00:00:00 ora_pmon_ogeorge
+</span></span><span class="line"><span class="cl">oracle   <span class="m">32109</span>     <span class="m">1</span>  <span class="m">0</span> 04:38 ?        00:00:00 ora_vktm_ogeorge
+</span></span><span class="line"><span class="cl">oracle   <span class="m">32113</span>     <span class="m">1</span>  <span class="m">0</span> 04:38 ?        00:00:00 ora_gen0_ogeorge
+</span></span><span class="line"><span class="cl">oracle   <span class="m">32115</span>     <span class="m">1</span>  <span class="m">0</span> 04:38 ?        00:00:00 ora_diag_ogeorge
+</span></span><span class="line"><span class="cl">oracle   <span class="m">32117</span>     <span class="m">1</span>  <span class="m">0</span> 04:38 ?        00:00:00 ora_dbrm_ogeorge
+</span></span><span class="line"><span class="cl">oracle   <span class="m">32119</span>     <span class="m">1</span>  <span class="m">0</span> 04:38 ?        00:00:00 ora_psp0_ogeorge
+</span></span><span class="line"><span class="cl">oracle   <span class="m">32121</span>     <span class="m">1</span>  <span class="m">0</span> 04:38 ?        00:00:00 ora_dia0_ogeorge
+</span></span><span class="line"><span class="cl">oracle   <span class="m">32123</span>     <span class="m">1</span>  <span class="m">0</span> 04:38 ?        00:00:00 ora_mman_ogeorge
+</span></span><span class="line"><span class="cl">oracle   <span class="m">32125</span>     <span class="m">1</span>  <span class="m">0</span> 04:38 ?        00:00:00 ora_dbw0_ogeorge
+</span></span><span class="line"><span class="cl">oracle   <span class="m">32127</span>     <span class="m">1</span>  <span class="m">0</span> 04:38 ?        00:00:00 ora_lgwr_ogeorge
+</span></span><span class="line"><span class="cl">oracle   <span class="m">32129</span>     <span class="m">1</span>  <span class="m">0</span> 04:38 ?        00:00:00 ora_ckpt_ogeorge
+</span></span><span class="line"><span class="cl">oracle   <span class="m">32131</span>     <span class="m">1</span>  <span class="m">0</span> 04:38 ?        00:00:00 ora_smon_ogeorge
+</span></span><span class="line"><span class="cl">oracle   <span class="m">32133</span>     <span class="m">1</span>  <span class="m">0</span> 04:38 ?        00:00:00 ora_reco_ogeorge
+</span></span><span class="line"><span class="cl">oracle   <span class="m">32135</span>     <span class="m">1</span>  <span class="m">0</span> 04:38 ?        00:00:00 ora_mmon_ogeorge
+</span></span><span class="line"><span class="cl">oracle   <span class="m">32137</span>     <span class="m">1</span>  <span class="m">0</span> 04:38 ?        00:00:00 ora_mmnl_ogeorge
+</span></span><span class="line"><span class="cl">oracle   <span class="m">32139</span>     <span class="m">1</span>  <span class="m">0</span> 04:38 ?        00:00:00 ora_d000_ogeorge
+</span></span><span class="line"><span class="cl">oracle   <span class="m">32141</span>     <span class="m">1</span>  <span class="m">0</span> 04:38 ?        00:00:00 ora_s000_ogeorge
+</span></span><span class="line"><span class="cl">oracle   <span class="m">32293</span>     <span class="m">1</span>  <span class="m">0</span> 04:38 ?        00:00:00 ora_qmnc_ogeorge
+</span></span><span class="line"><span class="cl">oracle   <span class="m">32308</span>     <span class="m">1</span>  <span class="m">0</span> 04:38 ?        00:00:00 ora_cjq0_ogeorge
+</span></span><span class="line"><span class="cl">oracle   <span class="m">32382</span>     <span class="m">1</span>  <span class="m">0</span> 04:38 ?        00:00:00 ora_q000_ogeorge
+</span></span><span class="line"><span class="cl">oracle   <span class="m">32384</span>     <span class="m">1</span>  <span class="m">0</span> 04:38 ?        00:00:00 ora_q001_ogeorge
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#查看监听状态</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>oracle@-c bin<span class="o">]</span>$ lsnrctl status 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">LSNRCTL <span class="k">for</span> Linux: Version 11.2.0.1.0 - Production on 19-NOV-2021 04:47:55
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Copyright <span class="o">(</span>c<span class="o">)</span> 1991, 2009, Oracle.  All rights reserved.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Connecting to <span class="o">(</span><span class="nv">DESCRIPTION</span><span class="o">=(</span><span class="nv">ADDRESS</span><span class="o">=(</span><span class="nv">PROTOCOL</span><span class="o">=</span>IPC<span class="o">)(</span><span class="nv">KEY</span><span class="o">=</span>EXTPROC1521<span class="o">)))</span>
+</span></span><span class="line"><span class="cl">STATUS of the LISTENER
+</span></span><span class="line"><span class="cl">------------------------
+</span></span><span class="line"><span class="cl">Alias                     LISTENER
+</span></span><span class="line"><span class="cl">Version                   TNSLSNR <span class="k">for</span> Linux: Version 11.2.0.1.0 - Production
+</span></span><span class="line"><span class="cl">Start Date                19-NOV-2021 02:17:27
+</span></span><span class="line"><span class="cl">Uptime                    <span class="m">0</span> days <span class="m">2</span> hr. <span class="m">30</span> min. <span class="m">30</span> sec
+</span></span><span class="line"><span class="cl">Trace Level               off
+</span></span><span class="line"><span class="cl">Security                  ON: Local OS Authentication
+</span></span><span class="line"><span class="cl">SNMP                      OFF
+</span></span><span class="line"><span class="cl">Listener Parameter File   /home/oracle/db/app/oracle/product/11.2.0/network/admin/listener.ora
+</span></span><span class="line"><span class="cl">Listener Log File         /home/oracle/db/app/oracle/product/11.2.0/log/diag/tnslsnr/-c/listener/alert/log.xml
+</span></span><span class="line"><span class="cl">Listening Endpoints Summary...
+</span></span><span class="line"><span class="cl">  <span class="o">(</span><span class="nv">DESCRIPTION</span><span class="o">=(</span><span class="nv">ADDRESS</span><span class="o">=(</span><span class="nv">PROTOCOL</span><span class="o">=</span>ipc<span class="o">)(</span><span class="nv">KEY</span><span class="o">=</span>EXTPROC1521<span class="o">)))</span>
+</span></span><span class="line"><span class="cl">  <span class="o">(</span><span class="nv">DESCRIPTION</span><span class="o">=(</span><span class="nv">ADDRESS</span><span class="o">=(</span><span class="nv">PROTOCOL</span><span class="o">=</span>tcp<span class="o">)(</span><span class="nv">HOST</span><span class="o">=</span>-c<span class="o">)(</span><span class="nv">PORT</span><span class="o">=</span>1521<span class="o">)))</span>
+</span></span><span class="line"><span class="cl">Services Summary...
+</span></span><span class="line"><span class="cl">Service <span class="s2">&#34;DBUA0&#34;</span> has <span class="m">1</span> instance<span class="o">(</span>s<span class="o">)</span>.
+</span></span><span class="line"><span class="cl">  Instance <span class="s2">&#34;DBUA0&#34;</span>, status BLOCKED, has <span class="m">1</span> handler<span class="o">(</span>s<span class="o">)</span> <span class="k">for</span> this service...
+</span></span><span class="line"><span class="cl">Service <span class="s2">&#34;ogeorge11g.us.oracle.com&#34;</span> has <span class="m">1</span> instance<span class="o">(</span>s<span class="o">)</span>.
+</span></span><span class="line"><span class="cl">  Instance <span class="s2">&#34;ogeorge&#34;</span>, status READY, has <span class="m">1</span> handler<span class="o">(</span>s<span class="o">)</span> <span class="k">for</span> this service...
+</span></span><span class="line"><span class="cl">Service <span class="s2">&#34;ogeorgeXDB.us.oracle.com&#34;</span> has <span class="m">1</span> instance<span class="o">(</span>s<span class="o">)</span>.
+</span></span><span class="line"><span class="cl">  Instance <span class="s2">&#34;ogeorge&#34;</span>, status READY, has <span class="m">1</span> handler<span class="o">(</span>s<span class="o">)</span> <span class="k">for</span> this service...
+</span></span><span class="line"><span class="cl">The <span class="nb">command</span> completed successfully
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="6登录sqlplus查看实例状态">6、<strong>登录sqlplus，查看实例状态</strong></h2>
 <div class="highlight"><div class="chroma">
@@ -795,76 +793,76 @@ The <span class="nb">command</span> completed successfully
 </span><span class="lnt">69
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="o">[</span>oracle@-c bin<span class="o">]</span>$ sqlplus / as sysdba
-
-SQL*Plus: Release 11.2.0.1.0 Production on Fri Nov <span class="m">19</span> 04:48:35 <span class="m">2021</span>
-
-Copyright <span class="o">(</span>c<span class="o">)</span> 1982, 2009, Oracle.  All rights reserved.
-
-Connected to an idle instance.
-
-SQL&gt; 
-SQL&gt; <span class="k">select</span> status from v<span class="nv">$instance</span><span class="p">;</span>
-<span class="k">select</span> status from v<span class="nv">$instance</span>
-ERROR at line 1:
-ORA-01034: ORACLE not available
-Process ID: <span class="m">0</span>
-Session ID: <span class="m">0</span> Serial number: <span class="m">0</span>
-$ cp init.ora.101920214378 /home/oracle/db/app/oracle/product/11.2.0/dbs/initogeorge.ora
-
-SQL&gt; startup
-ORA-01078: failure in processing system parameters
-LRM-00109: could not open parameter file <span class="s1">&#39;/home/oracle/db/app/oracle/product/11.2.0/dbs/initogeorge.ora&#39;</span>
-<span class="c1">#怎么解决上述  LRM-00109 错误?</span>
-
-这是由于初始化文件不存在，或找不到，可能是启动 oracle 实例时配置文件没有写对，SID一定要和实例名字相同
-
-SQL&gt; <span class="k">select</span> status from v<span class="nv">$instance</span><span class="p">;</span>
-
-STATUS
-------------------------
-OPEN
-
-<span class="c1"># 查看数据库编码</span>
-SQL&gt; <span class="k">select</span> userenv<span class="o">(</span><span class="s1">&#39;language&#39;</span><span class="o">)</span> from dual<span class="p">;</span>
-
-USERENV<span class="o">(</span><span class="s1">&#39;LANGUAGE&#39;</span><span class="o">)</span>
---------------------------------------------------------------------------------
-AMERICAN_AMERICA.AL32UTF8
-<span class="c1"># 查找数据库版本信息</span>
-SQL&gt; <span class="k">select</span> * from v<span class="nv">$version</span><span class="p">;</span>
-
-BANNER
---------------------------------------------------------------------------------
-Oracle Database 11g Enterprise Edition Release 11.2.0.1.0 - 64bit Production
-PL/SQL Release 11.2.0.1.0 - Production
-CORE	11.2.0.1.0	Production
-TNS <span class="k">for</span> Linux: Version 11.2.0.1.0 - Production
-NLSRTL Version 11.2.0.1.0 - Production
-
-<span class="c1">#激活scott用户</span>
-SQL&gt; alter user scott account unlock<span class="p">;</span> 
-
-User altered.
-SQL&gt; alter user scott identified by tiger<span class="p">;</span>
-
-User altered.
-SQL&gt; <span class="k">select</span> username from all_users<span class="p">;</span>
-
-USERNAME
-------------------------------------------------------------
-SCOTT
-OWBSYS_AUDIT
-OWBSYS
-APEX_030200
-APEX_PUBLIC_USER
-FLOWS_FILES
-MGMT_VIEW
-SYSMAN
-SPATIAL_CSW_ADMIN_USR
-SPATIAL_WFS_ADMIN_USR
-MDDATA
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="o">[</span>oracle@-c bin<span class="o">]</span>$ sqlplus / as sysdba
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">SQL*Plus: Release 11.2.0.1.0 Production on Fri Nov <span class="m">19</span> 04:48:35 <span class="m">2021</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Copyright <span class="o">(</span>c<span class="o">)</span> 1982, 2009, Oracle.  All rights reserved.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Connected to an idle instance.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">SQL&gt; 
+</span></span><span class="line"><span class="cl">SQL&gt; <span class="k">select</span> status from v<span class="nv">$instance</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">select</span> status from v<span class="nv">$instance</span>
+</span></span><span class="line"><span class="cl">ERROR at line 1:
+</span></span><span class="line"><span class="cl">ORA-01034: ORACLE not available
+</span></span><span class="line"><span class="cl">Process ID: <span class="m">0</span>
+</span></span><span class="line"><span class="cl">Session ID: <span class="m">0</span> Serial number: <span class="m">0</span>
+</span></span><span class="line"><span class="cl">$ cp init.ora.101920214378 /home/oracle/db/app/oracle/product/11.2.0/dbs/initogeorge.ora
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">SQL&gt; startup
+</span></span><span class="line"><span class="cl">ORA-01078: failure in processing system parameters
+</span></span><span class="line"><span class="cl">LRM-00109: could not open parameter file <span class="s1">&#39;/home/oracle/db/app/oracle/product/11.2.0/dbs/initogeorge.ora&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#怎么解决上述  LRM-00109 错误?</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">这是由于初始化文件不存在，或找不到，可能是启动 oracle 实例时配置文件没有写对，SID一定要和实例名字相同
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">SQL&gt; <span class="k">select</span> status from v<span class="nv">$instance</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">STATUS
+</span></span><span class="line"><span class="cl">------------------------
+</span></span><span class="line"><span class="cl">OPEN
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 查看数据库编码</span>
+</span></span><span class="line"><span class="cl">SQL&gt; <span class="k">select</span> userenv<span class="o">(</span><span class="s1">&#39;language&#39;</span><span class="o">)</span> from dual<span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">USERENV<span class="o">(</span><span class="s1">&#39;LANGUAGE&#39;</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">--------------------------------------------------------------------------------
+</span></span><span class="line"><span class="cl">AMERICAN_AMERICA.AL32UTF8
+</span></span><span class="line"><span class="cl"><span class="c1"># 查找数据库版本信息</span>
+</span></span><span class="line"><span class="cl">SQL&gt; <span class="k">select</span> * from v<span class="nv">$version</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">BANNER
+</span></span><span class="line"><span class="cl">--------------------------------------------------------------------------------
+</span></span><span class="line"><span class="cl">Oracle Database 11g Enterprise Edition Release 11.2.0.1.0 - 64bit Production
+</span></span><span class="line"><span class="cl">PL/SQL Release 11.2.0.1.0 - Production
+</span></span><span class="line"><span class="cl">CORE	11.2.0.1.0	Production
+</span></span><span class="line"><span class="cl">TNS <span class="k">for</span> Linux: Version 11.2.0.1.0 - Production
+</span></span><span class="line"><span class="cl">NLSRTL Version 11.2.0.1.0 - Production
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#激活scott用户</span>
+</span></span><span class="line"><span class="cl">SQL&gt; alter user scott account unlock<span class="p">;</span> 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">User altered.
+</span></span><span class="line"><span class="cl">SQL&gt; alter user scott identified by tiger<span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">User altered.
+</span></span><span class="line"><span class="cl">SQL&gt; <span class="k">select</span> username from all_users<span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">USERNAME
+</span></span><span class="line"><span class="cl">------------------------------------------------------------
+</span></span><span class="line"><span class="cl">SCOTT
+</span></span><span class="line"><span class="cl">OWBSYS_AUDIT
+</span></span><span class="line"><span class="cl">OWBSYS
+</span></span><span class="line"><span class="cl">APEX_030200
+</span></span><span class="line"><span class="cl">APEX_PUBLIC_USER
+</span></span><span class="line"><span class="cl">FLOWS_FILES
+</span></span><span class="line"><span class="cl">MGMT_VIEW
+</span></span><span class="line"><span class="cl">SYSMAN
+</span></span><span class="line"><span class="cl">SPATIAL_CSW_ADMIN_USR
+</span></span><span class="line"><span class="cl">SPATIAL_WFS_ADMIN_USR
+</span></span><span class="line"><span class="cl">MDDATA
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="7远程访问oracle数据库">7、远程访问Oracle数据库</h2>
 <div class="highlight"><div class="chroma">
@@ -876,12 +874,12 @@ MDDATA
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="c1">#开放访问端口</span>
-<span class="o">[</span>root@-c<span class="o">]</span>~# firewall-cmd --zone<span class="o">=</span>public --add-port<span class="o">=</span>1521/tcp --permanent
-success
-<span class="o">[</span>root@-c<span class="o">]</span>~# firewall-cmd --reload
-success
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1">#开放访问端口</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@-c<span class="o">]</span>~# firewall-cmd --zone<span class="o">=</span>public --add-port<span class="o">=</span>1521/tcp --permanent
+</span></span><span class="line"><span class="cl">success
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@-c<span class="o">]</span>~# firewall-cmd --reload
+</span></span><span class="line"><span class="cl">success
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p><strong>安装 Navicat 数据可视化工具：</strong></p>
 <p><img src="https://cdn.jsdelivr.net/gh/George-Gou/PictureBed@master/2022/202111192346963.png" alt="image-20211119234218799"></p>
@@ -956,7 +954,7 @@ success
 
 
 
-<script type="text/javascript" src="/blog/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+<script type="text/javascript" src="/blog/js/main.min.64437849d125a2d603b3e71d6de5225d641a32d17168a58106e0b61852079683.js"></script>
 
 
 
