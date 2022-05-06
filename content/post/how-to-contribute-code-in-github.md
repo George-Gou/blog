@@ -39,7 +39,6 @@ sequenceDiagrams:
   options: ""
 
 ---
-## 背景介绍
 
   Github 是全球最大的开源社区，Git 是广泛使用的版本控制工具，其可以很方便地对各个版本的软件进行管理。
 <!--more-->

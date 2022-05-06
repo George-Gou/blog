@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>如何在 github 中贡献代码 - Gravpher&#39;s Blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Gravpher" /><meta name="description" content="Github 是全球最大的开源社区，Git 是广泛使用的版本控制工具，其可以很方便地对各个版本的软件进行管理。
+" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.97.3 with theme even" />
+
+
+<link rel="canonical" href="https://george-gou.github.io/blog/post/how-to-contribute-code-in-github/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/blog/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/blog/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/blog/favicon-16x16.png">
+<link rel="manifest" href="/blog/manifest.json">
+<link rel="mask-icon" href="/blog/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/blog/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="如何在 github 中贡献代码" />
+<meta property="og:description" content="Github 是全球最大的开源社区，Git 是广泛使用的版本控制工具，其可以很方便地对各个版本的软件进行管理。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://george-gou.github.io/blog/post/how-to-contribute-code-in-github/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-05-06T16:09:07+08:00" />
+<meta property="article:modified_time" content="2022-05-06T17:17:37+08:00" />
+
+<meta itemprop="name" content="如何在 github 中贡献代码">
+<meta itemprop="description" content="Github 是全球最大的开源社区，Git 是广泛使用的版本控制工具，其可以很方便地对各个版本的软件进行管理。"><meta itemprop="datePublished" content="2022-05-06T16:09:07+08:00" />
+<meta itemprop="dateModified" content="2022-05-06T17:17:37+08:00" />
+<meta itemprop="wordCount" content="607">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="如何在 github 中贡献代码"/>
+<meta name="twitter:description" content="Github 是全球最大的开源社区，Git 是广泛使用的版本控制工具，其可以很方便地对各个版本的软件进行管理。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/blog/" class="logo">Gravpher</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/blog/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/blog/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/blog/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/blog/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/blog/about/">
+        <li class="mobile-menu-item">About</li>
+      </a><a href="/blog/denote/">
+        <li class="mobile-menu-item">Denote</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/blog/" class="logo">Gravpher</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/blog/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/blog/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/blog/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/blog/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/blog/about/">About</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/blog/denote/">Denote</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">如何在 github 中贡献代码</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2022-05-06 </span>
+        
+          <span class="more-meta"> 607 words </span>
+          <span class="more-meta"> 2 mins read </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#1环境准备">1、环境准备</a></li>
+        <li><a href="#2贡献代码">2、贡献代码</a></li>
+        <li><a href="#3项目文档本地预览">3、项目文档本地预览</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>Github 是全球最大的开源社区，Git 是广泛使用的版本控制工具，其可以很方便地对各个版本的软件进行管理。</p>
+<h2 id="1环境准备">1、环境准备</h2>
+<p>注册一个 Github 账号，下载并安装 Git 软件，<a href="https://blog.csdn.net/qq_38977566/article/details/118076502">配置 Git 信息</a>，并 <a href="https://blog.csdn.net/qq_37294163/article/details/103099424">添加 SSH key</a> 到 github 的设置中，就可以使用 SSH 的方式下载或上传代码。使用 SSH 比 Http 更加安全。</p>
+<h2 id="2贡献代码">2、贡献代码</h2>
+<p>1、进入 Github 中的项目地址，比如说重力中文社区中的 <a href="https://github.com/Gravity-Geodesy-China-Community/r2de">r2de 项目</a>，点击右上角的 Fork 按钮，将代码仓库复制到自己的账户下，这样就可以随心所欲地修改或添加仓库代码。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># 将 Fork 的代码克隆到本地</span>
+</span></span><span class="line"><span class="cl">git clone git@github.com:George-Gou/r2de.git
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 添加原始仓库地址</span>
+</span></span><span class="line"><span class="cl">git remote add upstream git@github.com:Gravity-Geodesy-China-Community/r2de.git
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 每次工作前先更新远程仓库的最新代码</span>
+</span></span><span class="line"><span class="cl">git fetch upstream
+</span></span><span class="line"><span class="cl">git checkout main
+</span></span><span class="line"><span class="cl">git merge upstream/main
+</span></span><span class="line"><span class="cl">git checkout -b dev
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 代码修改完了，可以看一下本次修改的代码有哪些，有没有误修改的代码</span>
+</span></span><span class="line"><span class="cl">git diff .
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 如果代码没有问题，就可以提交到远程分支上</span>
+</span></span><span class="line"><span class="cl">git add .
+</span></span><span class="line"><span class="cl">git commit -m <span class="s1">&#39;add xxx feature&#39;</span> <span class="c1">#这句话写本次做了哪些重要修改</span>
+</span></span><span class="line"><span class="cl">git push -u origin dev
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>然后在 Github 网页上刷新自己的代码仓库，就可以看到：<code>dev had recent pushes 1 minute ago</code> 字样，右边有一个<code>Compare &amp; pull request</code>按钮，点击它，就进入了<code>Open a pull request</code>界面，这里可以写一个 comment 就可以提交代码了。点击 <code>Create pull request</code>提交代码即可。
+然后我再<code>review</code>大家提交的代码，如果没有问题就合并到主分支里面。
+<img src="https://cdn.jsdelivr.net/gh/George-Gou/PictureBed@master/2022/github_pull_request.png" alt="image.png"></p>
+<h2 id="3项目文档本地预览">3、项目文档本地预览</h2>
+<p>项目是由 mkdocs 软件包构建，其是基于 Python 开发的，我们只需要安装 Python 和 mkdocs 环境就可以运行，非常简单。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">pip install mkdocs
+</span></span><span class="line"><span class="cl">pip install mkdocs-material
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> r2de
+</span></span><span class="line"><span class="cl"><span class="c1"># 运行文档</span>
+</span></span><span class="line"><span class="cl">mkdocs serve
+</span></span><span class="line"><span class="cl"><span class="c1">#即可以在127.0.0.1:8000端口访问</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
+    </div>
+
+    
+<div class="post-reward">
+  <input type="checkbox" name="reward" id="reward" hidden />
+  <label class="reward-button" for="reward">Reward</label>
+  <div class="qr-code">
+    
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/blog/wechat-qr-code.PNG">
+        <span>wechat</span>
+      </label>
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/blog/alipay-qr-code.PNG">
+        <span>alipay</span>
+      </label>
+  </div>
+</div><footer class="post-footer">
+      
+      <nav class="post-nav">
+        
+        <a class="next" href="/blog/post/ruoyi_framwork/">
+            <span class="next-text nav-default">若依框架简易指南</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="goujianing19@mails.ucas.ac.cn" class="iconfont icon-email" title="email"></a>
+      <a href="https://stackoverflow.com/users/15882334/george-gou?tab=profile" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="https://github.com/George-Gou" class="iconfont icon-github" title="github"></a>
+      <a href="https://space.bilibili.com/320619371" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="https://george-gou.github.io/blog/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2019 - 
+    2022<span class="heart"><i class="iconfont icon-heart"></i></span><span>Gravpher</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/blog/js/main.min.64437849d125a2d603b3e71d6de5225d641a32d17168a58106e0b61852079683.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        tags: 'ams',
+        }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js" integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>
