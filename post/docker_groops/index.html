@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.87.0 with theme even" />
+<meta name="generator" content="Hugo 0.97.3 with theme even" />
 
 
 <link rel="canonical" href="https://george-gou.github.io/blog/post/docker_groops/" />
@@ -208,36 +208,36 @@
 </span><span class="lnt">29
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">$ <span class="o">(</span>base<span class="o">)</span> <span class="o">[</span>george@-c ~<span class="o">]</span>$ docker pull georgegou/groops_ubuntu
-<span class="o">(</span>base<span class="o">)</span> <span class="o">[</span>george@-c groops<span class="o">]</span>$ docker images
-REPOSITORY                TAG       IMAGE ID       CREATED          SIZE
-georgegou/groops_ubuntu   latest    d60f0033e85b   <span class="m">46</span> minutes ago   1.53GB
-<span class="c1"># 运行docker镜像</span>
-<span class="o">(</span>base<span class="o">)</span> <span class="o">[</span>george@-c groops<span class="o">]</span>$ docker run -it -d --name groops -v /home/george/groops:/root georgegou/groops_ubuntu  /bin/bash
-<span class="c1"># -v 的含义为挂载本地磁盘到镜像磁盘，镜像中的修改会同步到本地</span>
-
-<span class="c1"># 将编译的程序添加到环境变量</span>
-root@978c4b5de2e6:/# <span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:/home/george/groops/bin
-root@978c4b5de2e6:/# <span class="nv">groops</span>
-<span class="o">===</span> Starting <span class="nv">GROOPS</span> <span class="o">===</span>
-Gravity Recovery Object Oriented Programming System <span class="o">(</span>GROOPS<span class="o">)</span>
-Usage: groops <span class="o">[</span>--log &lt;logfile.txt&gt;<span class="o">]</span> <span class="o">[</span>--settings &lt;groopsDefaults.xml&gt;<span class="o">]</span> <span class="o">[</span>--silent<span class="o">]</span> <span class="o">[</span>--global <span class="nv">name</span><span class="o">=</span>value<span class="o">]</span> &lt;configfile.xml&gt;
-       groops --write-settings &lt;groopsDefaults.xml&gt;
-       groops --xsd &lt;schemafile.xsd&gt;
-       groops --doc &lt;documentation/&gt;
-
- -h, --help           this text
- -l, --log            append messages to logfile. If a directory is given, one time-stamped logfile will be created inside <span class="k">for</span> each groops script.
- -g, --global         pass a global variable to config files as <span class="nv">name</span><span class="o">=</span>value pair
- -c, --settings       <span class="nb">read</span> constants from file <span class="o">(</span>default search: groopsDefaults.xml<span class="o">)</span>
- -s, --silent         runs silently
- -d, --doc            generate documentation files <span class="o">(</span>latex/html/...<span class="o">)</span>
- -x, --xsd            write xsd-schema of xml-configfile options
- -C, --write-settings write the users current settings to file
-
-GitHub repository: https://github.com/groops-devs/groops
-<span class="o">(</span>Compiled: Nov <span class="m">4</span> <span class="m">2021</span> 00:51:04<span class="o">)</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">$ <span class="o">(</span>base<span class="o">)</span> <span class="o">[</span>george@-c ~<span class="o">]</span>$ docker pull georgegou/groops_ubuntu
+</span></span><span class="line"><span class="cl"><span class="o">(</span>base<span class="o">)</span> <span class="o">[</span>george@-c groops<span class="o">]</span>$ docker images
+</span></span><span class="line"><span class="cl">REPOSITORY                TAG       IMAGE ID       CREATED          SIZE
+</span></span><span class="line"><span class="cl">georgegou/groops_ubuntu   latest    d60f0033e85b   <span class="m">46</span> minutes ago   1.53GB
+</span></span><span class="line"><span class="cl"><span class="c1"># 运行docker镜像</span>
+</span></span><span class="line"><span class="cl"><span class="o">(</span>base<span class="o">)</span> <span class="o">[</span>george@-c groops<span class="o">]</span>$ docker run -it -d --name groops -v /home/george/groops:/root georgegou/groops_ubuntu  /bin/bash
+</span></span><span class="line"><span class="cl"><span class="c1"># -v 的含义为挂载本地磁盘到镜像磁盘，镜像中的修改会同步到本地</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 将编译的程序添加到环境变量</span>
+</span></span><span class="line"><span class="cl">root@978c4b5de2e6:/# <span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:/home/george/groops/bin
+</span></span><span class="line"><span class="cl">root@978c4b5de2e6:/# <span class="nv">groops</span>
+</span></span><span class="line"><span class="cl"><span class="o">===</span> Starting <span class="nv">GROOPS</span> <span class="o">===</span>
+</span></span><span class="line"><span class="cl">Gravity Recovery Object Oriented Programming System <span class="o">(</span>GROOPS<span class="o">)</span>
+</span></span><span class="line"><span class="cl">Usage: groops <span class="o">[</span>--log &lt;logfile.txt&gt;<span class="o">]</span> <span class="o">[</span>--settings &lt;groopsDefaults.xml&gt;<span class="o">]</span> <span class="o">[</span>--silent<span class="o">]</span> <span class="o">[</span>--global <span class="nv">name</span><span class="o">=</span>value<span class="o">]</span> &lt;configfile.xml&gt;
+</span></span><span class="line"><span class="cl">       groops --write-settings &lt;groopsDefaults.xml&gt;
+</span></span><span class="line"><span class="cl">       groops --xsd &lt;schemafile.xsd&gt;
+</span></span><span class="line"><span class="cl">       groops --doc &lt;documentation/&gt;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"> -h, --help           this text
+</span></span><span class="line"><span class="cl"> -l, --log            append messages to logfile. If a directory is given, one time-stamped logfile will be created inside <span class="k">for</span> each groops script.
+</span></span><span class="line"><span class="cl"> -g, --global         pass a global variable to config files as <span class="nv">name</span><span class="o">=</span>value pair
+</span></span><span class="line"><span class="cl"> -c, --settings       <span class="nb">read</span> constants from file <span class="o">(</span>default search: groopsDefaults.xml<span class="o">)</span>
+</span></span><span class="line"><span class="cl"> -s, --silent         runs silently
+</span></span><span class="line"><span class="cl"> -d, --doc            generate documentation files <span class="o">(</span>latex/html/...<span class="o">)</span>
+</span></span><span class="line"><span class="cl"> -x, --xsd            write xsd-schema of xml-configfile options
+</span></span><span class="line"><span class="cl"> -C, --write-settings write the users current settings to file
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">GitHub repository: https://github.com/groops-devs/groops
+</span></span><span class="line"><span class="cl"><span class="o">(</span>Compiled: Nov <span class="m">4</span> <span class="m">2021</span> 00:51:04<span class="o">)</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="构建-groops-镜像">构建 groops 镜像</h3>
 <p>下面我将展示如何构建运行 groops 的docker镜像。
@@ -252,13 +252,13 @@ GitHub repository: https://github.com/groops-devs/groops
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">FROM ubuntu:20.04
-RUN <span class="nv">buildDeps</span><span class="o">=</span><span class="s1">&#39;g++ gfortran cmake libexpat1-dev libopenblas-dev libnetcdf-dev liberfa-dev mpi-default-dev gmt gmt-gshhg&#39;</span> <span class="se">\
-</span><span class="se"></span>    <span class="o">&amp;&amp;</span> <span class="nb">export</span> <span class="nv">DEBIAN_FRONTEND</span><span class="o">=</span>noninteractive <span class="se">\
-</span><span class="se"></span>    <span class="o">&amp;&amp;</span> apt-get update <span class="se">\
-</span><span class="se"></span>    <span class="o">&amp;&amp;</span> apt-get install -y <span class="nv">$buildDeps</span> <span class="se">\
-</span><span class="se"></span>    <span class="o">&amp;&amp;</span> ln -fs /usr/share/zoneinfo/Asia/Shanghai /etc/localtime <span class="se">\
-</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">FROM ubuntu:20.04
+</span></span><span class="line"><span class="cl">RUN <span class="nv">buildDeps</span><span class="o">=</span><span class="s1">&#39;g++ gfortran cmake libexpat1-dev libopenblas-dev libnetcdf-dev liberfa-dev mpi-default-dev gmt gmt-gshhg&#39;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="o">&amp;&amp;</span> <span class="nb">export</span> <span class="nv">DEBIAN_FRONTEND</span><span class="o">=</span>noninteractive <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="o">&amp;&amp;</span> apt-get update <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="o">&amp;&amp;</span> apt-get install -y <span class="nv">$buildDeps</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="o">&amp;&amp;</span> ln -fs /usr/share/zoneinfo/Asia/Shanghai /etc/localtime <span class="se">\
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><p>2、使用docker构建镜像</p>
 <div class="highlight"><div class="chroma">
@@ -269,11 +269,11 @@ RUN <span class="nv">buildDeps</span><span class="o">=</span><span class="s1">&#
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">$ docker build -t ubuntu:20.04-dev .
-bash-5.0$ docker images                     
-REPOSITORY         TAG          IMAGE ID       CREATED        SIZE
-ubuntu         20.04-dev      52464fc32c86   <span class="m">1</span> day ago        885MB
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">$ docker build -t ubuntu:20.04-dev .
+</span></span><span class="line"><span class="cl">bash-5.0$ docker images                     
+</span></span><span class="line"><span class="cl">REPOSITORY         TAG          IMAGE ID       CREATED        SIZE
+</span></span><span class="line"><span class="cl">ubuntu         20.04-dev      52464fc32c86   <span class="m">1</span> day ago        885MB
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>3、运行镜像，自己编译源程序</p>
 <div class="highlight"><div class="chroma">
@@ -281,8 +281,8 @@ ubuntu         20.04-dev      52464fc32c86   <span class="m">1</span> day ago   
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">$ docker run -it -d --name groops-dev -h groops-srv -v /Users/george/Desktop/groops/groops:/root ubuntu:20.04-dev /bin/bash 
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">$ docker run -it -d --name groops-dev -h groops-srv -v /Users/george/Desktop/groops/groops:/root ubuntu:20.04-dev /bin/bash 
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>/Users/george/Desktop/groops/groops:为软件所在目录，将其挂载的镜像中，修改任意一处文件都会发生改变。</p>
 <p>编译的具体步骤参照 <a href="https://github.com/groops-devs/groops/blob/main/INSTALL.md">https://github.com/groops-devs/groops/blob/main/INSTALL.md</a></p>
@@ -293,9 +293,9 @@ ubuntu         20.04-dev      52464fc32c86   <span class="m">1</span> day ago   
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">root@28ae6145f5bb:~/bin# ls
-groops  groopsMPI
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">root@28ae6145f5bb:~/bin# ls
+</span></span><span class="line"><span class="cl">groops  groopsMPI
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>4、提交镜像到自己的 dockerhub</p>
 <p>将能跑起来的容器发布到自己的 dockerhub，方便别人拉取后就能运行程序。</p>
@@ -307,11 +307,11 @@ groops  groopsMPI
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">$ docker login
-$ docker tag d60f0033e85b groops_ubuntu <span class="c1">#镜像ID，编写个名字</span>
-$ docker commit -m<span class="o">=</span><span class="s2">&#34;groops_ubuntu&#34;</span> -a<span class="o">=</span><span class="s2">&#34;georgegou&#34;</span> d60f0033e85b groops_ubuntu
-$ docker push groops_ubuntu
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">$ docker login
+</span></span><span class="line"><span class="cl">$ docker tag d60f0033e85b groops_ubuntu <span class="c1">#镜像ID，编写个名字</span>
+</span></span><span class="line"><span class="cl">$ docker commit -m<span class="o">=</span><span class="s2">&#34;groops_ubuntu&#34;</span> -a<span class="o">=</span><span class="s2">&#34;georgegou&#34;</span> d60f0033e85b groops_ubuntu
+</span></span><span class="line"><span class="cl">$ docker push groops_ubuntu
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="参考文献">参考文献</h2>
 <section class="footnotes" role="doc-endnotes">
@@ -410,7 +410,7 @@ $ docker push groops_ubuntu
 
 
 
-<script type="text/javascript" src="/blog/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+<script type="text/javascript" src="/blog/js/main.min.64437849d125a2d603b3e71d6de5225d641a32d17168a58106e0b61852079683.js"></script>
   <script type="text/javascript">
     window.MathJax = {
       tex: {

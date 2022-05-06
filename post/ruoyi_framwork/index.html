@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.87.0 with theme even" />
+<meta name="generator" content="Hugo 0.97.3 with theme even" />
 
 
 <link rel="canonical" href="https://george-gou.github.io/blog/post/ruoyi_framwork/" />
@@ -168,16 +168,16 @@
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">JDK &gt;<span class="o">=</span> 1.8  <span class="c1">#Java 运行环境</span>
-Mysql &gt;<span class="o">=</span> 5.7 <span class="c1">#数据库</span>
-Maven &gt;<span class="o">=</span> 3.0 <span class="c1">#Java包管理工具</span>
-<span class="nv">Redis</span> <span class="o">=</span> 6.2.6 <span class="c1">#本文使用的最新稳定版  </span>
-<span class="nv">Node</span> <span class="o">=</span> 16.14.0 <span class="c1">#本文使用的最新稳定版</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">JDK &gt;<span class="o">=</span> 1.8  <span class="c1">#Java 运行环境</span>
+</span></span><span class="line"><span class="cl">Mysql &gt;<span class="o">=</span> 5.7 <span class="c1">#数据库</span>
+</span></span><span class="line"><span class="cl">Maven &gt;<span class="o">=</span> 3.0 <span class="c1">#Java包管理工具</span>
+</span></span><span class="line"><span class="cl"><span class="nv">Redis</span> <span class="o">=</span> 6.2.6 <span class="c1">#本文使用的最新稳定版  </span>
+</span></span><span class="line"><span class="cl"><span class="nv">Node</span> <span class="o">=</span> 16.14.0 <span class="c1">#本文使用的最新稳定版</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h1 id="运行系统">运行系统</h1>
-<p>1、克隆项目到本地 git clone <a href="https://gitee.com/y_project/RuoYi-Vue">https://gitee.com/y_project/RuoYi-Vue</a><br>
-2、导入项目到 Idea 软件，Maven会自动下载依赖<br>
+<p>1、克隆项目到本地 git clone <a href="https://gitee.com/y_project/RuoYi-Vue">https://gitee.com/y_project/RuoYi-Vue</a> <br>
+2、导入项目到 Idea 软件，Maven会自动下载依赖 <br>
 3、修改必要配置</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -186,12 +186,12 @@ Maven &gt;<span class="o">=</span> 3.0 <span class="c1">#Java包管理工具</sp
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">主要修改两个配置文件
-1、ruoyi-admin/src/main/resources/application.yml <span class="c1">#配置Redis、服务器端口、日志、Mybatis等参数</span>
-2、application-druid.yml <span class="c1">#配置主从数据库信息（名称、用户、密码等）</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">主要修改两个配置文件
+</span></span><span class="line"><span class="cl">1、ruoyi-admin/src/main/resources/application.yml <span class="c1">#配置Redis、服务器端口、日志、Mybatis等参数</span>
+</span></span><span class="line"><span class="cl">2、application-druid.yml <span class="c1">#配置主从数据库信息（名称、用户、密码等）</span>
+</span></span></code></pre></td></tr></table>
 </div>
-</div><p>4、启动后台服务<br>
+</div><p>4、启动后台服务 <br>
 $\quad$ 打开文件 <a href="">ruoyi-admin/src/main/java/com/ruoyi/RuoYiApplication.java</a> , 运行主函数即可<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -208,18 +208,18 @@ $\quad$ 打开文件 <a href="">ruoyi-admin/src/main/java/com/ruoyi/RuoYiApplica
 </span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="o">(</span>♥◠‿◠<span class="o">)</span>ﾉﾞ  若依启动成功   ლ<span class="o">(</span>´ڡ<span class="sb">`</span>ლ<span class="o">)</span>ﾞ  
- .-------.       ____     __        
- <span class="p">|</span>  _ _   <span class="se">\ </span>     <span class="se">\ </span>  <span class="se">\ </span>  /  /    
- <span class="p">|</span> <span class="o">(</span> <span class="s1">&#39; )  |       \  _. /  &#39;</span>       
- <span class="p">|</span><span class="o">(</span>_ o _<span class="o">)</span> /        _<span class="o">(</span> <span class="o">)</span>_ .<span class="s1">&#39;         
-</span><span class="s1"> | (_,_).&#39;</span> __  ___<span class="o">(</span>_ o _<span class="o">)</span><span class="s1">&#39;          
-</span><span class="s1"> |  |\ \  |  ||   |(_,_)&#39;</span>         
- <span class="p">|</span>  <span class="p">|</span> <span class="se">\ </span><span class="sb">`</span><span class="s1">&#39;   /|   `-&#39;</span>  /           
- <span class="p">|</span>  <span class="p">|</span>  <span class="se">\ </span>   /  <span class="se">\ </span>     /           
- <span class="s1">&#39;&#39;</span>-<span class="s1">&#39;   `&#39;</span>-<span class="s1">&#39;    `-..-&#39;</span>              
-<span class="c1">#启动成功界面</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="o">(</span>♥◠‿◠<span class="o">)</span>ﾉﾞ  若依启动成功   ლ<span class="o">(</span>´ڡ<span class="sb">`</span>ლ<span class="o">)</span>ﾞ  
+</span></span><span class="line"><span class="cl"> .-------.       ____     __        
+</span></span><span class="line"><span class="cl"> <span class="p">|</span>  _ _   <span class="se">\ </span>     <span class="se">\ </span>  <span class="se">\ </span>  /  /    
+</span></span><span class="line"><span class="cl"> <span class="p">|</span> <span class="o">(</span> <span class="s1">&#39; )  |       \  _. /  &#39;</span>       
+</span></span><span class="line"><span class="cl"> <span class="p">|</span><span class="o">(</span>_ o _<span class="o">)</span> /        _<span class="o">(</span> <span class="o">)</span>_ .<span class="s1">&#39;         
+</span></span></span><span class="line"><span class="cl"><span class="s1"> | (_,_).&#39;</span> __  ___<span class="o">(</span>_ o _<span class="o">)</span><span class="s1">&#39;          
+</span></span></span><span class="line"><span class="cl"><span class="s1"> |  |\ \  |  ||   |(_,_)&#39;</span>         
+</span></span><span class="line"><span class="cl"> <span class="p">|</span>  <span class="p">|</span> <span class="se">\ </span><span class="sb">`</span><span class="s1">&#39;   /|   `-&#39;</span>  /           
+</span></span><span class="line"><span class="cl"> <span class="p">|</span>  <span class="p">|</span>  <span class="se">\ </span>   /  <span class="se">\ </span>     /           
+</span></span><span class="line"><span class="cl"> <span class="s1">&#39;&#39;</span>-<span class="s1">&#39;   `&#39;</span>-<span class="s1">&#39;    `-..-&#39;</span>              
+</span></span><span class="line"><span class="cl"><span class="c1">#启动成功界面</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h1 id="references" class="no-underline">引用来源</h1>
 <section class="footnotes" role="doc-endnotes">
@@ -312,7 +312,7 @@ $\quad$ 打开文件 <a href="">ruoyi-admin/src/main/java/com/ruoyi/RuoYiApplica
 
 
 
-<script type="text/javascript" src="/blog/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+<script type="text/javascript" src="/blog/js/main.min.64437849d125a2d603b3e71d6de5225d641a32d17168a58106e0b61852079683.js"></script>
   <script type="text/javascript">
     window.MathJax = {
       tex: {

@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.87.0 with theme even" />
+<meta name="generator" content="Hugo 0.97.3 with theme even" />
 
 
 <link rel="canonical" href="https://george-gou.github.io/blog/post/docker_net/" />
@@ -49,7 +49,7 @@
 <meta itemprop="name" content="Docker网络探秘">
 <meta itemprop="description" content="Docker网络 Docker 是一个及其轻量化的应用容器，能够轻松将开发环境与应用打包至镜像进行发布，能达到“Develop Once，Run Anywhe"><meta itemprop="datePublished" content="2021-11-03T16:48:18+08:00" />
 <meta itemprop="dateModified" content="2022-04-27T20:13:22+08:00" />
-<meta itemprop="wordCount" content="640">
+<meta itemprop="wordCount" content="639">
 <meta itemprop="keywords" content="docker," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Docker网络探秘"/>
 <meta name="twitter:description" content="Docker网络 Docker 是一个及其轻量化的应用容器，能够轻松将开发环境与应用打包至镜像进行发布，能达到“Develop Once，Run Anywhe"/>
@@ -138,7 +138,7 @@
       <div class="post-meta">
         <span class="post-time"> 2021-11-03 </span>
         
-          <span class="more-meta"> 640 words </span>
+          <span class="more-meta"> 639 words </span>
           <span class="more-meta"> 2 mins read </span>
         
       </div>
@@ -180,16 +180,16 @@
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="o">(</span>base<span class="o">)</span> george@george ~/test$ ifconfig  
-docker0: <span class="nv">flags</span><span class="o">=</span>4163&lt;UP,BROADCAST,RUNNING,MULTICAST&gt;  mtu <span class="m">1500</span>
-        inet 172.17.0.1  netmask 255.255.0.0  broadcast 172.17.255.255
-        inet6 fe80::42:9eff:fe6d:8c1c  prefixlen <span class="m">64</span>  scopeid 0x20&lt;link&gt;
-        ether 02:42:9e:6d:8c:1c  txqueuelen <span class="m">0</span>  <span class="o">(</span>Ethernet<span class="o">)</span>
-        RX packets <span class="m">134541</span>  bytes <span class="m">14183525</span> <span class="o">(</span>14.1 MB<span class="o">)</span>
-        RX errors <span class="m">0</span>  dropped <span class="m">0</span>  overruns <span class="m">0</span>  frame <span class="m">0</span>
-        TX packets <span class="m">501775</span>  bytes <span class="m">629260746</span> <span class="o">(</span>629.2 MB<span class="o">)</span>
-        TX errors <span class="m">0</span>  dropped <span class="m">0</span> overruns <span class="m">0</span>  carrier <span class="m">0</span>  collisions <span class="m">0</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="o">(</span>base<span class="o">)</span> george@george ~/test$ ifconfig  
+</span></span><span class="line"><span class="cl">docker0: <span class="nv">flags</span><span class="o">=</span>4163&lt;UP,BROADCAST,RUNNING,MULTICAST&gt;  mtu <span class="m">1500</span>
+</span></span><span class="line"><span class="cl">        inet 172.17.0.1  netmask 255.255.0.0  broadcast 172.17.255.255
+</span></span><span class="line"><span class="cl">        inet6 fe80::42:9eff:fe6d:8c1c  prefixlen <span class="m">64</span>  scopeid 0x20&lt;link&gt;
+</span></span><span class="line"><span class="cl">        ether 02:42:9e:6d:8c:1c  txqueuelen <span class="m">0</span>  <span class="o">(</span>Ethernet<span class="o">)</span>
+</span></span><span class="line"><span class="cl">        RX packets <span class="m">134541</span>  bytes <span class="m">14183525</span> <span class="o">(</span>14.1 MB<span class="o">)</span>
+</span></span><span class="line"><span class="cl">        RX errors <span class="m">0</span>  dropped <span class="m">0</span>  overruns <span class="m">0</span>  frame <span class="m">0</span>
+</span></span><span class="line"><span class="cl">        TX packets <span class="m">501775</span>  bytes <span class="m">629260746</span> <span class="o">(</span>629.2 MB<span class="o">)</span>
+</span></span><span class="line"><span class="cl">        TX errors <span class="m">0</span>  dropped <span class="m">0</span> overruns <span class="m">0</span>  carrier <span class="m">0</span>  collisions <span class="m">0</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>开启了Docker之后，发现网卡中多了一个 Docker0 ，这可以充当一个路由器的功能，使得所有容器通过网络桥接的方式相互通信。如我们启动其他容器后：</p>
 <div class="highlight"><div class="chroma">
@@ -198,9 +198,9 @@ docker0: <span class="nv">flags</span><span class="o">=</span>4163&lt;UP,BROADCA
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">docker1：tomcat01 172.17.0.2
-docker2：tomcat02 172.17.0.3
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">docker1：tomcat01 172.17.0.2
+</span></span><span class="line"><span class="cl">docker2：tomcat02 172.17.0.3
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p><img src="https://cdn.jsdelivr.net/gh/George-Gou/PictureBed@master/2022/docker_net.png" alt="img"></p>
 <p>如果容器采用 host 模式，这种情况下容器与宿主机共享网络，其余情况通过 veth-pair 进行桥接，进而实现容器间的通信。</p>
@@ -213,9 +213,9 @@ docker2：tomcat02 172.17.0.3
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">$ docker network create redis --subnet 172.38.0.0/16
-通过构建子网，使得redis集群处于同一子网
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">$ docker network create redis --subnet 172.38.0.0/16
+</span></span><span class="line"><span class="cl">通过构建子网，使得redis集群处于同一子网
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>2、创建redis集群的配置文件</p>
 <div class="highlight"><div class="chroma">
@@ -237,22 +237,22 @@ docker2：tomcat02 172.17.0.3
 </span><span class="lnt">15
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="k">for</span> port in <span class="k">$(</span>seq <span class="m">1</span> 6<span class="k">)</span><span class="p">;</span> <span class="se">\
-</span><span class="se"></span><span class="k">do</span> <span class="se">\
-</span><span class="se"></span>mkdir -p /mydata/redis/node-<span class="si">${</span><span class="nv">port</span><span class="si">}</span>/conf
-cat <span class="s">&lt;&lt; EOF &gt;/mydata/redis/node-${port}/conf/redis.conf
-</span><span class="s">port 6379
-</span><span class="s">bind 0.0.0.0
-</span><span class="s">cluster-enabled yes
-</span><span class="s">cluster-config-file nodes.conf
-</span><span class="s">cluster-node-timeout 5000
-</span><span class="s">cluster-announce-ip 172.38.0.1${port}
-</span><span class="s">cluster-announce-port 6379
-</span><span class="s">cluster-announce-bus-port 16379
-</span><span class="s">sppendonly yes
-</span><span class="s">EOF</span>       
-<span class="k">done</span> 
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="k">for</span> port in <span class="k">$(</span>seq <span class="m">1</span> 6<span class="k">)</span><span class="p">;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span><span class="k">do</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>mkdir -p /mydata/redis/node-<span class="si">${</span><span class="nv">port</span><span class="si">}</span>/conf
+</span></span><span class="line"><span class="cl">cat <span class="s">&lt;&lt; EOF &gt;/mydata/redis/node-${port}/conf/redis.conf
+</span></span></span><span class="line"><span class="cl"><span class="s">port 6379
+</span></span></span><span class="line"><span class="cl"><span class="s">bind 0.0.0.0
+</span></span></span><span class="line"><span class="cl"><span class="s">cluster-enabled yes
+</span></span></span><span class="line"><span class="cl"><span class="s">cluster-config-file nodes.conf
+</span></span></span><span class="line"><span class="cl"><span class="s">cluster-node-timeout 5000
+</span></span></span><span class="line"><span class="cl"><span class="s">cluster-announce-ip 172.38.0.1${port}
+</span></span></span><span class="line"><span class="cl"><span class="s">cluster-announce-port 6379
+</span></span></span><span class="line"><span class="cl"><span class="s">cluster-announce-bus-port 16379
+</span></span></span><span class="line"><span class="cl"><span class="s">sppendonly yes
+</span></span></span><span class="line"><span class="cl"><span class="s">EOF</span>       
+</span></span><span class="line"><span class="cl"><span class="k">done</span> 
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>3、依次启动6个redis集群</p>
 <div class="highlight"><div class="chroma">
@@ -264,25 +264,23 @@ cat <span class="s">&lt;&lt; EOF &gt;/mydata/redis/node-${port}/conf/redis.conf
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">$ docker run -p 6371:6379 -p 16371:16379 --name redis-1 <span class="se">\
-</span><span class="se"></span>-v /mydata/redis/node-1/data:/data <span class="se">\
-</span><span class="se"></span>-v /redis_cluster/mydata/redis/node-1/conf/redis.conf:/etc/redis/redis.conf <span class="se">\
-</span><span class="se"></span>-d --net redis --ip 172.38.0.11 redis:5.0.9-alpine3.11 redis-server /etc/redis/redis.conf
-依次替换 端口号 redis集群名称 ip地址，启动集群
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">$ docker run -p 6371:6379 -p 16371:16379 --name redis-1 <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>-v /mydata/redis/node-1/data:/data <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>-v /redis_cluster/mydata/redis/node-1/conf/redis.conf:/etc/redis/redis.conf <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>-d --net redis --ip 172.38.0.11 redis:5.0.9-alpine3.11 redis-server /etc/redis/redis.conf
+</span></span><span class="line"><span class="cl">依次替换 端口号 redis集群名称 ip地址，启动集群
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>4、进入集群</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
-</span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">$ docker <span class="nb">exec</span> -it redis-1 /bin/bash
-/data <span class="c1"># redis-cli --cluster create 172.38.0.11:6379 172.38.0.12:6379 172.38.0.13:6379 172.38.0.14:6379 172.38.0.15:6379 172.38.0.16:6379 --cluster-replicas 1</span>
-
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">$ docker <span class="nb">exec</span> -it redis-1 /bin/bash
+</span></span><span class="line"><span class="cl">/data <span class="c1"># redis-cli --cluster create 172.38.0.11:6379 172.38.0.12:6379 172.38.0.13:6379 172.38.0.14:6379 172.38.0.15:6379 172.38.0.16:6379 --cluster-replicas 1</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div>
     </div>
@@ -357,7 +355,7 @@ cat <span class="s">&lt;&lt; EOF &gt;/mydata/redis/node-${port}/conf/redis.conf
 
 
 
-<script type="text/javascript" src="/blog/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+<script type="text/javascript" src="/blog/js/main.min.64437849d125a2d603b3e71d6de5225d641a32d17168a58106e0b61852079683.js"></script>
 
 
 

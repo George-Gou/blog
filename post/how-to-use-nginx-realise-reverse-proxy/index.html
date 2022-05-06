@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.87.0 with theme even" />
+<meta name="generator" content="Hugo 0.97.3 with theme even" />
 
 
 <link rel="canonical" href="https://george-gou.github.io/blog/post/how-to-use-nginx-realise-reverse-proxy/" />
@@ -49,7 +49,7 @@
 <meta itemprop="name" content="如何利用Nginx实现反向代理">
 <meta itemprop="description" content="本文主要介绍如何使用 nginx实现服务器端反向代理。 Nginx 是一个高性能的 HTTP 和反向代理 web 服务器，同时也提供了IMAP/POP3/SMTP服务。最早"><meta itemprop="datePublished" content="2021-09-11T11:14:05+08:00" />
 <meta itemprop="dateModified" content="2022-04-19T22:32:37+08:00" />
-<meta itemprop="wordCount" content="1846">
+<meta itemprop="wordCount" content="1843">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="如何利用Nginx实现反向代理"/>
 <meta name="twitter:description" content="本文主要介绍如何使用 nginx实现服务器端反向代理。 Nginx 是一个高性能的 HTTP 和反向代理 web 服务器，同时也提供了IMAP/POP3/SMTP服务。最早"/>
@@ -138,7 +138,7 @@
       <div class="post-meta">
         <span class="post-time"> 2021-09-11 </span>
         
-          <span class="more-meta"> 1846 words </span>
+          <span class="more-meta"> 1843 words </span>
           <span class="more-meta"> 4 mins read </span>
         
       </div>
@@ -191,9 +191,9 @@
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">$ docker run -itd --name mycentos centos 
-$ docker <span class="nb">exec</span> -it mycentos /bin/bash
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">$ docker run -itd --name mycentos centos 
+</span></span><span class="line"><span class="cl">$ docker <span class="nb">exec</span> -it mycentos /bin/bash
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>运行命令</p>
 <div class="highlight"><div class="chroma">
@@ -201,8 +201,8 @@ $ docker <span class="nb">exec</span> -it mycentos /bin/bash
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">$ yum install nginx -y
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">$ yum install nginx -y
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>安装 nginx</p>
 <h2 id="初识-nginx">初识 Nginx</h2>
@@ -234,31 +234,31 @@ $ docker <span class="nb">exec</span> -it mycentos /bin/bash
 </span><span class="lnt">24
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># 开机配置</span>
-systemctl <span class="nb">enable</span> nginx <span class="c1"># 开机自动启动</span>
-systemctl disable nginx <span class="c1"># 关闭开机自动启动</span>
-
-<span class="c1"># 启动Nginx</span>
-systemctl start nginx <span class="c1"># 启动Nginx成功后，可以直接访问主机IP，此时会展示Nginx默认页面</span>
-
-<span class="c1"># 停止Nginx</span>
-systemctl stop nginx
-
-<span class="c1"># 重启Nginx</span>
-systemctl restart nginx
-
-<span class="c1"># 重新加载Nginx</span>
-systemctl reload nginx
-
-<span class="c1"># 查看 Nginx 运行状态</span>
-systemctl status nginx
-
-<span class="c1"># 查看Nginx进程</span>
-ps -ef <span class="p">|</span> grep nginx
-
-<span class="c1"># 杀死Nginx进程</span>
-<span class="nb">kill</span> -9 pid <span class="c1"># 根据上面查看到的Nginx进程号，杀死Nginx进程，-9 表示强制结束进程</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># 开机配置</span>
+</span></span><span class="line"><span class="cl">systemctl <span class="nb">enable</span> nginx <span class="c1"># 开机自动启动</span>
+</span></span><span class="line"><span class="cl">systemctl disable nginx <span class="c1"># 关闭开机自动启动</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 启动Nginx</span>
+</span></span><span class="line"><span class="cl">systemctl start nginx <span class="c1"># 启动Nginx成功后，可以直接访问主机IP，此时会展示Nginx默认页面</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 停止Nginx</span>
+</span></span><span class="line"><span class="cl">systemctl stop nginx
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 重启Nginx</span>
+</span></span><span class="line"><span class="cl">systemctl restart nginx
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 重新加载Nginx</span>
+</span></span><span class="line"><span class="cl">systemctl reload nginx
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 查看 Nginx 运行状态</span>
+</span></span><span class="line"><span class="cl">systemctl status nginx
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 查看Nginx进程</span>
+</span></span><span class="line"><span class="cl">ps -ef <span class="p">|</span> grep nginx
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 杀死Nginx进程</span>
+</span></span><span class="line"><span class="cl"><span class="nb">kill</span> -9 pid <span class="c1"># 根据上面查看到的Nginx进程号，杀死Nginx进程，-9 表示强制结束进程</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p><img src="https://cdn.jsdelivr.net/gh/George-Gou/PictureBed@master/2022/202109111737435.png" alt="image-20210911173656583"></p>
 <p>上述命令查看 <code>nginx</code>的运行状态，可以看到是 <code>active</code>，通过 <code>hostname:8080</code>可以访问到默认页面。</p>
@@ -271,8 +271,8 @@ ps -ef <span class="p">|</span> grep nginx
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">$ sudo ufw allow <span class="m">80</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">$ sudo ufw allow <span class="m">80</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>随后新建一个测试环境，这里用的Conda：</p>
 <div class="highlight"><div class="chroma">
@@ -282,10 +282,10 @@ ps -ef <span class="p">|</span> grep nginx
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">$ conda create -n new_test <span class="nv">python</span> <span class="o">=</span> XXXX
-$ conda activate new_test
-$ conda install httpie
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">$ conda create -n new_test <span class="nv">python</span> <span class="o">=</span> XXXX
+</span></span><span class="line"><span class="cl">$ conda activate new_test
+</span></span><span class="line"><span class="cl">$ conda install httpie
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>HTTPie 是一个 HTTP 的命令行客户端，目标是让 CLI 和 web 服务之间的交互尽可能的人性化，本文通过 HTTPie 实现一个简单的 Web应用。</p>
 <div class="highlight"><div class="chroma">
@@ -297,12 +297,12 @@ $ conda install httpie
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">$ mkdir appA
-$ <span class="nb">cd</span> appA
-$ cat <span class="s">&lt;&lt;EOF &gt;index.html
-</span><span class="s">this is app A !
-</span><span class="s">EOF</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">$ mkdir appA
+</span></span><span class="line"><span class="cl">$ <span class="nb">cd</span> appA
+</span></span><span class="line"><span class="cl">$ cat <span class="s">&lt;&lt;EOF &gt;index.html
+</span></span></span><span class="line"><span class="cl"><span class="s">this is app A !
+</span></span></span><span class="line"><span class="cl"><span class="s">EOF</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>对于Python3 来说：</p>
 <div class="highlight"><div class="chroma">
@@ -311,9 +311,9 @@ $ cat <span class="s">&lt;&lt;EOF &gt;index.html
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">python3 -m http.server 3000 &amp;
-  Serving HTTP on 0.0.0.0 port 3000 (http://0.0.0.0:3000/) ...
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">python3 -m http.server 3000 &amp;
+</span></span><span class="line"><span class="cl">  Serving HTTP on 0.0.0.0 port 3000 (http://0.0.0.0:3000/) ...
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>测试appA</p>
 <div class="highlight"><div class="chroma">
@@ -330,17 +330,17 @@ $ cat <span class="s">&lt;&lt;EOF &gt;index.html
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">http http://localhost:3000
-127.0.0.1 - - <span class="o">[</span>24/May/2020 13:30:59<span class="o">]</span> <span class="s2">&#34;GET / HTTP/1.1&#34;</span> <span class="m">200</span> -
-HTTP/1.0 <span class="m">200</span> OK
-Content-Length: <span class="m">16</span>
-Content-type: text/html
-Date: Sun, <span class="m">24</span> May <span class="m">2020</span> 13:30:59 GMT
-Last-Modified: Sun, <span class="m">24</span> May <span class="m">2020</span> 13:28:42 GMT
-Server: SimpleHTTP/0.6 Python/2.7.18rc1
-
-this is app A !
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">http http://localhost:3000
+</span></span><span class="line"><span class="cl">127.0.0.1 - - <span class="o">[</span>24/May/2020 13:30:59<span class="o">]</span> <span class="s2">&#34;GET / HTTP/1.1&#34;</span> <span class="m">200</span> -
+</span></span><span class="line"><span class="cl">HTTP/1.0 <span class="m">200</span> OK
+</span></span><span class="line"><span class="cl">Content-Length: <span class="m">16</span>
+</span></span><span class="line"><span class="cl">Content-type: text/html
+</span></span><span class="line"><span class="cl">Date: Sun, <span class="m">24</span> May <span class="m">2020</span> 13:30:59 GMT
+</span></span><span class="line"><span class="cl">Last-Modified: Sun, <span class="m">24</span> May <span class="m">2020</span> 13:28:42 GMT
+</span></span><span class="line"><span class="cl">Server: SimpleHTTP/0.6 Python/2.7.18rc1
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">this is app A !
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>创建appB</p>
 <div class="highlight"><div class="chroma">
@@ -354,14 +354,14 @@ this is app A !
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">$ mkdir appB
-$ <span class="nb">cd</span> appB
-$ cat <span class="s">&lt;&lt;EOF &gt;index.html
-</span><span class="s">this is app B !
-</span><span class="s">EOF</span>
-python3 -m http.server <span class="m">4000</span> <span class="p">&amp;</span>
-Serving HTTP on 0.0.0.0 port <span class="m">4000</span> <span class="o">(</span>http://0.0.0.0:4000/<span class="o">)</span> ...
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">$ mkdir appB
+</span></span><span class="line"><span class="cl">$ <span class="nb">cd</span> appB
+</span></span><span class="line"><span class="cl">$ cat <span class="s">&lt;&lt;EOF &gt;index.html
+</span></span></span><span class="line"><span class="cl"><span class="s">this is app B !
+</span></span></span><span class="line"><span class="cl"><span class="s">EOF</span>
+</span></span><span class="line"><span class="cl">python3 -m http.server <span class="m">4000</span> <span class="p">&amp;</span>
+</span></span><span class="line"><span class="cl">Serving HTTP on 0.0.0.0 port <span class="m">4000</span> <span class="o">(</span>http://0.0.0.0:4000/<span class="o">)</span> ...
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>测试appB</p>
 <div class="highlight"><div class="chroma">
@@ -378,17 +378,17 @@ Serving HTTP on 0.0.0.0 port <span class="m">4000</span> <span class="o">(</span
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">http http://localhost:4000
-127.0.0.1 - - <span class="o">[</span>12/Sep/2021 00:01:32<span class="o">]</span> <span class="s2">&#34;GET / HTTP/1.1&#34;</span> <span class="m">200</span> -
-HTTP/1.0 <span class="m">200</span> OK
-Content-Length: <span class="m">15</span>
-Content-type: text/html
-Date: Sat, <span class="m">11</span> Sep <span class="m">2021</span> 16:01:32 GMT
-Last-Modified: Sat, <span class="m">11</span> Sep <span class="m">2021</span> 15:59:39 GMT
-Server: SimpleHTTP/0.6 Python/3.9.6
-
-this is app B!
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">http http://localhost:4000
+</span></span><span class="line"><span class="cl">127.0.0.1 - - <span class="o">[</span>12/Sep/2021 00:01:32<span class="o">]</span> <span class="s2">&#34;GET / HTTP/1.1&#34;</span> <span class="m">200</span> -
+</span></span><span class="line"><span class="cl">HTTP/1.0 <span class="m">200</span> OK
+</span></span><span class="line"><span class="cl">Content-Length: <span class="m">15</span>
+</span></span><span class="line"><span class="cl">Content-type: text/html
+</span></span><span class="line"><span class="cl">Date: Sat, <span class="m">11</span> Sep <span class="m">2021</span> 16:01:32 GMT
+</span></span><span class="line"><span class="cl">Last-Modified: Sat, <span class="m">11</span> Sep <span class="m">2021</span> 15:59:39 GMT
+</span></span><span class="line"><span class="cl">Server: SimpleHTTP/0.6 Python/3.9.6
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">this is app B!
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>修改<code>/etc/hosts</code>文件，将地址指向本机 ip 地址</p>
 <h3 id="配置-nginx-反向代理">配置 Nginx 反向代理</h3>
@@ -402,12 +402,12 @@ this is app B!
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">$ sudo su  <span class="c1"># 切换到超级用户</span>
-$ rm /etc/nginx/sites-enabled/default  <span class="c1">#删除默认配置</span>
-$ touch /etc/nginx/sites-available/reverse-proxy <span class="c1">#创建反向代理</span>
-$ ln -s /etc/nginx/sites-available/reverse-proxy /etc/nginx/sites enabled/reverse-proxy <span class="c1"># 创建软链接，任意修改一处会同步变化</span>
-$ vim /etc/nginx/sites-available/reverse-proxy <span class="c1">#复制以下内容到配置文件</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">$ sudo su  <span class="c1"># 切换到超级用户</span>
+</span></span><span class="line"><span class="cl">$ rm /etc/nginx/sites-enabled/default  <span class="c1">#删除默认配置</span>
+</span></span><span class="line"><span class="cl">$ touch /etc/nginx/sites-available/reverse-proxy <span class="c1">#创建反向代理</span>
+</span></span><span class="line"><span class="cl">$ ln -s /etc/nginx/sites-available/reverse-proxy /etc/nginx/sites enabled/reverse-proxy <span class="c1"># 创建软链接，任意修改一处会同步变化</span>
+</span></span><span class="line"><span class="cl">$ vim /etc/nginx/sites-available/reverse-proxy <span class="c1">#复制以下内容到配置文件</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -439,33 +439,33 @@ $ vim /etc/nginx/sites-available/reverse-proxy <span class="c1">#复制以下内
 </span><span class="lnt">26
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">upstream appA {
-        server 127.0.0.1:3000;
-}
-
-upstream appB {
-        server 127.0.0.1:4000;
-}
-
-
-server {
-  listen 80;
-  server_name appa.domain.com;
-  
-  location / {
-        proxy_pass http://appA;
-    }
-}
-
-server {
-  listen 80;
-  server_name appb.domain.com;
-
-  location / {
-        proxy_pass http://appB;
-    }
-}
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">upstream appA {
+</span></span><span class="line"><span class="cl">        server 127.0.0.1:3000;
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">upstream appB {
+</span></span><span class="line"><span class="cl">        server 127.0.0.1:4000;
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">server {
+</span></span><span class="line"><span class="cl">  listen 80;
+</span></span><span class="line"><span class="cl">  server_name appa.domain.com;
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">  location / {
+</span></span><span class="line"><span class="cl">        proxy_pass http://appA;
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">server {
+</span></span><span class="line"><span class="cl">  listen 80;
+</span></span><span class="line"><span class="cl">  server_name appb.domain.com;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  location / {
+</span></span><span class="line"><span class="cl">        proxy_pass http://appB;
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>上述操作中，我们在上游定义了两个应用程序，一个转到3000端口，一个转到4000端口。利用 server 指令和 server_name 选项来确定子域名与上游映射关系</p>
 <h3 id="测试反向代理">测试反向代理</h3>
@@ -478,12 +478,12 @@ server {
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">$ sudo nginx -t
-nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
-nginx: configuration file /etc/nginx/nginx.conf <span class="nb">test</span> is successful
-$ sudo systemctl reload nginx
-$ sudo systemctl status nginx
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">$ sudo nginx -t
+</span></span><span class="line"><span class="cl">nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+</span></span><span class="line"><span class="cl">nginx: configuration file /etc/nginx/nginx.conf <span class="nb">test</span> is successful
+</span></span><span class="line"><span class="cl">$ sudo systemctl reload nginx
+</span></span><span class="line"><span class="cl">$ sudo systemctl status nginx
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h4 id="测试结果">测试结果：</h4>
 <div class="highlight"><div class="chroma">
@@ -510,33 +510,31 @@ $ sudo systemctl status nginx
 </span><span class="lnt">20
 </span><span class="lnt">21
 </span><span class="lnt">22
-</span><span class="lnt">23
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">$ http -v http://appa.domain.com
-GET / HTTP/1.1
-Accept: */*
-Accept-Encoding: gzip, deflate, br
-Connection: keep-alive
-Host: appa.domain.com
-User-Agent: HTTPie/2.1.0
-
-
-
-127.0.0.1 - - <span class="o">[</span>12/Sep/2021 00:44:34<span class="o">]</span> <span class="s2">&#34;GET / HTTP/1.0&#34;</span> <span class="m">200</span> -
-HTTP/1.1 <span class="m">200</span> OK
-Connection: keep-alive
-Content-Length: <span class="m">15</span>
-Content-Type: text/html
-Date: Sat, <span class="m">11</span> Sep <span class="m">2021</span> 16:44:34 GMT
-Last-Modified: Sat, <span class="m">11</span> Sep <span class="m">2021</span> 10:38:27 GMT
-Server: nginx/1.18.0 <span class="o">(</span>Ubuntu<span class="o">)</span>
-
-this is app A!
-
-<span class="o">(</span>makedoc<span class="o">)</span> 
-
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">$ http -v http://appa.domain.com
+</span></span><span class="line"><span class="cl">GET / HTTP/1.1
+</span></span><span class="line"><span class="cl">Accept: */*
+</span></span><span class="line"><span class="cl">Accept-Encoding: gzip, deflate, br
+</span></span><span class="line"><span class="cl">Connection: keep-alive
+</span></span><span class="line"><span class="cl">Host: appa.domain.com
+</span></span><span class="line"><span class="cl">User-Agent: HTTPie/2.1.0
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">127.0.0.1 - - <span class="o">[</span>12/Sep/2021 00:44:34<span class="o">]</span> <span class="s2">&#34;GET / HTTP/1.0&#34;</span> <span class="m">200</span> -
+</span></span><span class="line"><span class="cl">HTTP/1.1 <span class="m">200</span> OK
+</span></span><span class="line"><span class="cl">Connection: keep-alive
+</span></span><span class="line"><span class="cl">Content-Length: <span class="m">15</span>
+</span></span><span class="line"><span class="cl">Content-Type: text/html
+</span></span><span class="line"><span class="cl">Date: Sat, <span class="m">11</span> Sep <span class="m">2021</span> 16:44:34 GMT
+</span></span><span class="line"><span class="cl">Last-Modified: Sat, <span class="m">11</span> Sep <span class="m">2021</span> 10:38:27 GMT
+</span></span><span class="line"><span class="cl">Server: nginx/1.18.0 <span class="o">(</span>Ubuntu<span class="o">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">this is app A!
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">(</span>makedoc<span class="o">)</span> 
+</span></span></code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -560,33 +558,29 @@ this is app A!
 </span><span class="lnt">18
 </span><span class="lnt">19
 </span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">▶ http -v http://appb.domain.com
-GET / HTTP/1.1
-Accept: */*
-Accept-Encoding: gzip, deflate, br
-Connection: keep-alive
-Host: appb.domain.com
-User-Agent: HTTPie/2.1.0
-
-
-
-127.0.0.1 - - <span class="o">[</span>12/Sep/2021 00:45:38<span class="o">]</span> <span class="s2">&#34;GET / HTTP/1.0&#34;</span> <span class="m">200</span> -
-HTTP/1.1 <span class="m">200</span> OK
-Connection: keep-alive
-Content-Length: <span class="m">15</span>
-Content-Type: text/html
-Date: Sat, <span class="m">11</span> Sep <span class="m">2021</span> 16:45:38 GMT
-Last-Modified: Sat, <span class="m">11</span> Sep <span class="m">2021</span> 15:59:39 GMT
-Server: nginx/1.18.0 <span class="o">(</span>Ubuntu<span class="o">)</span>
-
-this is app B!
-
-
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">▶ http -v http://appb.domain.com
+</span></span><span class="line"><span class="cl">GET / HTTP/1.1
+</span></span><span class="line"><span class="cl">Accept: */*
+</span></span><span class="line"><span class="cl">Accept-Encoding: gzip, deflate, br
+</span></span><span class="line"><span class="cl">Connection: keep-alive
+</span></span><span class="line"><span class="cl">Host: appb.domain.com
+</span></span><span class="line"><span class="cl">User-Agent: HTTPie/2.1.0
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">127.0.0.1 - - <span class="o">[</span>12/Sep/2021 00:45:38<span class="o">]</span> <span class="s2">&#34;GET / HTTP/1.0&#34;</span> <span class="m">200</span> -
+</span></span><span class="line"><span class="cl">HTTP/1.1 <span class="m">200</span> OK
+</span></span><span class="line"><span class="cl">Connection: keep-alive
+</span></span><span class="line"><span class="cl">Content-Length: <span class="m">15</span>
+</span></span><span class="line"><span class="cl">Content-Type: text/html
+</span></span><span class="line"><span class="cl">Date: Sat, <span class="m">11</span> Sep <span class="m">2021</span> 16:45:38 GMT
+</span></span><span class="line"><span class="cl">Last-Modified: Sat, <span class="m">11</span> Sep <span class="m">2021</span> 15:59:39 GMT
+</span></span><span class="line"><span class="cl">Server: nginx/1.18.0 <span class="o">(</span>Ubuntu<span class="o">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">this is app B!
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>可以发现，通过指定域名能够访问到特定的应用容器。</p>
 <h2 id="结论">结论</h2>
@@ -666,7 +660,7 @@ this is app B!
 
 
 
-<script type="text/javascript" src="/blog/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+<script type="text/javascript" src="/blog/js/main.min.64437849d125a2d603b3e71d6de5225d641a32d17168a58106e0b61852079683.js"></script>
 
 
 
